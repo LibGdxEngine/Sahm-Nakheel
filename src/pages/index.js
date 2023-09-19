@@ -24,19 +24,43 @@ import group3 from "../../public/images/svgs/Group 1 (2).svg";
 import group4 from "../../public/images/svgs/Group 1 (3).svg";
 import bullet from "../../public/images/svgs/Bullet.svg";
 import downloadAppText from "../../public/images/svgs/downloadAppText.svg";
+import DownloadAppTextHidden from "../../public/images/svgs/DownloadAppTextHidden.svg";
 import investmentPlan from "../../public/images/svgs/Investment Plans.svg";
 import greatFeatures from "../../public/images/svgs/Great Features.svg";
+import bestROI from "../../public/images/svgs/Best ROI Lable.svg";
+import longTerm from "../../public/images/svgs/Long Term Lable.svg";
+import secure from "../../public/images/svgs/Secure Lable.svg";
+import map from "../../public/images/svgs/Map.svg";
+import contactUs from "../../public/images/svgs/Contact Us.svg";
+import vector1 from "../../public/images/svgs/Vector 1.svg";
+import vector2 from "/public/images/svgs/Vector (3).svg";
+import vector3 from "/public/images/svgs/Vector (2).svg";
+import vector4 from "/public/images/svgs/Vector (1).svg";
+import faq from "/public/images/svgs/Frequently asked questions.svg";
+import footerPalms from "/public/images/svgs/Footer Palm Trees ART.svg";
 import AnimatedText from "@/components/AnimatedText";
 import { motion, useAnimation } from "framer-motion";
 import { useState } from "react";
+import ExpandableDiv from "@/components/ExpandableDiv";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const FeatureRow = ({ text, classes = "" }) => {
+const FeatureRow = ({
+  text,
+  classes = "",
+  imageWidth = 28,
+  imageHeight = 18,
+}) => {
   return (
     <>
       <div className={`w-full flex items-center justify-start ms-3 mb-3`}>
-        <Image src={bullet} width={28} height={18} alt="" className="me-3" />
+        <Image
+          src={bullet}
+          width={imageWidth}
+          height={imageHeight}
+          alt=""
+          className="me-3"
+        />
         <p className={`text-navyBlue text-xs font-semibold  ${classes}`}>
           {text}
         </p>
@@ -507,7 +531,9 @@ export default function Home() {
             <div className="absolute left-[50%] top-[467%] translate-x-[-53%] sm:top-0 z-100 sm:hidden">
               <Image src={howItWorks} alt="" className="w-full h-auto" />
             </div>
-            <h1 className="text-7xl text-primary font-normal">How It Works</h1>
+            <h1 className="text-7xl text-primary font-normal sm:text-center">
+              How It Works
+            </h1>
             <br />
             <h1 className="text-2xl text-primary font-thin w-1/2 text-center">
               With just a few clicks, you can create your own investment
@@ -558,9 +584,11 @@ export default function Home() {
           <br />
           <br />
           <div className="flex items-center justify-between w-full lg:flex-col">
-            <div className="w-1/2 md:w-full">
+            <div className="w-1/2 md:w-full relative">
               <Image
                 priority={true}
+                width={789}
+                height={728}
                 sizes="(max-width: 768px) 100vw,
                 (max-width: 1200px) 50vw,
                 33vw"
@@ -568,48 +596,298 @@ export default function Home() {
                 alt="Sahm Nakheel"
                 className="w-full h-auto lg:hidden md:inline-block md:w-full"
               />
+              <Image
+                src={bestROI}
+                width={226}
+                height={104}
+                alt=""
+                className="absolute right-[14%] top-[64%]"
+              />
+              <Image
+                src={longTerm}
+                width={250}
+                height={95}
+                alt=""
+                className="absolute left-[6%] top-[41.5%]"
+              />
+              <Image
+                src={secure}
+                width={191}
+                height={101}
+                alt=""
+                className="absolute right-[35%] top-[-5%]"
+              />
             </div>
 
-            <div className="w-1/2 flex flex-col items-center self-center lg:w-full lg:text-center ">
+            <div className="w-1/2 flex flex-col items-center self-center lg:w-full lg:text-center relative">
               <Image src={downloadAppText} width={496} height={205} alt="" />
+              <Image
+                src={DownloadAppTextHidden}
+                width={708}
+                height={268}
+                alt=""
+                className="absolute right-[4%] top-[-8%]"
+              />
               <p className="my-4 text-base font-medium md:text-sm sm:text-xs"></p>
-              <div className="flex items-center self-start mt-2 lg:self-center">
-                <div
-                  className={`flex items-center bg-dark text-light p-2.5 px-12
-                  rounded-full text-lg font-semibold hover:bg-light hover:text-dark
+              <div className="flex flex-col items-center self-start mt-2 lg:self-center">
+                <FeatureRow
+                  text={`Easy options to sign up and enjoy our Sahm Nakheel app`}
+                  classes="!text-lg !text-primary font-thin"
+                  imageWidth={47}
+                  imageHeight={33}
+                />
+                <br />
+                <FeatureRow
+                  text={`The project's latest developments are notified to you through notifications`}
+                  classes="!text-lg !text-primary font-thin"
+                  imageWidth={47}
+                  imageHeight={33}
+                />
+                <br />
+                <FeatureRow
+                  text={`Track your installments and view your account statement for the latest transactions`}
+                  classes="!text-lg !text-primary font-thin"
+                  imageWidth={47}
+                  imageHeight={33}
+                />
+              </div>
+              <br />
+              <br />
+            </div>
+          </div>
+          {/* SECTION 7 */}
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <div className="flex h-full items-center justify-between w-full lg:flex-col ">
+            <div className="w-1/2 flex flex-col items-center self-center lg:w-full lg:text-center relative">
+              <Image
+                src={vector1}
+                width={698}
+                height={631}
+                alt=""
+                className="absolute left-[-20%] top-[-25%] z-0"
+              />
+              <Image
+                src={contactUs}
+                width={496}
+                height={205}
+                alt=""
+                className="absolute left-[-10%] top-[5%] sm:left-[0%]"
+              />
+              <h1 className="w-full text-7xl text-primary font-normal">
+                Contact Us
+              </h1>
+              <h1 className="w-full text-2xl text-primary font-thin mt-4">
+                Get in touch, with easy ways to reach
+              </h1>
+              <div className="w-3/4 h-full mt-4 flex flex-col items-center self-start  lg:self-center z-1 relative">
+                <div class=" container mx-auto mt-4">
+                  <input
+                    id="text-input"
+                    type="text"
+                    class="border border-white rounded-2xl mb-5 px-3 py-2 w-full focus:outline-none focus:ring focus:border-blue-500 placeholder-green-500 placeholder-opacity-90"
+                    placeholder="Name"
+                  />
+                  <input
+                    id="text-input"
+                    type="text"
+                    class="border border-white rounded-2xl mb-5 px-3 py-2 w-full focus:outline-none focus:ring focus:border-blue-500 placeholder-green-500 placeholder-opacity-90"
+                    placeholder="Email"
+                  />
+                  <input
+                    id="text-input"
+                    type="text"
+                    class="border border-white rounded-2xl h-32 px-3 py-2 w-full focus:outline-none focus:ring focus:border-blue-500 placeholder-green-500 placeholder-opacity-90"
+                    placeholder="Query"
+                  />
+
+                  <div className="flex w-full items-center justify-between mt-8 ">
+                    <h1 className="w-2/3 text-sm text-primary font-normal sm:text-left sm:w-1/2">
+                      You will recieve a response within 48 hours from our team.
+                    </h1>
+                    <div
+                      className={`w- 1/3 flex items-center bg-dark text-light p-1.5 px-6 pt-2 pb-2 
+                  rounded-full text-sm font-semibold hover:bg-light hover:text-dark
                   border-2 border-solid border-transparent hover:border-dark
                   dark:bg-light dark:text-dark hover:dark:bg-dark hover:dark:text-light
                   hover:dark:border-light md:p-2 md:px-4 md:text-base
                   `}
-                  style={{ cursor: "pointer" }}
-                >
-                  Get Started
-                </div>
-                <div
-                  className={`flex items-center bg-transparent text-dark p-2.5 pe-12 ps-5 mx-4
-                  rounded-3xl text-lg font-normal hover:bg-darkGreen hover:text-light 
-                  border border-solid border-darkGreen
-                  dark:bg-dark dark:border-white dark:text-white  
-                  md:p-2 md:px-4 md:text-base
-                  `}
-                  style={{ cursor: "pointer" }}
-                >
-                  <div className="w-full flex ">
-                    <Image
-                      src={playIcon}
-                      width={18}
-                      height={21.5}
-                      alt="play"
-                      className="me-4 "
-                    />
-                    Watch Video
+                      style={{ cursor: "pointer" }}
+                    >
+                      Send Message
+                    </div>
                   </div>
                 </div>
               </div>
               <br />
               <br />
             </div>
+
+            <div className="w-1/2 md:w-full absolute right-0 sm:hidden">
+              <Image
+                priority={true}
+                width={899}
+                height={591}
+                sizes="(max-width: 768px) 100vw,
+                (max-width: 1200px) 50vw,
+                33vw"
+                src={map}
+                alt="Sahm Nakheel"
+                className="w-full h-auto lg:hidden md:inline-block md:w-full"
+              />
+            </div>
           </div>
+          <div className="flex items-center justify-between mt-8 sm:flex-col ">
+            <div className="w-full flex items-center justify-center sm:justify-between sm:px-12">
+              <Image
+                src={vector2}
+                width={23}
+                height={23}
+                alt="phone"
+                className="mx-2"
+              />
+              <h1 className="text-darkGreen text-lg font-normal">
+                ( +20 ) 011 511 511 26
+              </h1>
+            </div>
+            <div className="w-full flex items-center justify-center sm:justify-between sm:px-12">
+              <Image
+                src={vector3}
+                width={16}
+                height={23}
+                alt="phone"
+                className="mx-2"
+              />
+              <h1 className="text-darkGreen text-lg font-normal sm:text-right">
+                35 Al Gahez, Al Hadiqah Al-Dawleyah, Nasr City, Cairo.
+              </h1>
+            </div>{" "}
+            <div className="w-full flex items-center justify-center sm:justify-between sm:px-12">
+              <Image
+                src={vector4}
+                width={30}
+                height={20}
+                alt="phone"
+                className="mx-2"
+              />
+              <h1 className="text-darkGreen text-lg font-normal">
+                info@sahmnakheel.com
+              </h1>
+            </div>
+          </div>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          {/* SECTION 8 */}
+          <div className="w-full flex flex-col items-start justify-center mt-16 relative">
+            <div className="absolute left-[-3%] top-[0%] translate-x-[-0%] sm:top-0 z-100 sm:hidden">
+              <Image src={faq} alt="" className="w-full h-auto" />
+            </div>
+            <h1 className="text-7xl text-primary font-normal sm:text-center">
+              Frequently asked questions
+            </h1>
+            <br />
+            <h1 className="text-2xl text-primary font-thin w-full text-left">
+              We can answer your questions any time
+            </h1>
+            <div className="w-full mt-20 grid grid-cols-2 gap-y-8 gap-x-6 lg:gap-2 md:grid-cols-1 md:gap-y-16 sm:gap-y-4">
+              <ExpandableDiv
+                title={"What are the benefits of investing with Sahm Nakheel?"}
+                content={
+                  <div className="flex mt-4">
+                    <div class="border-l-2 border-mildGray h-auto me-4"></div>
+                    <h1 className="text-primary px-3">
+                      Lorem ipsum is placeholder text commonly used in the
+                      graphic, print, and publishing industries for previewing
+                      layouts and visual mockups.
+                    </h1>
+                  </div>
+                }
+              />
+              <ExpandableDiv
+                title={"What makes Nakheel Al Majdool so special?"}
+                content={
+                  <div className="flex mt-4">
+                    <div class="border-l-2 border-mildGray h-auto me-4"></div>
+                    <h1 className="text-primary px-3">
+                      Lorem ipsum is placeholder text commonly used in the
+                      graphic, print, and publishing industries for previewing
+                      layouts and visual mockups.
+                    </h1>
+                  </div>
+                }
+              />
+              <ExpandableDiv
+                title={"How does the contracting process work?"}
+                content={
+                  <div className="flex mt-4">
+                    <div class="border-l-2 border-mildGray h-auto me-4"></div>
+                    <h1 className="text-primary px-3">
+                      Lorem ipsum is placeholder text commonly used in the
+                      graphic, print, and publishing industries for previewing
+                      layouts and visual mockups.
+                    </h1>
+                  </div>
+                }
+              />
+              <ExpandableDiv
+                title={"What is the location of Sahm Nakheel project?"}
+                content={
+                  <div className="flex mt-4">
+                    <div class="border-l-2 border-mildGray h-auto me-4"></div>
+                    <h1 className="text-primary px-3">
+                      Lorem ipsum is placeholder text commonly used in the
+                      graphic, print, and publishing industries for previewing
+                      layouts and visual mockups.
+                    </h1>
+                  </div>
+                }
+              />
+              <ExpandableDiv
+                title={"What are the benefits of investing with Sahm Nakheel?"}
+                content={
+                  <div className="flex mt-4">
+                    <div class="border-l-2 border-mildGray h-auto me-4"></div>
+                    <h1 className="text-primary px-3">
+                      Lorem ipsum is placeholder text commonly used in the
+                      graphic, print, and publishing industries for previewing
+                      layouts and visual mockups.
+                    </h1>
+                  </div>
+                }
+              />
+              <ExpandableDiv
+                title={"What guarantees are provided by the project?"}
+                content={
+                  <div className="flex mt-4">
+                    <div class="border-l-2 border-mildGray h-auto me-4"></div>
+                    <h1 className="text-primary px-3">
+                      Lorem ipsum is placeholder text commonly used in the
+                      graphic, print, and publishing industries for previewing
+                      layouts and visual mockups.
+                    </h1>
+                  </div>
+                }
+              />
+            </div>
+          </div>
+          {/* FOOTER */}
+          <div className="absolute left-0 w-full mt-44 sm:mt-28">
+            <Image
+              src={footerPalms}
+              width={1000}
+              height={291}
+              alt=""
+              className="w-full "
+            />
+          </div>
+          <div className="mb-96 md:mb-80 sm:mb-64"/>
+    
         </Layout>
       </main>
     </>
