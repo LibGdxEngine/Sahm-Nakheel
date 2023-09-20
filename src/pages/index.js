@@ -539,8 +539,8 @@ export default function Home() {
             </div>
           </div>
           {/* SECTION 5 */}
-          <div className="flex flex-col items-center justify-center mt-16">
-            <div className="absolute left-[50%] top-[467%] translate-x-[-53%] sm:top-0 z-100 sm:hidden">
+          <div className="flex flex-col items-center justify-center mt-16 relative">
+            <div className="absolute left-[50%] top-[10%] translate-x-[-53%] sm:top-0 z-100 sm:hidden">
               <Image src={howItWorks} alt="" className="w-full h-auto" />
             </div>
             <h1 className="text-7xl text-primary font-normal sm:text-center">
