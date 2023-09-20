@@ -18,16 +18,20 @@ import useThemeSwitcher from "./hooks/useThemeSwitcher";
 import { useState } from "react";
 import Image from "next/image";
 
-const CustomLink = ({ href, title, className = "" }) => {
-  const router = useRouter();
+const CustomLink = ({ onClick, title, className = "" }) => {
   return (
-    <Link
-      href={href}
-      className={`${className} relative group text-primary text-sm font-medium dark:text-white`}
+    <div
+      onClick={() => {
+        if (onClick) {
+          onClick();
+        }
+      }}
+      style={{ cursor: "pointer" }}
+      className={`${className} relative group text-primary text-sm font-medium dark:text-white inline-block`}
     >
       {title}
       &nbsp;
-    </Link>
+    </div>
   );
 };
 
@@ -62,6 +66,10 @@ const CustomMobileLink = ({ href, title, className = "", toggle }) => {
 const Navebar = (props) => {
   const [mode, setMode] = useThemeSwitcher();
   const [isOpen, setIsOpen] = useState(false);
+  const handleScrollToTarget = (elementId) => {
+    // Scroll to the target item
+    props.scrollToTarget(elementId);
+  };
 
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -74,7 +82,7 @@ const Navebar = (props) => {
     "
     >
       <button
-        className="flex-col justify-center items-center hidden lg:flex"
+        className="flex-col justify-center items-center hidden xl:flex"
         onClick={handleClick}
       >
         <span
@@ -96,17 +104,47 @@ const Navebar = (props) => {
 
       <div className="absolute left-[10%] top-2 translate-x-[-50%] sm:top-0"></div>
 
-      <div className="w-full flex items-center justify-between lg:hidden ">
+      <div className="w-full flex items-center justify-between xl:hidden ">
         <Logo />
         <nav>
-          <CustomLink href={`/`} title={"Home"} />
-          <CustomLink href={`/`} title={"About Us"} className="mx-4" />
-          <CustomLink href={`/`} title={"Features"} className="mx-4" />
-          <CustomLink href={`/`} title={"Pricing"} className="mx-4" />
-          <CustomLink href={`/`} title={"FAQs"} className="mx-4" />
-          <CustomLink href={`/`} title={"Gallery"} className="mx-4" />
-          <CustomLink href={`/`} title={"Blog"} className="mx-4" />
-          <CustomLink href={`/`} title={"Contact Us"} className="mx-4" />
+          <CustomLink title={"Home"} />
+          <CustomLink
+            onClick={() => {
+              handleScrollToTarget("aboutus");
+            }}
+            title={"About Us"}
+            className="mx-4"
+          />
+          <CustomLink
+            onClick={() => {
+              handleScrollToTarget("features");
+            }}
+            title={"Features"}
+            className="mx-4"
+          />
+          <CustomLink
+            onClick={() => {
+              handleScrollToTarget("pricing");
+            }}
+            title={"Pricing"}
+            className="mx-4"
+          />
+          <CustomLink
+            onClick={() => {
+              handleScrollToTarget("faq");
+            }}
+            title={"FAQs"}
+            className="mx-4"
+          />
+          <CustomLink title={"Gallery"} className="mx-4" />
+          <CustomLink title={"Blog"} className="mx-4" />
+          <CustomLink
+            onClick={() => {
+              handleScrollToTarget("contactus");
+            }}
+            title={"Contact Us"}
+            className="mx-4"
+          />
           {/* <CustomLink href={`/articles`} title={"Articles"} className="ml-4" /> */}
         </nav>
 
@@ -245,7 +283,7 @@ const Navebar = (props) => {
             />
           </nav>
 
-          <nav className="flex items-center justify-center flex-wrap mt-2">
+          {/* <nav className="flex items-center justify-center flex-wrap mt-2">
             <motion.a
               href={`https://twitter.com`}
               target={`_blank`}
@@ -304,7 +342,7 @@ const Navebar = (props) => {
                 <MoonIcon className={`fill-dark`} />
               )}
             </button>
-          </nav>
+          </nav> */}
         </motion.div>
       ) : null}
       {/* <div className="absolute left-[50%] top-2 translate-x-[-50%] sm:top-0">

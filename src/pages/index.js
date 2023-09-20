@@ -40,7 +40,7 @@ import faq from "/public/images/svgs/Frequently asked questions.svg";
 import footerPalms from "/public/images/svgs/Footer Palm Trees ART.svg";
 import AnimatedText from "@/components/AnimatedText";
 import { motion, useAnimation } from "framer-motion";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import ExpandableDiv from "@/components/ExpandableDiv";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -85,7 +85,7 @@ const SpecialOfferCard = ({ years, title, investment, cost, rows, income }) => {
   return (
     <>
       <motion.div
-        className="flex flex-col items-start justify-between h-96 bg-white  rounded-3xl mx-8 p-8 shadow-lg shadow-y-50
+        className="flex flex-col items-start justify-between h-96 bg-white sm:mx-0 rounded-3xl mx-8 p-8 shadow-lg shadow-y-50
         bg-gradient-to-bl from-dark  to-greenCard
         relative
         "
@@ -153,7 +153,7 @@ const OfferCardItem = ({ years, title, investment, cost, rows, income }) => {
   return (
     <>
       <motion.div
-        className="flex flex-col items-start justify-between  h-96 bg-white  rounded-3xl mx-8 p-8 shadow-lg shadow-y-50"
+        className="flex flex-col items-start justify-between h-96 bg-white  rounded-3xl mx-8 sm:mx-0 p-8 shadow-lg shadow-y-50"
         onMouseEnter={handleHover}
         onMouseLeave={handleHoverEnd}
         animate={controls}
@@ -214,7 +214,7 @@ const CardItem = ({ image, title, desc }) => {
   return (
     <>
       <div
-        className="flex flex-col items-start justify-between  h-72 bg-white bg-opacity-60 rounded-3xl mx-8 p-8"
+        className="flex flex-col items-start justify-between  h-72 bg-white bg-opacity-60 rounded-3xl mx-8 p-8 sm:items-center md:bg-gray-50"
         onMouseEnter={handleHover}
         onMouseLeave={handleHoverEnd}
       >
@@ -230,6 +230,7 @@ const CardItem = ({ image, title, desc }) => {
 };
 
 export default function Home() {
+  const aboutUsElement = useRef(null);
   return (
     <>
       <main className="flex items-center text-dark w-full min-h-screen dark:text-light">
@@ -264,17 +265,17 @@ export default function Home() {
               <div className="w-full flex items-center justify-center">
                 <h1
                   className="w-full !text-mlg !text-left !text-primary font-extrabold 
-                xl:!text-5xl lg:!text-right lg:me-2 lg:!text-4xl md:!text-3xl sm:!text-3xl xs:!text-2xl 
+                xl:!text-5xl lg:!text-center lg:me-2 lg:!text-3xl md:!text-3xl sm:!text-3xl xs:!text-2xl 
                 "
                 >
-                  Starting from
-                </h1>
-                <h1
-                  className="w-full !text-5xl !text-left !text-darkGreen font-extrabold 
-                xl:!text-5xl lg:!text-left lg:!text-4xl md:!text-3xl sm:!text-3xl xs:!text-2xl
+                  Starting from{" "}
+                  <span
+                    className="w-full !text-5xl !text-left !text-darkGreen font-extrabold 
+                xl:!text-5xl lg:!text-center lg:!text-3xl md:!text-3xl sm:!text-3xl xs:!text-2xl
                 "
-                >
-                  8000 EGP
+                  >
+                    8000 EGP
+                  </span>
                 </h1>
               </div>
               <h1
@@ -337,13 +338,16 @@ export default function Home() {
             </div>
           </div>
           {/* SECTION 2 */}
-          <div className="flex flex-col items-center justify-center mt-16">
-            <div className="absolute left-[50%] top-[111%] translate-x-[-53%] sm:top-0 z-100 sm:hidden">
+          <div className="flex flex-col items-center justify-center mt-16 relative">
+            <div
+              id="aboutus"
+              className="absolute left-[50%] top-[6%] translate-x-[-53%] sm:top-0 z-100 sm:hidden"
+            >
               <Image src={aboutUs} alt="" className="w-full h-auto" />
             </div>
             <h1 className="text-7xl text-primary font-normal">About Us</h1>
             <br />
-            <h1 className="text-2xl text-primary font-thin">
+            <h1 className="text-2xl text-primary font-thin text-center">
               Maximizing your investment opportunities
             </h1>
           </div>
@@ -366,19 +370,21 @@ export default function Home() {
             </div>
 
             <div className="w-1/2 flex flex-col items-center self-center lg:w-full lg:text-center ">
-              <AnimatedText
-                text={`Take control of your financial destiny and build future`}
+              <h1
+                ref={aboutUsElement}
                 className="!text-5xl !text-left !text-primary font-normal
                 xl:!text-xl lg:!text-center lg:!text-3xl md:!text-5xl sm:!text-3xl
                 "
-              />
+              >
+                Take control of your financial destiny and build future
+              </h1>
               <br />
 
-              <p className="my-4 text-base font-medium md:text-sm sm:text-xs">
+              <p className="my-4 text-base font-medium md:text-sm sm:text-sm">
                 With Sahm Nakheel, you can own a share, which represents a palm
                 tree, for an impressive period of 50 years.
               </p>
-              <p className="my-4 text-base font-medium md:text-sm sm:text-xs">
+              <p className="my-4 text-base font-medium md:text-sm sm:text-sm">
                 And guess what? The value of one share is a mere 8000 Egyptian
                 pounds! Such an affordable investment opens the door to
                 incredible possibilities.
@@ -401,11 +407,14 @@ export default function Home() {
             </div>
           </div>
           {/* SECTION 3 */}
-          <div className="flex flex-col items-center justify-center mt-16">
-            <div className="absolute left-[50%] top-[213%] translate-x-[-53%] sm:top-0 z-100 sm:hidden">
+          <div
+            id="features"
+            className="flex flex-col items-center justify-center mt-32 relative"
+          >
+            <div className="absolute left-[50%] top-[18%] translate-x-[-53%] sm:top-0 z-100 sm:hidden">
               <Image src={greatFeatures} alt="" className="w-full h-auto" />
             </div>
-            <h1 className="text-7xl text-primary font-normal">
+            <h1 className="text-7xl text-primary font-normal text-center">
               Great Features
             </h1>
             <br />
@@ -419,7 +428,7 @@ export default function Home() {
           <br />
           <br />
           <br />
-          <div className="grid grid-cols-4 gap-y-8 lg:gap-2 md:grid-cols-1 md:gap-y-16">
+          <div className="grid grid-cols-4 gap-y-8 md:grid-cols-1 lg:grid-cols-2 lg:gap-8 md:gap-y-16">
             <CardItem
               image={walletImage}
               title={`Affordable`}
@@ -463,16 +472,19 @@ export default function Home() {
             />
           </div>
           {/* SECTION 4 */}
-          <div className="bg-mintyGreen rounded-3xl p-14 mt-44">
-            <div className="flex flex-col items-center justify-center mt-12">
-              <div className="absolute left-[50%] top-[370%] translate-x-[-53%] sm:top-0 z-100 sm:hidden">
-                <Image src={investmentPlan} alt="" className="w-full h-auto" />
+          <div
+            id="pricing"
+            className="bg-mintyGreen rounded-3xl p-14 mt-44 xs:p-3"
+          >
+            <div className="flex flex-col items-center justify-center mt-12 relative">
+              <div className="w-full absolute left-[58%] top-[12%] translate-x-[-53%] sm:top-0 z-100 sm:hidden">
+                <Image src={investmentPlan} width={1010} height={130} alt="" />
               </div>
-              <h1 className="text-7xl text-primary font-normal">
+              <h1 className="text-7xl text-primary font-normal text-center xs:text-3xl">
                 Investment Plans
               </h1>
               <br />
-              <h1 className="text-2xl text-primary font-thin w-1/2 text-center">
+              <h1 className="w-full text-2xl text-primary font-thin text-center">
                 Your Path to Effortless Financial Growth
               </h1>
             </div>
@@ -481,7 +493,7 @@ export default function Home() {
             <br />
             <br />
             <br />
-            <div className="grid grid-cols-3 gap-y-8 lg:gap-2 md:grid-cols-1 md:gap-y-16">
+            <div className="grid grid-cols-3 gap-y-8  lg:grid-cols-1 sm:gap-16 lg:gap-10 2xl:grid-cols-2 2xl:gap-y-16 xl:gap-y-16">
               <OfferCardItem
                 years={10}
                 title={`Medjool Trees`}
@@ -601,21 +613,21 @@ export default function Home() {
                 width={226}
                 height={104}
                 alt=""
-                className="absolute right-[14%] top-[64%]"
+                className="absolute right-[14%] top-[64%] sm:hidden lg:hidden"
               />
               <Image
                 src={longTerm}
                 width={250}
                 height={95}
                 alt=""
-                className="absolute left-[6%] top-[41.5%]"
+                className="absolute left-[6%] top-[41.5%] sm:hidden lg:hidden"
               />
               <Image
                 src={secure}
                 width={191}
                 height={101}
                 alt=""
-                className="absolute right-[35%] top-[-5%]"
+                className="absolute right-[35%] top-[-5%] sm:hidden lg:hidden"
               />
             </div>
 
@@ -661,14 +673,17 @@ export default function Home() {
           <br />
           <br />
           <br />
-          <div className="flex h-full items-center justify-between w-full lg:flex-col ">
+          <div
+            id="contactus"
+            className="flex h-full items-center justify-between w-full lg:flex-col "
+          >
             <div className="w-1/2 flex flex-col items-center self-center lg:w-full lg:text-center relative">
               <Image
                 src={vector1}
                 width={698}
                 height={631}
                 alt=""
-                className="absolute left-[-20%] top-[-25%] z-0"
+                className="absolute left-[-20%] top-[-25%] z-0 xs:top-[20%] xs:left-[-20]"
               />
               <Image
                 src={contactUs}
@@ -705,7 +720,7 @@ export default function Home() {
                   />
 
                   <div className="flex w-full items-center justify-between mt-8 ">
-                    <h1 className="w-2/3 text-sm text-primary font-normal sm:text-left sm:w-1/2">
+                    <h1 className="w-2/3 text-sm text-primary font-normal sm:text-left sm:w-1/2 xs:text-xs">
                       You will recieve a response within 48 hours from our team.
                     </h1>
                     <div
@@ -714,6 +729,7 @@ export default function Home() {
                   border-2 border-solid border-transparent hover:border-dark
                   dark:bg-light dark:text-dark hover:dark:bg-dark hover:dark:text-light
                   hover:dark:border-light md:p-2 md:px-4 md:text-base
+                  xs:p-0 xs:px-3 xs:py-2 xs:text-sm
                   `}
                       style={{ cursor: "pointer" }}
                     >
@@ -726,7 +742,14 @@ export default function Home() {
               <br />
             </div>
 
-            <div className="w-1/2 md:w-full absolute right-0 sm:hidden">
+            <div
+              onClick={() => {
+                const mapLink = "https://maps.app.goo.gl/dhkMPvvWv7nCJ5cEA";
+                window.open(mapLink, "_blank");
+              }}
+              style={{ cursor: "pointer" }}
+              className="w-1/2 md:w-full absolute right-0 sm:hidden"
+            >
               <Image
                 priority={true}
                 width={899}
@@ -784,7 +807,10 @@ export default function Home() {
           <br />
           <br />
           {/* SECTION 8 */}
-          <div className="w-full flex flex-col items-start justify-center mt-16 relative">
+          <div
+            id="faq"
+            className="w-full flex flex-col items-start justify-center mt-16 relative"
+          >
             <div className="absolute left-[-3%] top-[0%] translate-x-[-0%] sm:top-0 z-100 sm:hidden">
               <Image src={faq} alt="" className="w-full h-auto" />
             </div>
@@ -792,7 +818,7 @@ export default function Home() {
               Frequently asked questions
             </h1>
             <br />
-            <h1 className="text-2xl text-primary font-thin w-full text-left">
+            <h1 className="text-2xl text-primary font-thin w-full text-left sm:text-center">
               We can answer your questions any time
             </h1>
             <div className="w-full mt-20 grid grid-cols-2 gap-y-8 gap-x-6 lg:gap-2 md:grid-cols-1 md:gap-y-16 sm:gap-y-4">
@@ -886,8 +912,7 @@ export default function Home() {
               className="w-full "
             />
           </div>
-          <div className="mb-96 md:mb-80 sm:mb-64"/>
-    
+          <div className="mb-96 md:mb-80 sm:mb-64" />
         </Layout>
       </main>
     </>

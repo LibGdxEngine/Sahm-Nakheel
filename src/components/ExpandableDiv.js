@@ -31,9 +31,12 @@ const ExpandableDiv = ({ title, content }) => {
           height={40}
           alt=""
           style={{ cursor: "pointer" }}
-          className={`absolute right-[1%] top-[8%] transform transition-transform  ${
+          className={`absolute right-[1%] h-full flex flex-col items-center justify-center  top-[0%] transform transition-transform  
+            ${
             isExpanded ? "rotate-180" : ""
-          }`}
+          }
+          
+          `}
           onClick={toggleOpen}
         />
       </div>

@@ -15,6 +15,14 @@ const poppins = Poppins({
 });
 export default function App({ Component, pageProps }) {
   const router = useRouter();
+  const scrollToTarget = (elementId) => {
+    // Get the position of the target element and scroll to it
+    const targetElement = document.querySelector(`#${elementId}`);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
       <Head>
@@ -31,9 +39,7 @@ export default function App({ Component, pageProps }) {
           <Image src={polygon2} alt="" className="w-full h-auto" />
         </div>
 
-   
-
-        <Navebar />
+        <Navebar scrollToTarget={scrollToTarget} />
 
         <AnimatePresence mode="wait">
           <Component key={router.asPath} {...pageProps} />
