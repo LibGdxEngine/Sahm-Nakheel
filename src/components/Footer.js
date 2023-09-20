@@ -2,7 +2,7 @@ import Link from "next/link";
 import Layout from "./Layout";
 import Image from "next/image";
 import grayLogo from "/public/images/svgs/LogoGray.svg";
-import googlePlay from "/public/images/svgs/google Play.svg";
+import googlePlay from "/public/images/svgs/Google Play.svg";
 import appStore from "/public/images/svgs/App Store.svg";
 import facebook from "/public/images/svgs/Facebook.svg";
 import X from "/public/images/svgs/X.svg";

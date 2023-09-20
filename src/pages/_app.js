@@ -1,6 +1,6 @@
 import Footer from "@/components/Footer";
 import Navebar from "@/components/Navbar";
-import polygon2 from "../../public/images/svgs/polygon 2.svg";
+import polygon2 from "../../public/images/svgs/Polygon 2.svg";
 import "@/styles/globals.css";
 import { AnimatePresence } from "framer-motion";
 
