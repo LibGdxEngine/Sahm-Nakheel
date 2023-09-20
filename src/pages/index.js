@@ -8,7 +8,7 @@ import profilePic2 from "../../public/images/svgs/page2.svg";
 import playIcon from "../../public/images/svgs/PlayIcon.svg";
 import polygon1 from "../../public/images/svgs/Polygon 1.svg";
 import polygon3 from "../../public/images/svgs/Polygon 3.svg";
-import walletImage from "../../public/images/svgs/wallet Icon.svg";
+import walletImage from "../../public/images/svgs/Wallet Icon.svg";
 import walletImage1 from "../../public/images/svgs/Wallet Icon (1).svg";
 import walletImage2 from "../../public/images/svgs/Wallet Icon (2).svg";
 import walletImage3 from "../../public/images/svgs/Wallet Icon (3).svg";
