@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+import Layout from "..//components/Layout";
 
 import Image from "next/image";
 import { useRef } from "react";
@@ -6,15 +6,15 @@ import polygon1 from "../../public/images/svgs/Polygon 1.svg";
 import polygon3 from "../../public/images/svgs/Polygon 3.svg";
 import footerPalms from "/public/images/svgs/Footer Palm Trees ART.svg";
 
-import FAQs from "@/components/sections/SectionEight";
-import HowItWorks from "@/components/sections/SectionFive";
-import Pricing from "@/components/sections/SectionFour";
-import ContactUs from "@/components/sections/SectionSeven";
-import DownloadApp from "@/components/sections/SectionSix";
-import Features from "@/components/sections/SectionThree";
-import HomePage from "@/components/sections/sectionOne";
-import AboutUs from "@/components/sections/sectionTwo";
-import PaymentLayout from "@/components/PaymentLayout";
+import FAQs from "../components//sections/SectionEight";
+import HowItWorks from "../components/sections/SectionFive";
+import Pricing from "../components/sections/SectionFour";
+import ContactUs from "../components/sections/SectionSeven";
+import DownloadApp from "../components/sections/SectionSix";
+import Features from "../components/sections/SectionThree";
+import PaymentLayout from "../components/PaymentLayout";
+import HomePage from "../components/sections/SectionOne";
+import AboutUs from "../components/sections/SectionTwo";
 
 export default function Home() {
   const aboutUsElement = useRef(null);
