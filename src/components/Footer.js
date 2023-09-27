@@ -38,7 +38,7 @@ const Footer = () => {
             <input
               id="text-input"
               type="text"
-              class="border border-white rounded-full me-2   px-3 py-2 w-2/3 focus:outline-none focus:ring focus:border-blue-500 placeholder-gray-500 placeholder-opacity-90"
+              className="border border-white rounded-full me-2   px-3 py-2 w-2/3 focus:outline-none focus:ring focus:border-blue-500 placeholder-gray-500 placeholder-opacity-90"
               placeholder="Name"
             />
 
@@ -78,7 +78,7 @@ const Footer = () => {
 
         {/* <span>{new Date().getFullYear()} &copy; All Rights reserved.</span> */}
       </Layout>
-      <div class="w-full border-t left-0 bottom-[2%] border-gray-500 flex "></div>
+      <div className="w-full border-t left-0 bottom-[2%] border-gray-500 flex "></div>
 
       <div className="w-full h-24 bg-primary flex flex-row items-center justify-between sm:flex-col pt-8 sm:justify-center sm:items-center">
         <div className="w-full flex flex-col items-center justify-center px-32 xl:px-24 lg:px-16 md:px-12 sm:px-8 ">
