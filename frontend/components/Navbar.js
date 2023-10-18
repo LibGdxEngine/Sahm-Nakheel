@@ -218,9 +218,7 @@ const Navebar = (props) => {
 
         </motion.div>
       ) : null} */}
-      {/* <div className="absolute left-[50%] top-2 translate-x-[-50%] sm:top-0">
-        <Logo />
-      </div> */}
+
     </header>
   );
 };
