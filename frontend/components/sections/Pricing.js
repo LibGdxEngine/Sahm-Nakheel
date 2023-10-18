@@ -152,7 +152,7 @@ async function checkout(cost) {
   FawryPay.checkout(buildChargeRequest(cost), configuration);
 }
 
-const Pricing = ({}) => {
+const Pricing = ({ }) => {
   // useEffect(() => {
   //   startNewCheckOut(checkout);
   // }, []);
@@ -177,16 +177,6 @@ const Pricing = ({}) => {
 
         <div className="mt-8">
           <Slider cards={cards} onCardClicked={checkout} />
-
-          <input
-            type="image"
-            onClick={() => {
-              checkout();
-            }}
-            src="https://www.atfawry.com/assets/img/FawryPayLogo.jpg"
-            alt="pay-using-fawry"
-            id="fawry-payment-btn"
-          />
         </div>
       </div>
     </>

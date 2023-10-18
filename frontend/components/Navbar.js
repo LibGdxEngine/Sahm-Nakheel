@@ -73,19 +73,16 @@ const Navebar = (props) => {
         onClick={handleClick}
       >
         <span
-          className={`bg-dark dark:bg-light block transition-all duration-300 ease-out  h-0.5 w-6 rounded-sm -translate-y-0.5 ${
-            isOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5"
-          }`}
+          className={`bg-dark dark:bg-light block transition-all duration-300 ease-out  h-0.5 w-6 rounded-sm -translate-y-0.5 ${isOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5"
+            }`}
         ></span>
         <span
-          className={`bg-dark dark:bg-light block transition-all duration-300 ease-out  h-0.5 w-6 rounded-sm my-0.5 ${
-            isOpen ? "opacity-0" : "opacity-100"
-          }`}
+          className={`bg-dark dark:bg-light block transition-all duration-300 ease-out  h-0.5 w-6 rounded-sm my-0.5 ${isOpen ? "opacity-0" : "opacity-100"
+            }`}
         ></span>
         <span
-          className={`bg-dark dark:bg-light block transition-all duration-300 ease-out  h-0.5 w-6 rounded-sm -translate-y-0.5 ${
-            isOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"
-          }`}
+          className={`bg-dark dark:bg-light block transition-all duration-300 ease-out  h-0.5 w-6 rounded-sm -translate-y-0.5 ${isOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"
+            }`}
         ></span>
       </button>
 
@@ -171,7 +168,7 @@ const Navebar = (props) => {
         </div>
       </div>
 
-      {isOpen ? (
+      {/* {isOpen ? (
         <motion.div
           initial={{ scale: 0, opacity: 0, x: "-50%", y: "-50%" }}
           animate={{ scale: 1, opacity: 1 }}
@@ -218,68 +215,9 @@ const Navebar = (props) => {
             />
           </nav>
 
-          {/* <nav className="flex items-center justify-center flex-wrap mt-2">
-            <motion.a
-              href={`https://twitter.com`}
-              target={`_blank`}
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-6 mr-3 sm:mx-1"
-            >
-              <TwitterIcon />
-            </motion.a>
-            <motion.a
-              href={`https://twitter.com`}
-              target={`_blank`}
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-6 mx-3 sm:mx-1"
-            >
-              <GithubIcon />
-            </motion.a>
-            <motion.a
-              href={`https://twitter.com`}
-              target={`_blank`}
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-6 mx-3 sm:mx-1"
-            >
-              <LinkedInIcon />
-            </motion.a>
-            <motion.a
-              href={`https://twitter.com`}
-              target={`_blank`}
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-6 mx-3 sm:mx-1"
-            >
-              <PinterestIcon />
-            </motion.a>
-            <motion.a
-              href={`https://twitter.com`}
-              target={`_blank`}
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.9 }}
-              className="w-6 ml-3 sm:mx-1"
-            >
-              <DribbbleIcon />
-            </motion.a>
 
-            <button
-              onClick={() => setMode(mode === "light" ? "dark" : "light")}
-              className={`ml-3 flex items-center justify-center rounded-full p-1 ${
-                mode === "light" ? "bg-dark text-light" : "bg-light text-dark"
-              }`}
-            >
-              {mode === "dark" ? (
-                <SunIcon className={`fill-dark`} />
-              ) : (
-                <MoonIcon className={`fill-dark`} />
-              )}
-            </button>
-          </nav> */}
         </motion.div>
-      ) : null}
+      ) : null} */}
       {/* <div className="absolute left-[50%] top-2 translate-x-[-50%] sm:top-0">
         <Logo />
       </div> */}
