@@ -26,7 +26,48 @@
   .contactus-vector {
     box-shadow: -25px 25px 100px 0px #7fce7a80;
   }
+
+  .auth-card {
+    box-shadow: -100px 100px 150px 0px #00263A33;
+    border: 1px solid;
+    border-image-source: linear-gradient(319.55deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+  }
 }
+
+.authCardbg {
+  background: linear-gradient(319.55deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%),
+    linear-gradient(139.55deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.7) 100%);
+}
+
+.transition-screen {
+  background-color: #80ce7ab1;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle {
+  background: #ffffff;
+  /* Your desired background color */
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  text-align: center;
+}
+
+
 
 .small-header-items-separator {
   background: linear-gradient(270deg, rgba(226, 255, 224, 0) 0%, #7FCE7A 49.48%, rgba(226, 255, 224, 0) 100%);

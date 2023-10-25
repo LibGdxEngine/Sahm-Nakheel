@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Logo from "../components/Logo";
 import { useRouter } from "next/router";
-import langImage from "/public/images/svgs/languageIcon.svg";
+import langImage from "/public/images/svgs/langIconWhite.svg";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
@@ -17,7 +17,7 @@ const CustomLink = ({ onClick, title, className = "" }) => {
         }
       }}
       style={{ cursor: "pointer" }}
-      className={`${className} relative group text-darkGreen text-base font-medium  dark:text-white inline-block`}
+      className={`${className} relative group text-white text-sm font-medium dark:text-white inline-block  `}
     >
       {title}
       &nbsp;
@@ -52,11 +52,11 @@ const CustomMobileLink = ({ href, title, className = "", toggle }) => {
 };
 
 const SmallScreenHeader = ({ handleClick, isOpen }) => {
-  return <div className={`w-full flex flex-row items-center justify-between hidden xl:flex pt-10 ${isOpen ? "bg-midGreen" : "bg-mintyGreen"}  px-8 
-  rounded-bl-3xl rounded-br-3xl 
+  return <div className={`w-full  z-[2]  flex flex-row items-center justify-between hidden xl:flex pt-10 ${isOpen ? "bg-midGreen" : "bg-mintyGreen"}  px-8 
+  rounded-bl-3xl rounded-br-3xl z-101
   ${isOpen ? 'fixed mt-32' : ''}
   `}>
-    <Logo isOpen={isOpen} />
+    <Logo isOpen={isOpen} className="pb-8" />
     <div className="w-auto flex items-center justify-between h-auto px-2 py-2.5 bg-dark rounded-lg">
       <button
         className="flex-col justify-center items-start hidden xl:flex "
@@ -79,37 +79,38 @@ const SmallScreenHeader = ({ handleClick, isOpen }) => {
   </div>
 }
 
-const LargeScreenHeader = ({ handleClick, isOpen, handleScrollToTarget }) => {
+const LargeScreenHeader = ({ handleClick, isOpen }) => {
   const router = useRouter();
-  return <div className="w-full flex flex-col items-center justify-between xl:hidden mt-10">
-    <Logo />
-    <div className="w-full flex items-center justify-between h-24 ">
+  return <div className="w-full flex flex-row items-center justify-center xl:hidden bg-dark px-32 pt-8 rounded-bl-3xl
+  rounded-br-3xl">
+    <Logo isOpen={true} className="pb-8" />
+    <div className="w-full flex items-center justify-between h-24 ms-6">
       <nav className="w-[75%] flex items-center justify-between ">
         <CustomLink title={"Home"} />
         <CustomLink
           onClick={() => {
-            handleScrollToTarget("aboutus");
+
           }}
           title={"About Us"}
           className="mx-4"
         />
         <CustomLink
           onClick={() => {
-            handleScrollToTarget("features");
+
           }}
           title={"Features"}
           className="mx-4"
         />
         <CustomLink
           onClick={() => {
-            handleScrollToTarget("pricing");
+
           }}
           title={"Pricing"}
           className="mx-4"
         />
         <CustomLink
           onClick={() => {
-            handleScrollToTarget("faq");
+
           }}
           title={"FAQs"}
           className="mx-4"
@@ -118,19 +119,19 @@ const LargeScreenHeader = ({ handleClick, isOpen, handleScrollToTarget }) => {
         <CustomLink title={"Blog"} className="mx-4" />
         <CustomLink
           onClick={() => {
-            handleScrollToTarget("contactus");
+
           }}
           title={"Contact Us"}
           className="mx-4"
         />
       </nav>
-      <nav className="flex items-center justify-center flex-wrap">
+      <nav className="w-auto flex items-center justify-center flex-wrap">
         <div
           className={` shadow-lg shadow-y-20 flex items-center bg-gradient-to-br from-lightGreen to-darkGreen text-light py-1 px-4
       rounded-3xl text-base font-bold hover:bg-light 
       
       dark:bg-light dark:text-white  
-       md:p-2 md:px-4 md:text-base
+         md:text-base
       `}
           style={{ cursor: "pointer" }}
         >
@@ -141,9 +142,9 @@ const LargeScreenHeader = ({ handleClick, isOpen, handleScrollToTarget }) => {
           onClick={() => {
             router.push("/signin");
           }}
-          className={`flex items-center bg-transparent text-dark py-1 px-4 mx-2
-      rounded-3xl text-base font-normal hover:bg-darkGreen hover:text-white 
-      border border-solid border-darkGreen
+          className={`flex items-center bg-transparent text-white py-1 px-4 mx-2
+      rounded-3xl text-base font-normal hover:bg-white hover:text-dark 
+      border border-solid border-white
       dark:bg-dark dark:border-white dark:text-white  
        md:p-2 md:px-4 md:text-base
       `}
@@ -158,7 +159,7 @@ const LargeScreenHeader = ({ handleClick, isOpen, handleScrollToTarget }) => {
         >
           <Image src={langImage} height={9} width={9} alt="lang" />
 
-          <div className="text-xs mx-1 text-darkGreen dark:text-white">
+          <div className="text-xs mx-1 text-white dark:text-white">
             EN
           </div>
         </div>
@@ -167,12 +168,9 @@ const LargeScreenHeader = ({ handleClick, isOpen, handleScrollToTarget }) => {
   </div>
 }
 
-const Navebar = (props) => {
+const AuthNavbar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-  const handleScrollToTarget = (elementId) => {
-    // Scroll to the target item
-    props.scrollToSection(elementId);
-  };
+
 
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -180,20 +178,20 @@ const Navebar = (props) => {
 
   return (
     <header
-      className="w-full px-40 xl:px-0 xl:pt-0 py-8 font-medium flex items-center justify-between
+      className="w-full bg-dark  xl:px-0 xl:pt-0  font-medium flex items-center justify-between
     dark:text-light  z-10 bg-transparent
     "
     >
 
       <SmallScreenHeader handleClick={handleClick} isOpen={isOpen} />
 
-      <LargeScreenHeader handleScrollToTarget={handleScrollToTarget} />
+      <LargeScreenHeader />
 
       {isOpen ? (
         <motion.div
           initial={{ scale: 1, opacity: 0, x: "-50%", y: "-80%" }}
           animate={{ scale: 1, opacity: 1, x: "-50%", y: "-40%" }}
-          className="min-w-[100vw] min-h-[100vh] mt-60 pt-24 flex flex-col items-center z-[-1] justify-between fixed top-20 left-1/2
+          className="min-w-[100vw] min-h-[100vh] mt-60 pt-24 flex flex-col items-center z-[1] justify-between fixed top-20 left-1/2 x
         -translate-x-1/2 -translate-y-1/2 backdrop-blur-md py-0 bg-dark/90 dark:bg-light/75 rounded-lg hidden xl:flex
         ">
           <nav className="w-full h-[60vh] flex items-center flex-col justify-between mt-6">
@@ -265,4 +263,4 @@ const Navebar = (props) => {
   );
 };
 
-export default Navebar;
+export default AuthNavbar;

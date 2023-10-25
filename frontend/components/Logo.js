@@ -4,9 +4,9 @@ import Image from "next/image";
 import logoImage from "../public/images/svgs/Logo.svg";
 import { LogoComponent } from "./Icons";
 const MotionLink = motion(Image);
-const Logo = ({ isOpen }) => {
+const Logo = ({ isOpen, className = "" }) => {
   return (
-    <div className="flex items-center justify-center mt-2 mb-8 ">
+    <div className={`flex items-center justify-center mt-2 ${className} `}>
       <LogoComponent isOpen={isOpen} />
     </div>
   );

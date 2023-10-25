@@ -1,6 +1,6 @@
 module.exports = {
   publicRuntimeConfig: {
-    APP_NAME: "لتسكنوا",
+    APP_NAME: "Sahm Nakheel",
     API_DEVELOPMENT: "http://localhost:8000/api",
     API_PRODUCTION: "https://letaskono-zwaj.com/api",
     SOCKET_DEVELOPMENT: "localhost:8000",

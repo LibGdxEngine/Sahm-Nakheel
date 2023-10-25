@@ -1,28 +1,25 @@
 import { motion } from "framer-motion";
+import { AnimatedLogo } from "./Icons";
 
 const TransitionEffect = () => {
   return (
-    <>
+    <div className="transition-screen">
       <motion.div
-        className="fixed top-2 bottom-0 right-full w-screen h-screen z-30 !bg-primary"
-        initial={{ x: "100%", width: "100%" }}
-        animate={{ x: "0%", width: "0%" }}
-        exit={{x:["0%","100%"], width:["0%", "100%"]}}
-        transition={{ duration: 0.8, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="fixed top-2 bottom-0 right-full w-screen h-screen z-20 !bg-secondary"
-        initial={{ x: "100%", width: "100%" }}
-        animate={{ x: "0%", width: "0%" }}
-        transition={{ delay: 0.2, duration: 0.8, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="fixed top-2 bottom-0 right-full w-screen h-screen z-10 !bg-third"
-        initial={{ x: "100%", width: "100%" }}
-        animate={{ x: "0%", width: "0%" }}
-        transition={{ delay: 0.4, duration: 0.8, ease: "easeInOut" }}
-      />
-    </>
+        className="circle"
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        <motion.div
+          className="logo"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.8 }}
+        >
+          <AnimatedLogo isOpen={true} />
+        </motion.div>
+      </motion.div>
+    </div>
   );
 };
 

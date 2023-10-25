@@ -18,10 +18,21 @@ import WhatPeopleSays from "../components/sections/WhatPeopleSays";
 import InvestmentCalculator from "../components/sections/InvestmentCalculator";
 import Gallery from "../components/sections/Gallery";
 import Table from "../components/sections/Table";
+import TransitionEffect from "../components/TransitionEffect";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [showTransition, setShowTransition] = useState(true);
+
+  // Simulate a delay for the transition screen
+  useEffect(() => {
+    setTimeout(() => {
+      setShowTransition(false);
+    }, 2000); // Adjust the delay as needed
+  }, []);
   return (
     <>
+      {showTransition && <TransitionEffect />}
       <main className="flex flex-col items-center  text-dark w-full min-h-screen dark:text-light">
         <div className="w-full  absolute left-[0%] top-[170%] translate-x-[0%] sm:top-0 z-0 sm:hidden">
           <Image src={polygon3} alt="" className="w-full h-auto" />
