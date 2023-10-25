@@ -59,20 +59,20 @@ const Footer = () => {
             Download our app <span className="text-lightGreen">Now!</span>
           </h1>
 
-          <div className="w-full flex items-center justify-start mt-2 ">
+          <div className="w-full flex items-center justify-start mt-2 xs:w-[50%] xs:justify-center">
             <Image
               src={appStore}
               width={150}
               height={44}
               alt=""
-              className="me-3"
+              className="me-3 sm:me-1"
             />
             <Image
               src={googlePlay}
               width={150}
               height={44}
               alt=""
-              className="me-3"
+              className="me-3 sm:me-1"
             />
           </div>
         </div>

@@ -30,19 +30,19 @@ const Table = () => {
       className="w-full border rounded-tr-3xl rounded-tl-3xl bg-lightGray 
     grid grid-cols-5 gap-y-0.5 gap-x-15 mt-24"
     >
-      <div className="px-6 py-3 text-navyBlue  text-center text-xs font-medium uppercase tracking-wider">
+      <div className="px-6 py-3 text-navyBlue  text-center text-xs sm:px-2 font-medium uppercase tracking-wider">
         Year Number
       </div>
-      <div className="px-6 py-3 text-darkGreen  text-center text-xs font-extrabold uppercase tracking-wider">
+      <div className="px-6 py-3 text-darkGreen  text-center text-xs sm:px-2 font-extrabold uppercase tracking-wider">
         Date Produced
       </div>
-      <div className="px-6 py-3 text-navyBlue  text-center text-xs font-medium uppercase tracking-wider">
+      <div className="px-6 py-3 text-navyBlue  text-center text-xs sm:px-2 font-medium uppercase tracking-wider">
         Date Price
       </div>
-      <div className="px-6 py-3 text-darkGreen  text-center text-xs font-extrabold uppercase tracking-wider">
+      <div className="px-6 py-3 text-darkGreen  text-center text-xs sm:px-2 font-extrabold uppercase tracking-wider">
         Off shoots produced
       </div>
-      <div className="px-6 py-3 text-navyBlue  text-center text-xs font-medium uppercase tracking-wider">
+      <div className="px-6 py-3 text-navyBlue  text-center text-xs sm:px-2 font-medium uppercase tracking-wider">
         Off shoots price
       </div>
 

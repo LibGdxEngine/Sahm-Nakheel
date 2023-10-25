@@ -57,11 +57,11 @@ const Features = () => {
         <div className="absolute left-[50%] top-[18%] translate-x-[-53%] sm:top-0 z-100 sm:hidden">
           <Image src={greatFeatures} alt="" className="w-full h-auto" />
         </div>
-        <h1 className="text-7xl text-primary font-normal text-center sm:text-4xl sm:mt-8 sm:font-extrabold">
+        <h1 className="w-full text-7xl text-primary font-normal text-center sm:text-4xl sm:mt-8 sm:font-extrabold">
           Great Features
         </h1>
         <br className="sm:hidden" />
-        <h1 className="text-2xl text-primary font-thin w-1/2 text-center sm:text-sm sm:w-full sm:mt-4">
+        <h1 className="md:w-full text-2xl text-primary font-thin w-1/2 text-center sm:text-sm sm:w-full sm:mt-4">
           There is no better asset to own than one that increases in value over
           time & keeps pace with inflation
         </h1>

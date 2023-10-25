@@ -5,6 +5,8 @@ import langImage from "/public/images/svgs/languageIcon.svg";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
+import userIcon from "../public/images/svgs/userIcon.svg";
+import langIconWhite from "../public/images/svgs/langIconWhite.svg";
 
 const CustomLink = ({ onClick, title, className = "" }) => {
   return (
@@ -30,26 +32,136 @@ const CustomMobileLink = ({ href, title, className = "", toggle }) => {
     // router.push(href);
   };
   return (
-    <button
-      onClick={handleClick}
-      href={href}
-      className={`${className} relative group text-light dark:text-dark my-2`}
-    >
-      {title}
-
+    <div className="w-full flex flex-col items-center justify-center ">
+      <button
+        onClick={handleClick}
+        href={href}
+        className={`${className} text-lg relative group text-light dark:text-dark my-2.5`}
+      >
+        {title}
+      </button>
       <span
-        className={`h-[1px] inline-block bg-light absolute left-0
-       -bottom-0.5
-       group-hover:w-full transition-[width] ease duration-300
-       ${router.asPath === href ? "w-full" : "w-0"}
-       dark:bg-dark 
+        className={`h-[1px] w-full small-header-items-separator 
        `}
       >
         &nbsp;
       </span>
-    </button>
+    </div>
+
   );
 };
+
+const SmallScreenHeader = ({ handleClick, isOpen }) => {
+  return <div className={`w-full flex flex-row items-center justify-between hidden xl:flex pt-10 ${isOpen ? "bg-midGreen" : "bg-mintyGreen"}  px-8 
+  rounded-bl-3xl rounded-br-3xl 
+  ${isOpen ? 'fixed mt-32' : ''}
+  `}>
+    <Logo isOpen={isOpen} />
+    <div className="w-auto flex items-center justify-between h-auto px-2 py-2.5 bg-dark rounded-lg">
+      <button
+        className="flex-col justify-center items-start hidden xl:flex "
+        onClick={handleClick}
+      >
+        <span
+          className={`bg-white dark:bg-dark block transition-all duration-300 ease-out  h-0.5  ${isOpen ? "w-5" : "w-4"} rounded-sm -translate-y-0.5 ${isOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5"
+            }`}
+        ></span>
+        <span
+          className={`bg-white dark:bg-dark block transition-all duration-300 ease-out  h-0.5  ${isOpen ? "w-5" : "w-5"} rounded-sm my-0.5 ${isOpen ? "opacity-0" : "opacity-100"
+            }`}
+        ></span>
+        <span
+          className={`bg-white dark:bg-dark block transition-all duration-300 ease-out  h-0.5  ${isOpen ? "w-5" : "w-2.5"} rounded-sm -translate-y-0.5 ${isOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"
+            }`}
+        ></span>
+      </button>
+    </div>
+  </div>
+}
+
+const LargeScreenHeader = ({ handleClick, isOpen , handleScrollToTarget}) => {
+  return <div className="w-full flex flex-col items-center justify-between xl:hidden mt-10">
+    <Logo />
+    <div className="w-full flex items-center justify-between h-24 ">
+      <nav className="w-[75%] flex items-center justify-between ">
+        <CustomLink title={"Home"} />
+        <CustomLink
+          onClick={() => {
+            handleScrollToTarget("aboutus");
+          }}
+          title={"About Us"}
+          className="mx-4"
+        />
+        <CustomLink
+          onClick={() => {
+            handleScrollToTarget("features");
+          }}
+          title={"Features"}
+          className="mx-4"
+        />
+        <CustomLink
+          onClick={() => {
+            handleScrollToTarget("pricing");
+          }}
+          title={"Pricing"}
+          className="mx-4"
+        />
+        <CustomLink
+          onClick={() => {
+            handleScrollToTarget("faq");
+          }}
+          title={"FAQs"}
+          className="mx-4"
+        />
+        <CustomLink title={"Gallery"} className="mx-4" />
+        <CustomLink title={"Blog"} className="mx-4" />
+        <CustomLink
+          onClick={() => {
+            handleScrollToTarget("contactus");
+          }}
+          title={"Contact Us"}
+          className="mx-4"
+        />
+      </nav>
+      <nav className="flex items-center justify-center flex-wrap">
+        <div
+          className={` shadow-lg shadow-y-20 flex items-center bg-gradient-to-br from-lightGreen to-darkGreen text-light py-1 px-4
+      rounded-3xl text-base font-bold hover:bg-light 
+      
+      dark:bg-light dark:text-white  
+       md:p-2 md:px-4 md:text-base
+      `}
+          style={{ cursor: "pointer" }}
+        >
+          Get App
+        </div>
+
+        <div
+          className={`flex items-center bg-transparent text-dark py-1 px-4 mx-2
+      rounded-3xl text-base font-normal hover:bg-darkGreen hover:text-white 
+      border border-solid border-darkGreen
+      dark:bg-dark dark:border-white dark:text-white  
+       md:p-2 md:px-4 md:text-base
+      `}
+          style={{ cursor: "pointer" }}
+        >
+          Sign in
+        </div>
+
+        <div
+          className="flex rounded-full  dark:border-white bg-transparent p-2 "
+          style={{ cursor: "pointer" }}
+        >
+          <Image src={langImage} height={9} width={9} alt="lang" />
+
+          <div className="text-xs mx-1 text-darkGreen dark:text-white">
+            EN
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+}
 
 const Navebar = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,119 +176,23 @@ const Navebar = (props) => {
 
   return (
     <header
-      className="w-full px-40 py-8 font-medium flex items-center justify-between
-    dark:text-light lg:px-16 md:px-12 sm:px-8 z-10 bg-transparent
+      className="w-full px-40 xl:px-0 xl:pt-0 py-8 font-medium flex items-center justify-between
+    dark:text-light  z-10 bg-transparent
     "
     >
-      <button
-        className="flex-col justify-center items-center hidden xl:flex"
-        onClick={handleClick}
-      >
-        <span
-          className={`bg-dark dark:bg-light block transition-all duration-300 ease-out  h-0.5 w-6 rounded-sm -translate-y-0.5 ${isOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5"
-            }`}
-        ></span>
-        <span
-          className={`bg-dark dark:bg-light block transition-all duration-300 ease-out  h-0.5 w-6 rounded-sm my-0.5 ${isOpen ? "opacity-0" : "opacity-100"
-            }`}
-        ></span>
-        <span
-          className={`bg-dark dark:bg-light block transition-all duration-300 ease-out  h-0.5 w-6 rounded-sm -translate-y-0.5 ${isOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"
-            }`}
-        ></span>
-      </button>
 
-      <div className="w-full flex flex-col items-center justify-between xl:hidden mt-10">
-        <Logo />
-        <div className="w-full flex items-center justify-between h-24 ">
-          <nav className="w-[75%] flex items-center justify-between ">
-            <CustomLink title={"Home"} />
-            <CustomLink
-              onClick={() => {
-                handleScrollToTarget("aboutus");
-              }}
-              title={"About Us"}
-              className="mx-4"
-            />
-            <CustomLink
-              onClick={() => {
-                handleScrollToTarget("features");
-              }}
-              title={"Features"}
-              className="mx-4"
-            />
-            <CustomLink
-              onClick={() => {
-                handleScrollToTarget("pricing");
-              }}
-              title={"Pricing"}
-              className="mx-4"
-            />
-            <CustomLink
-              onClick={() => {
-                handleScrollToTarget("faq");
-              }}
-              title={"FAQs"}
-              className="mx-4"
-            />
-            <CustomLink title={"Gallery"} className="mx-4" />
-            <CustomLink title={"Blog"} className="mx-4" />
-            <CustomLink
-              onClick={() => {
-                handleScrollToTarget("contactus");
-              }}
-              title={"Contact Us"}
-              className="mx-4"
-            />
-          </nav>
-          <nav className="flex items-center justify-center flex-wrap">
-            <div
-              className={` shadow-lg shadow-y-20 flex items-center bg-gradient-to-br from-lightGreen to-darkGreen text-light py-1 px-4
-            rounded-3xl text-base font-bold hover:bg-light 
-            
-            dark:bg-light dark:text-white  
-             md:p-2 md:px-4 md:text-base
-            `}
-              style={{ cursor: "pointer" }}
-            >
-              Get App
-            </div>
+      <SmallScreenHeader handleClick={handleClick} isOpen={isOpen} />
 
-            <div
-              className={`flex items-center bg-transparent text-dark py-1 px-4 mx-2
-            rounded-3xl text-base font-normal hover:bg-darkGreen hover:text-white 
-            border border-solid border-darkGreen
-            dark:bg-dark dark:border-white dark:text-white  
-             md:p-2 md:px-4 md:text-base
-            `}
-              style={{ cursor: "pointer" }}
-            >
-              Sign in
-            </div>
+      <LargeScreenHeader handleScrollToTarget={handleScrollToTarget} />
 
-            <div
-              className="flex rounded-full  dark:border-white bg-transparent p-2 "
-              style={{ cursor: "pointer" }}
-            >
-              <Image src={langImage} height={9} width={9} alt="lang" />
-
-              <div className="text-xs mx-1 text-darkGreen dark:text-white">
-                EN
-              </div>
-            </div>
-          </nav>
-        </div>
-      </div>
-
-      {/* {isOpen ? (
+      {isOpen ? (
         <motion.div
-          initial={{ scale: 0, opacity: 0, x: "-50%", y: "-50%" }}
-          animate={{ scale: 1, opacity: 1 }}
-          className="min-w-[70vw] flex flex-col items-center z-30 justify-between fixed top-1/2 left-1/2
-        -translate-x-1/2 -translate-y-1/2 backdrop-blur-md py-32 bg-dark/90 dark:bg-light/75 rounded-lg
-        "
-        >
-          <nav className="flex items-center flex-col justify-center">
+          initial={{ scale: 1, opacity: 0, x: "-50%", y: "-80%" }}
+          animate={{ scale: 1, opacity: 1, x: "-50%", y: "-40%" }}
+          className="min-w-[100vw] min-h-[100vh] mt-60 pt-24 flex flex-col items-center z-[-1] justify-between fixed top-20 left-1/2
+        -translate-x-1/2 -translate-y-1/2 backdrop-blur-md py-0 bg-dark/90 dark:bg-light/75 rounded-lg hidden xl:flex
+        ">
+          <nav className="w-full h-[60vh] flex items-center flex-col justify-between mt-6">
             <CustomMobileLink href={`/`} title={"Home"} toggle={handleClick} />
             <CustomMobileLink
               href={`/about`}
@@ -213,11 +229,33 @@ const Navebar = (props) => {
               title={"Contact Us"}
               toggle={handleClick}
             />
+            <div className="w-full flex flex-col items-center justify-center">
+              <div className="flex items-center justify-center mt-8">
+                <Image src={userIcon} width={42.5} height={42.5} alt="user" className="mx-2" />
+                <button className="border border-white border-1 text-lg rounded-3xl px-12 py-0.5 mx-2
+                text-white font-thin hover:text-dark hover:bg-white">Log In</button>
+              </div>
+              <p style={{ cursor: "pointer" }} className="text-sm text-white font-extralight mt-3">New here ? 
+                <span className="text-lightGreen"> create an account</span></p>
+            </div>
+            <div className="flex items-center mt-8">
+              <div
+                className="flex rounded-full  dark:border-white bg-transparent p-2 "
+                style={{ cursor: "pointer" }}
+              >
+                <Image src={langIconWhite} height={9} width={9} alt="lang" />
+
+                <div className="text-xs mx-1 text-white dark:text-white">
+                  EN
+                </div>
+
+              </div>
+              <p className="text-xs text-white">Change Language</p>
+            </div>
           </nav>
 
-
         </motion.div>
-      ) : null} */}
+      ) : null}
 
     </header>
   );

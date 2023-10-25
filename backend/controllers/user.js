@@ -82,16 +82,22 @@ function buildChargeRequest() {
   return PaymentData;
 }
 exports.initateCheckout = async (req, res) => {
-  const paymentData = buildChargeRequest();
-  console.log(paymentData);
-  fetch("https://atfawry.fawrystaging.com/ECommerceWeb/Fawry/payments/charge", {
-    method: "POST",
+
+  const PaymentData = {
+    merchantCode: req.body.merchantCode,
+    merchantRefNumber: req.body.merchantRefNumber,
+    signature: req.body.signature
+  };
+
+  fetch(`https://atfawry.fawrystaging.com/ECommerceWeb/Fawry/payments/status/v2?merchantCode=${PaymentData.merchantCode}&merchantRefNumber=${PaymentData.merchantRefNumber}&signature=${PaymentData.signature}
+  `, {
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
-    },
-    body: JSON.stringify(paymentData),
+    }
   })
     .then(async (response) => {
+      console.log(JSON.stringify(response.toString()));
       const data = await response.json();
       return res.json(data);
     })

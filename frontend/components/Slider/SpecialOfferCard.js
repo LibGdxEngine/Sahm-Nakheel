@@ -57,19 +57,17 @@ const SpecialOfferCard = ({
         </div>
         <div className="w-full flex items-center justify-between">
           <div className="flex items-center">
-            <h1 className="text-white text-2xl font-extrabold me-1">
-              {income}
-            </h1>
-            <h1 className="text-sm text-white font-bold mt-1">EGP</h1>
+            <h1 className="text-lg lg:text-base text-white sm:text-sm  font-extrabold me-1">{income}</h1>
+            <h1 className="text-sm text-lightGreen font-bold me-1 ">EGP</h1>
           </div>
 
           <div
-            className={` shadow-lg shadow-y-20 flex items-center bg-gradient-to-br from-lightGreen to-lightGray  p-1.5 px-4
+            className={` shadow-lg shadow-y-20 flex items-center bg-gradient-to-br from-lightGreen to-darkGreen text-light p-1.5 px-4
               rounded-3xl text-xs font-bold hover:bg-light 
-              text-darkGreen
-              dark:bg-light dark:text-white  
-               md:p-2 md:px-4 md:text-base
-               md:hidden
+              
+              dark:bg-light dark:text-white   
+               md:p-2 md:px-4 md:text-sm 
+               sm:px-1.5 sm:text-xs sm:py-1
               `}
             style={{ cursor: "pointer" }}
           >

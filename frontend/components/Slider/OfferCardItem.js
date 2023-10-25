@@ -52,8 +52,8 @@ const OfferCardItem = ({
         </div>
         <div className="w-full flex items-center justify-between">
           <div className="flex items-center">
-            <h1 className="text-xl font-extrabold me-1">{income}</h1>
-            <h1 className="text-sm text-lightGreen font-bold mt-1">EGP</h1>
+            <h1 className="text-lg lg:text-base  sm:text-sm  font-extrabold me-1">{income}</h1>
+            <h1 className="text-sm text-lightGreen font-bold me-1 ">EGP</h1>
           </div>
 
           <div
@@ -61,8 +61,8 @@ const OfferCardItem = ({
               rounded-3xl text-xs font-bold hover:bg-light 
               
               dark:bg-light dark:text-white   
-               md:p-2 md:px-4 md:text-base
-               md:hidden
+               md:p-2 md:px-4 md:text-sm 
+               sm:px-1.5 sm:text-xs sm:py-1
               `}
             style={{ cursor: "pointer" }}
           >

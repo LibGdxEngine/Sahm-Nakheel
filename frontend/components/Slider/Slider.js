@@ -9,15 +9,16 @@ function mapScreenWidthToTailwindBreakpoint(screenWidth) {
     return "sm";
   } else if (screenWidth < 768) {
     return "md";
-  } else {
+  } else if (screenWidth < 1023) {
     return "lg";
+  } else {
+    return "xl";
   }
 }
 
 const Slider = ({ cards, onCardClicked }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
   const [currentScreenSize, setCurrentScreenSize] = useState(0);
 
   useEffect(() => {
@@ -32,7 +33,7 @@ const Slider = ({ cards, onCardClicked }) => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-    x;
+
   }, []);
 
   const nextSlide = () => {
@@ -46,8 +47,10 @@ const Slider = ({ cards, onCardClicked }) => {
   };
   let numberOfRows = 3;
   if (currentScreenSize === "md") {
-    numberOfRows = 2;
+    numberOfRows = 1;
   } else if (currentScreenSize === "lg") {
+    numberOfRows = 2;
+  } else if (currentScreenSize === "xl") {
     numberOfRows = 3;
   } else if (currentScreenSize === "sm") {
     numberOfRows = 1;

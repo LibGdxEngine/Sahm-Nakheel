@@ -17,7 +17,7 @@ const AboutUs = () => {
                 33vw"
             src={profilePic2}
             alt="Sahm Nakheel"
-            className="w-full h-auto lg:hidden md:inline-block md:w-full"
+            className="w-full h-auto lg:hidden sm:inline-block md:w-full"
           />
         </div>
         <h1 className="text-7xl text-primary font-normal sm:text-4xl sm:mt-8 sm:font-extrabold">

@@ -73,8 +73,8 @@ const ContactUs = () => {
                   rounded-full text-xs font-semibold hover:bg-light hover:text-dark
                   border-2 border-solid border-transparent hover:border-dark
                   dark:bg-light dark:text-dark hover:dark:bg-dark hover:dark:text-light
-                  hover:dark:border-light md:p-2 md:px-4 md:text-base
-                  xs:p-0 xs:px-3 xs:py-2 xs:text-sm
+                  hover:dark:border-light md:p-2 md:px-2 
+                  xs:p-0 xs:px-3 xs:py-2 md:text-sm
                   `}
                   style={{ cursor: "pointer" }}
                 >
@@ -115,13 +115,13 @@ const ContactUs = () => {
                 33vw"
             src={map}
             alt="Sahm Nakheel"
-            className="w-full h-auto lg:hidden md:inline-block md:w-full sm:hidden"
+            className="w-full h-auto lg:hidden  md:w-full md:hidden"
           />
         </div>
       </div>
 
-      <div className="w-full flex items-center justify-around sm:flex-col ">
-        <div className="w-auto flex items-center justify-center sm:justify-between sm:px-12">
+      <div className="w-full flex items-center justify-around md:flex-col sm:items-start sm:bg-mintyGreen sm:py-6 sm:rounded-3xl">
+        <div className="w-full flex items-center justify-center md:justify-start md:px-12 ">
           <Image
             src={vector2}
             width={23}
@@ -129,31 +129,31 @@ const ContactUs = () => {
             alt="phone"
             className="mx-2"
           />
-          <h1 className="text-darkGreen text-lg font-normal">
+          <h1 className="text-darkGreen text-lg font-normal ms-5 md:text-sm md:mt-3">
             ( +20 ) 011 511 511 26
           </h1>
         </div>
-        <div className="w-auto flex items-center justify-center sm:justify-between sm:px-12">
+        <div className="w-full flex items-center justify-center md:justify-start md:px-12 ">
           <Image
             src={vector3}
-            width={16}
+            width={23}
             height={23}
             alt="phone"
             className="mx-2"
           />
-          <h1 className="text-darkGreen text-lg font-normal sm:text-right">
+          <h1 className="w-full text-darkGreen text-lg font-normal ms-6 md:text-sm md:mt-3">
             35 Al Gahez, Al Hadiqah Al-Dawleyah, Nasr City, Cairo.
           </h1>
         </div>
-        <div className="w-auto flex items-center justify-center sm:justify-between sm:px-12">
+        <div className="w-full flex items-center justify-center md:justify-start md:px-12">
           <Image
             src={vector4}
-            width={30}
-            height={20}
+            width={23}
+            height={23}
             alt="phone"
             className="mx-2"
           />
-          <h1 className="text-darkGreen text-lg font-normal">
+          <h1 className="text-darkGreen text-lg font-normal ms-5 md:text-sm md:mt-3">
             info@sahmnakheel.com
           </h1>
         </div>

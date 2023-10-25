@@ -27,7 +27,7 @@ const HowItWorks = () => {
         <div className="w-full flex flex-col items-center justify-center ">
           <Image src={group1} width={90} height={150} alt="" />
           <h1 className="text-primary text-3xl font-bold mt-2">Register</h1>
-          <h1 className="text-dark text-xl font-thin text-center p-2">
+          <h1 className="text-dark text-xl font-thin text-center p-2 sm:text-sm">
             Sign-Up easily through our website or application.
           </h1>
         </div>
@@ -38,7 +38,7 @@ const HowItWorks = () => {
         <div className="w-full flex flex-col items-center justify-center ">
           <Image src={group2} width={90} height={150} alt="" />
           <h1 className="text-primary text-3xl font-bold mt-2">Choose</h1>
-          <h1 className="text-dark text-xl font-thin text-center p-2">
+          <h1 className="text-dark text-xl font-thin text-center p-2 sm:text-sm">
             Get your investment option from our wide range offers.
           </h1>
         </div>
@@ -49,7 +49,7 @@ const HowItWorks = () => {
         <div className="w-full flex flex-col items-center justify-center ">
           <Image src={group3} width={90} height={150} alt="" />
           <h1 className="text-primary text-3xl font-bold mt-2">Easy Pay</h1>
-          <h1 className="text-dark text-xl font-thin text-center p-2">
+          <h1 className="text-dark text-xl font-thin text-center p-2 sm:text-sm">
             Flexible & convenient payments for everyone.
           </h1>
         </div>
@@ -60,7 +60,7 @@ const HowItWorks = () => {
         <div className="w-full flex flex-col items-center justify-center ">
           <Image src={group4} width={90} height={150} alt="" />
           <h1 className="text-primary text-3xl font-bold mt-2">Own</h1>
-          <h1 className="text-dark text-xl font-thin text-center p-2">
+          <h1 className="text-dark text-xl font-thin text-center p-2 sm:text-sm">
             You will get notified within 24H of New Investment.
           </h1>
         </div>

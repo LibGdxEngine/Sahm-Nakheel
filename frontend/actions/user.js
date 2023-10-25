@@ -37,9 +37,11 @@ export const getRequests = (userId, token) => {
     .catch((err) => console.log(err));
 };
 
-export const startCheckOut = (signedInUser, token) => {
+export const startCheckOut = (token, merchantCode, merchantRefNumber, signature) => {
   const data = {
-    signedInUser,
+    merchantCode,
+    merchantRefNumber,
+    signature
   };
   return fetch(`${API}/user/initate-checkout`, {
     method: "POST",

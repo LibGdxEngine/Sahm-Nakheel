@@ -13,7 +13,6 @@ const DownloadApp = () => {
       <br className="sm:hidden" />
       <br />
       <br />
-
  
       <div className="flex items-center justify-between w-full lg:flex-col">
         <div className="w-1/2 md:w-full relative">
@@ -51,7 +50,7 @@ const DownloadApp = () => {
           />
         </div>
 
-        <div className="w-1/2 flex flex-col items-center self-center lg:w-full lg:text-center relative ">
+        <div className="w-1/2 flex flex-col items-center self-center lg:w-full lg:text-center relative md:mt-12">
           <Image src={downloadAppText} width={496} height={205} alt="" className="sm:hidden" />
           <Image
             src={DownloadAppTextHidden}

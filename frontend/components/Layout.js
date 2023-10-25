@@ -93,7 +93,7 @@ const Layout = ({ children, className = "" }) => {
       >
         {children}
       </div>
-      
+
       <ScrollToTopButton />
       <Footer />
     </>

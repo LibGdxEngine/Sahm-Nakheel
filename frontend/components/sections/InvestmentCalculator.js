@@ -21,11 +21,10 @@ const InvestmentCalculator = () => {
         {buttons.map((button) => (
           <button
             key={button.id}
-            className={` p-1.5 px-2.5 sm:px-1.5 rounded-xl ${
-              selectedButton === button.id
-                ? "bg-midGreen text-primary"
-                : "text-white bg-white bg-opacity-30"
-            }`}
+            className={` p-1.5 px-2.5 sm:px-1.5 rounded-xl ${selectedButton === button.id
+              ? "bg-midGreen text-primary"
+              : "text-white bg-white bg-opacity-30"
+              }`}
             onClick={() => handleButtonClick(button.id)}
           >
             <div className="text-sm sm:text-xs">{button.text}</div>
@@ -180,14 +179,15 @@ const InvestmentCalculator = () => {
 
   return (
     <div className="w-full mt-36 flex flex-col items-center justify-center relative">
-      <p className="text-6xl text-primary">
+      <p className="text-6xl text-primary sm:text-4xl sm:text-center">
         Your investment <span className="text-midGreen">Calculator</span>
       </p>
       <div
         className="w-full h-full p-14 border rounded-3xl bg-navyBlue 
-       grid grid-cols-2 gap-y-16 gap-x-15 md:grid-cols-1 lg:grid-cols-2 lg:gap-8 md:gap-y-16 mt-24 pb-32"
+grid grid-cols-2 gap-y-16 gap-x-15 md:grid-cols-1 lg:grid-cols-2 lg:gap-8 md:gap-y-16 mt-24 pb-32"
+
       >
-        <div className="w-full h-24 flex flex-col">
+        <div className="w-full h-24 flex flex-col ">
           <p className="text-white text-2xl">Palm Type</p>
           <ButtonRow />
         </div>

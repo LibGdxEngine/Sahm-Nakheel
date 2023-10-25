@@ -7,10 +7,25 @@ import { initateCheckout, startCheckOut } from "../../actions/user";
 import OfferCardItem from "../Slider/OfferCardItem";
 import SpecialOfferCard from "../Slider/SpecialOfferCard";
 import Slider from "../Slider/Slider";
+import { getCookie } from "../../actions/auth";
 const crypto = require("crypto");
 
 const startNewCheckOut = () => {
-  startCheckOut(1, 2).then((data) => {
+  const token = getCookie("token");
+  const inputString = "770000015886"
+    + 569863
+    + "b3ab571f-a2c8-4e91-8464-276134adf160";
+  // Create a SHA-256 hash
+  const sha256Hash = crypto.createHash("sha256");
+
+  // Update the hash with your input
+  sha256Hash.update(inputString);
+
+  // Get the hexadecimal representation of the hash
+  const hashedString = sha256Hash.digest("hex");
+
+  console.log("SHA-256 Hash:", hashedString);
+  startCheckOut(token, "770000015886", 569863, hashedString).then((data) => {
     console.log(data);
   });
 };
@@ -92,6 +107,7 @@ function buildChargeRequest(cost) {
   let newCostStr = cost.split(" ")[1].split(",")[0] + "000.00";
   console.log(newCostStr);
   const refNum = generateRandomNumberString(6);
+  console.log(refNum);
   const inputString =
     "770000015886" +
     refNum +

@@ -47,7 +47,6 @@ router.post(
 
 router.post(
   "/user/initate-checkout",
-  
   initateCheckout
 );
 //Admin operations
