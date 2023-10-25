@@ -82,7 +82,7 @@ const SmallScreenHeader = ({ handleClick, isOpen }) => {
 const LargeScreenHeader = ({ handleClick, isOpen, handleScrollToTarget }) => {
   const router = useRouter();
   return <div className="w-full flex flex-col items-center justify-between xl:hidden mt-10">
-    <Logo />
+    <Logo className="pb-8"/>
     <div className="w-full flex items-center justify-between h-24 ">
       <nav className="w-[75%] flex items-center justify-between ">
         <CustomLink title={"Home"} />
