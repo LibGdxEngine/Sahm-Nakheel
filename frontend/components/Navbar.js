@@ -56,7 +56,7 @@ const SmallScreenHeader = ({ handleClick, isOpen }) => {
   rounded-bl-3xl rounded-br-3xl 
   ${isOpen ? 'fixed mt-32' : ''}
   `}>
-    <Logo isOpen={isOpen} />
+    <Logo isOpen={isOpen} classes={`pb-8`} />
     <div className="w-auto flex items-center justify-between h-auto px-2 py-2.5 bg-dark rounded-lg">
       <button
         className="flex-col justify-center items-start hidden xl:flex "
@@ -79,10 +79,10 @@ const SmallScreenHeader = ({ handleClick, isOpen }) => {
   </div>
 }
 
-const LargeScreenHeader = ({ handleClick, isOpen, handleScrollToTarget }) => {
+const LargeScreenHeader = ({ handleClick, isOpen }) => {
   const router = useRouter();
   return <div className="w-full flex flex-col items-center justify-between xl:hidden mt-10">
-    <Logo className="pb-8"/>
+    <Logo classes="pb-8" />
     <div className="w-full flex items-center justify-between h-24 ">
       <nav className="w-[75%] flex items-center justify-between ">
         <CustomLink title={"Home"} />
@@ -168,6 +168,7 @@ const LargeScreenHeader = ({ handleClick, isOpen, handleScrollToTarget }) => {
 }
 
 const Navebar = (props) => {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const handleScrollToTarget = (elementId) => {
     // Scroll to the target item
@@ -201,27 +202,42 @@ const Navebar = (props) => {
             <CustomMobileLink
               href={`/about`}
               title={"About Us"}
-              toggle={handleClick}
+              toggle={() => {
+                handleScrollToTarget("aboutus");
+                handleClick();
+              }}
             />
             <CustomMobileLink
               href={`/projects`}
               title={"Features"}
-              toggle={handleClick}
+              toggle={() => {
+                handleScrollToTarget("features");
+                handleClick();
+              }}
             />
             <CustomMobileLink
               href={`/articles`}
               title={"Pricing"}
-              toggle={handleClick}
+              toggle={() => {
+                handleScrollToTarget("pricing");
+                handleClick();
+              }}
             />
             <CustomMobileLink
               href={`/articles`}
               title={"FAQs"}
-              toggle={handleClick}
+              toggle={() => {
+                handleScrollToTarget("faq");
+                handleClick();
+              }}
             />
             <CustomMobileLink
               href={`/articles`}
               title={"Gallery"}
-              toggle={handleClick}
+              toggle={() => {
+                handleScrollToTarget("gallery");
+                handleClick();
+              }}
             />
             <CustomMobileLink
               href={`/articles`}
@@ -231,12 +247,17 @@ const Navebar = (props) => {
             <CustomMobileLink
               href={`/articles`}
               title={"Contact Us"}
-              toggle={handleClick}
+              toggle={() => {
+                handleScrollToTarget("contactus");
+                handleClick();
+              }}
             />
             <div className="w-full flex flex-col items-center justify-center">
               <div className="flex items-center justify-center mt-8">
                 <Image src={userIcon} width={42.5} height={42.5} alt="user" className="mx-2" />
-                <button className="border border-white border-1 text-lg rounded-3xl px-12 py-0.5 mx-2
+                <button onClick={() => {
+                  router.push("/signin");
+                }} className="border border-white border-1 text-lg rounded-3xl px-12 py-0.5 mx-2
                 text-white font-thin hover:text-dark hover:bg-white">Log In</button>
               </div>
               <p style={{ cursor: "pointer" }} className="text-sm text-white font-extralight mt-3">New here ?

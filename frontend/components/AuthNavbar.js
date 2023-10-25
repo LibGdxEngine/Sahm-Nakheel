@@ -56,7 +56,7 @@ const SmallScreenHeader = ({ handleClick, isOpen }) => {
   rounded-bl-3xl rounded-br-3xl z-101
   ${isOpen ? 'fixed mt-32' : ''}
   `}>
-    <Logo isOpen={isOpen} className="pb-8" />
+    <Logo isOpen={isOpen} classes="pb-8" />
     <div className="w-auto flex items-center justify-between h-auto px-2 py-2.5 bg-dark rounded-lg">
       <button
         className="flex-col justify-center items-start hidden xl:flex "
@@ -83,7 +83,7 @@ const LargeScreenHeader = ({ handleClick, isOpen }) => {
   const router = useRouter();
   return <div className="w-full flex flex-row items-center justify-center xl:hidden bg-dark px-32 pt-8 rounded-bl-3xl
   rounded-br-3xl">
-    <Logo isOpen={true} className="pb-8" />
+    <Logo isOpen={true} classes="pb-8" />
     <div className="w-full flex items-center justify-between h-24 ms-6">
       <nav className="w-[75%] flex items-center justify-between ">
         <CustomLink title={"Home"} />
