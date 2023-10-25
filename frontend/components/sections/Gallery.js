@@ -80,18 +80,18 @@ const Carousel = ({ images }) => {
 
 const Gallery = () => {
   const images = [
-    { url: "/images/svgs/imagePlaceHolder.svg", caption: "Image 1" },
+    { url: "/images/svgs/imagePlaceHolder-svg.png", caption: "Image 1" },
 
     {
-      url: "/images/svgs/ImagePlaceHolder2.jpg",
+      url: "/images/svgs/ImagePlaceHolder2.png",
       caption: "Image 2",
     },
     {
-      url: "/images/svgs/ImagePlaceHolder3.jpg",
+      url: "/images/svgs/ImagePlaceHolder3.png",
       caption: "Image 2",
     },
     {
-      url: "/images/svgs/ImagePlaceHolder4.jpg",
+      url: "/images/svgs/ImagePlaceHolder4.png",
       caption: "Image 2",
     },
   ];
