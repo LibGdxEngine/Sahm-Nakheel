@@ -27,7 +27,8 @@ const OfferCardItem = ({
     return (
         <>
             <motion.div
-                className="w-full flex flex-col items-start justify-between h-full bg-white rounded-3xl sm:mx-0 p-8 shadow-lg shadow-y-50"
+                className="w-full flex flex-col  items-start justify-between h-full bg-white rounded-3xl
+                 sm:mx-0 p-8 xs:p-4 shadow-lg shadow-y-50"
                 onMouseEnter={handleHover}
                 onMouseLeave={handleHoverEnd}
                 onClick={() => {
@@ -63,7 +64,7 @@ const OfferCardItem = ({
               
               dark:bg-light dark:text-white   
                md:p-2 md:px-4 md:text-sm 
-               sm:px-1.5 sm:text-xs sm:py-1
+               sm:px-1.5 sm:text-xs sm:py-1 xs:text-xs xs:text-center 
               `}
                         style={{cursor: "pointer"}}
                     >

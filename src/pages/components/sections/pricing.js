@@ -19,7 +19,7 @@ const Pricing = ({
                 id="pricing"
                 className="w-full bg-mintyGreen rounded-3xl mt-20 px-18 sm:pt-1 "
             >
-                <div className="w-full flex flex-col items-center justify-center mt-0 relative">
+                <div className="w-full flex flex-col items-center justify-center text-center mt-0 relative">
                     <HoveredText text={`${t(tokens.plans.title)}`}/>
                     <h1 className="text-xl text-primary font-light text-center sm:text-base sm:mt-0">
                         {slogan}

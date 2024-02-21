@@ -8,7 +8,7 @@ const FeatureRow = ({
 }) => {
   return (
     <>
-      <div className={`w-full flex items-center justify-start mb-0`}>
+      <div className={`w-full  flex items-center justify-start mb-0`}>
         <Image
           src={bullet}
           width={imageWidth}
