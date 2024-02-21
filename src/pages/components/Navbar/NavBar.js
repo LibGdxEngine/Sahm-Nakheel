@@ -42,7 +42,7 @@ const SmallScreenHeader = ({handleClick, isOpen}) => {
 
 const LargeScreenHeader = ({topNavItems, translator: t, changeLang}) => {
     const NavItem = ({title = "", path = "/"}) => {
-        return <Link className={``} style={{textDecoration: "none"}} href={`/${path}`}>
+        return <Link className={`text-darkGreen`} style={{textDecoration: "none"}} href={`/${path}`}>
             {title}
         </Link>
     }
