@@ -139,7 +139,7 @@ const Navbar = (props) => {
     return (
         <header
             className="  w-full xl:px-0 xl:pt-0 py-8 font-medium flex items-center justify-between dark:text-light z-10 bg-transparent">
-            <SmallScreenHeader handleClick={handleClick} isOpen={isOpen}/>
+            {/*<SmallScreenHeader handleClick={handleClick} isOpen={isOpen}/>*/}
 
             <LargeScreenHeader topNavItems={topNavItemss} translator={t} changeLang={changeLang}/>
             {/* Rest of the code */}
