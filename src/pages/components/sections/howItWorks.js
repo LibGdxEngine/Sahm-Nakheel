@@ -11,7 +11,7 @@ import {tokens} from "@/locales/tokens";
 const Step = ({imageSrc, title, description}) => (
     <div className="w-full flex flex-col items-center justify-center ">
         <Image src={imageSrc} width={90} height={150} alt={title}/>
-        <h1 className="text-primary text-3xl font-bold mt-2">{title}</h1>
+        <h1 className="text-primary text-3xl font-bold mt-2 text-center">{title}</h1>
         <p className="text-dark text-lg font-thin text-center sm:text-sm">
             {description}
         </p>

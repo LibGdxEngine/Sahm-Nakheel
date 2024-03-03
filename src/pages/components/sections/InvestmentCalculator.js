@@ -201,9 +201,10 @@ const InvestmentCalculator = () => {
     }
 
     return (
-        <Layout className="w-full mt-36 flex flex-col items-center justify-center relative px-28">
-            <div className="absolute bottom-[24%] xs:bottom-[22%] sm:bottom-[24%] lg:bottom-[22%] " style={{cursor: "pointer"}}>
-                <p className="text-white text-2xl calc-btn  rounded-full bg-dark px-6 py-4 hover:text-primary hover:bg-white hover:border hover:border-dark">
+        <Layout className="w-full mt-36 flex flex-col items-center justify-center relative px-28 sm:px-10 xs:px-4">
+            <div className="absolute bottom-[24%] xs:bottom-[21%] sm:bottom-[24%] lg:bottom-[22%] " style={{cursor: "pointer"}}>
+                <p className="text-white text-2xl calc-btn  rounded-full bg-dark px-6 py-4
+                 hover:text-primary hover:bg-white hover:border hover:border-dark">
                     {t(tokens.calculator.calculate)}
                 </p>
             </div>
@@ -214,6 +215,7 @@ const InvestmentCalculator = () => {
                 className="w-full h-full p-14 border rounded-3xl bg-navyBlue
                             grid grid-cols-2 gap-y-16 gap-x-15 mt-24 pb-32
                             lg:grid-cols-1
+                            sm:p-4
                              ">
                 <div className="w-full h-24 flex flex-col lg:mx-10">
                     <p className="w-full text-white text-2xl ">{t(tokens.calculator.plam_type)}</p>

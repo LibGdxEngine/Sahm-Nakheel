@@ -76,7 +76,7 @@ export default function Home({
                   rounded-full text-lg font-normal hover:bg-white hover:text-darkGreen hover:border hover:border-darkGreen
                   border-2 border-solid border-transparent 
                   dark:bg-light dark:text-dark hover:dark:bg-dark hover:dark:text-light
-                  hover:dark:border-light md:p-2 md:px-4 md:text-base
+                  hover:dark:border-light md:p-2 md:px-4 md:text-base xs:text-xs
                   `}
                         style={{cursor: "pointer"}}
                         onClick={() => {
@@ -94,7 +94,7 @@ export default function Home({
                   `}
                         style={{cursor: "pointer"}}
                     >
-                        <div className="w-full flex " onClick={() => {
+                        <div className="w-full flex xs:text-xs items-center justify-center" onClick={() => {
                             //go to video
                             router.push(video_link)
                         }}>

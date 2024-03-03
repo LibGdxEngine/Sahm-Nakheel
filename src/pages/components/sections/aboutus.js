@@ -85,7 +85,7 @@ const AboutUs = ({
             <h1 className="text-xl text-primary font-light text-center sm:text-base sm:mt-0">
                 {aboutuse_slogan}
             </h1>
-            <div className="w-full grid grid-cols-2 items-center justify-center mt-20 sm:grid-cols-1 sm:mt-0 relative">
+            <div className="w-full grid grid-cols-2 items-center justify-center mt-20 lg:grid-cols-1 sm:mt-0 relative">
                 <ImageComponent src={photo} alt="Sahm Nakheel"/>
                 <div className="flex items-center justify-center w-full h-full flex-col mt-16 sm:mt-0 sm:px-8">
 

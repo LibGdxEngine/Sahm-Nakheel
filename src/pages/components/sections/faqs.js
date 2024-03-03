@@ -11,7 +11,7 @@ const FAQs = ({questions}) => {
     const {t, i18n} = useTranslation();
 
     return (
-        <div className={`w-full mt-40 sm:mt-2 sm:px-2`}>
+        <div className={`w-full mt-40 sm:mt-2 lg:px-4 sm:px-8`}>
             <div
                 id="faq"
                 className="w-full flex flex-col items-center justify-center mt-16 relative"

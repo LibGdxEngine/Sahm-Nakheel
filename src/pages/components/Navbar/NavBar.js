@@ -23,7 +23,7 @@ const headerButtons = [
 const SmallScreenHeader = ({handleClick, isOpen}) => {
     return (
         <div
-            className={`w-full flex flex-row items-center justify-between  xl:flex pt-10 ${isOpen ? "bg-midGreen" : "bg-mintyGreen"} px-8 rounded-bl-3xl rounded-br-3xl pb-8 ${isOpen ? 'fixed mt-32' : ''}`}>
+            className={`hidden lg:flex w-full  flex-row items-center justify-between  xl:flex pt-10 ${isOpen ? "bg-midGreen" : "bg-mintyGreen"} px-8 rounded-bl-3xl rounded-br-3xl pb-8 ${isOpen ? 'fixed mt-32' : ''}`}>
             <Logo isOpen={isOpen} classes={`pb-8`}/>
             <div className="w-auto flex items-center justify-between h-auto px-2 py-3 bg-darkGreen rounded-lg"
                  onClick={handleClick} style={{cursor: "pointer"}}>
@@ -103,7 +103,6 @@ const Navbar = (props) => {
     const {t, i18n} = useTranslation();
     useEffect(() => {
         const userLocale = localStorage.getItem('NEXT_LOCALE');
-
         if (userLocale) {
             i18n.changeLanguage(userLocale)
             setCurrentLanguage(userLocale);
@@ -139,7 +138,7 @@ const Navbar = (props) => {
     return (
         <header
             className="  w-full xl:px-0 xl:pt-0 py-8 font-medium flex items-center justify-between dark:text-light z-10 bg-transparent">
-            {/*<SmallScreenHeader handleClick={handleClick} isOpen={isOpen}/>*/}
+            <SmallScreenHeader handleClick={handleClick} isOpen={isOpen}/>
 
             <LargeScreenHeader topNavItems={topNavItemss} translator={t} changeLang={changeLang}/>
             {/* Rest of the code */}

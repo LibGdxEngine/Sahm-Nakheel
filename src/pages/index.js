@@ -110,17 +110,17 @@ export default function Index({data}) {
                  investment_plans={investment_plans}/>
         <HowItWorks/>
         <DownloadApp/>
-        {/*<ContactUs arabic_contact_slogan={arabic_contact_slogan}*/}
-        {/*           english_contact_slogan={english_contact_slogan}*/}
-        {/*           arabic_contact_message={arabic_contact_message}*/}
-        {/*           english_contact_message={english_contact_message}*/}
-        {/*           map_link={map_link}*/}
-        {/*           phone_number={phone_number}*/}
-        {/*           location_as_text={location_as_text}*/}
-        {/*           email={email}/>*/}
+        <ContactUs arabic_contact_slogan={arabic_contact_slogan}
+                   english_contact_slogan={english_contact_slogan}
+                   arabic_contact_message={arabic_contact_message}
+                   english_contact_message={english_contact_message}
+                   map_link={map_link}
+                   phone_number={phone_number}
+                   location_as_text={location_as_text}
+                   email={email}/>
         <FAQs questions={questions}/>
         <WhatPeopleSays feedbacks={feedback}/>
-        {/*<InvestmentCalculator/>*/}
+        <InvestmentCalculator/>
         <Gallery/>
         <PreFooter/>
 

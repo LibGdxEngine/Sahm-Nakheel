@@ -44,16 +44,16 @@ const Footer = ({word}) => {
                         <input
                             id="text-input"
                             type="text"
-                            className="border border-white rounded-full me-2   px-3 py-2 w-2/3 focus:outline-none focus:ring focus:border-blue-500 placeholder-gray-500 placeholder-opacity-90"
+                            className="border border-white rounded-full me-2 px-3 py-2 w-2/3 focus:outline-none focus:ring focus:border-blue-500 placeholder-gray-500 placeholder-opacity-90"
                             placeholder={`${t(tokens.contact.name)}`}
                         />
 
                         <div
-                            className={`w-auto flex items-center bg-dark text-light p-1.5 px-10  
+                            className={`w-auto flex items-center bg-dark text-light p-1.5 px-10 
                   rounded-full text-xl font-normal hover:bg-light hover:text-dark
                   border-2 border-solid border-transparent hover:border-dark
                   dark:bg-light dark:text-dark hover:dark:bg-dark hover:dark:text-light
-                  hover:dark:border-light md:p-2 md:px-4 md:text-base
+                  hover:dark:border-light  md:px-4 md:text-base
                   `}
                             style={{cursor: "pointer"}}
                         >
@@ -65,7 +65,7 @@ const Footer = ({word}) => {
                         <span className="text-lightGreen">Now!</span> : ""}
                     </h1>
 
-                    <div className="w-full flex items-center justify-start mt-2  xs:w-[100%] xs:justify-start">
+                    <div className=" w-full flex items-center justify-start mt-2 xs:flex-col  xs:w-[100%] xs:justify-start">
                         <Image
                             src={appStore}
                             width={150}

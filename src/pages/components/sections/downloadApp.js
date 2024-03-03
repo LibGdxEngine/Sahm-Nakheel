@@ -29,7 +29,7 @@ const DownloadApp = () => {
 
     return (
         <Layout className={`mt-60 sm:mt-20`}>
-            <div className="flex items-center justify-between w-full lg:flex-col sm:px-10">
+            <div className="flex items-center justify-between w-full lg:flex-col ">
                 <div className="w-1/2 md:w-full relative">
                     <Image
                         priority={true}
