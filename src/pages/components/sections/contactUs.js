@@ -8,9 +8,9 @@ import {tokens} from "@/locales/tokens";
 const dynamicImageImport = (imageName) => `/images/${imageName}.svg`;
 
 // Reusable style constants
-const flexCenter = "w-full flex items-center justify-center px-20 xs:px-8 sm:flex-col-reverse sm:relative";
-const flexStart = "w-full flex flex-col items-start justify-start";
-const inputStyle = "border-0 rounded-2xl mb-5 px-3 py-6 w-full focus:outline-none" + "focus:ring focus:border-blue-500 placeholder-green-500 placeholder-opacity-90";
+const flexCenter = "w-full flex items-center justify-center px-20 xs:px-8 sm:flex-col-reverse sm:relative sm:px-0";
+const flexStart = "w-full flex flex-col items-start justify-start sm:px-[10%]";
+const inputStyle = "border-0 rounded-2xl mb-5 px-3 py-4 w-full focus:outline-none" + "focus:ring focus:border-blue-500 placeholder-green-500 placeholder-opacity-90";
 
 const ContactUs = ({
                        arabic_contact_slogan,
@@ -29,18 +29,19 @@ const ContactUs = ({
         window.open(map_link, "_blank");
     };
 
-    return (<div id={`contactus`} className={`w-full mt-40 flex flex-col items-center justify-center`}>
-            <HoveredText text={`${t(tokens.contact.title)}`}/>
+    return (
+        <div id={`contactus`} className={`w-full mt-40 flex flex-col items-center justify-center`}>
 
-            <div className={flexCenter}>
+
+            <Layout className={flexCenter}>
                 <Image
                     src={dynamicImageImport("Vector 1")}
                     width={900}
                     height={600}
                     alt=""
-                    className="absolute w-full left-[-0%] top-[-0%] z-0 xs:top-[20%] hidden sm:block"
+                    className="absolute w-full left-[-0%] top-[30%] z-0 hidden sm:block"
                 />
-                <div className={`${flexStart}  relative`}>
+                <div className={`${flexStart} relative`}>
                     <Image
                         src={dynamicImageImport("Vector 1")}
                         width={900}
@@ -48,18 +49,25 @@ const ContactUs = ({
                         alt=""
                         className="absolute w-full left-[-25%] top-[-25%] z-0 xs:top-[30%] sm:hidden"
                     />
-
-                    <p className="w-full text-xl text-primary font-light text-center sm:text-base">
+                    <div className={`text-7xl text-primary font-normal sm:text-4xl sm:mt-8 sm:font-extrabold z-[3]
+                    sm:text-center sm:w-full`}>
+                        {t(tokens.contact.title)}
+                    </div>
+                    <div className="w-full text-start sm:text-center text-xl text-primary font-light py-2 sm:text-base">
                         {slogan}
-                    </p>
+                    </div>
 
                     <div className={`${flexStart} w-2/3  mt-4 z-10 self-center`}>
-                        <input id="name-input" type="text" className={inputStyle} placeholder={`${t(tokens.contact.name)}`}/>
-                        <input id="email-input" type="email" className={inputStyle} placeholder={`${t(tokens.contact.email)}`}/>
-                        <textarea id="query-input" className={`${inputStyle} h-32`} placeholder={`${t(tokens.contact.query)}`}/>
+                        <input id="name-input" type="text" className={inputStyle}
+                               placeholder={`${t(tokens.contact.name)}`}/>
+                        <input id="email-input" type="email" className={inputStyle}
+                               placeholder={`${t(tokens.contact.email)}`}/>
+                        <textarea id="query-input" className={`${inputStyle} h-32`}
+                                  placeholder={`${t(tokens.contact.query)}`}/>
                     </div>
 
                     <div className="flex w-full items-center justify-center mt-2">
+
                         <h1 className="w-full  p-0 m-0 text-sm text-primary font-normal sm:text-left sm:w-1/2 xs:text-xs">
                             {message}
                         </h1>
@@ -74,6 +82,7 @@ const ContactUs = ({
                             style={{cursor: "pointer"}}
                         >{t(tokens.contact.send_btn)}
                         </div>
+
                     </div>
                 </div>
 
@@ -95,14 +104,14 @@ const ContactUs = ({
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         src={dynamicImageImport("map_small")}
                         alt="Sahm Nakheel"
-                        className="w-full h-full hidden sm:block"
+                        className="w-full h-full hidden sm:block "
                     />
                 </div>
-            </div>
+            </Layout>
 
-            <div className="w-[80%] mt-4 flex items-center justify-around md:flex-col
+            <div className="w-[80%] sm:w-[90%] mt-4 flex items-center justify-around md:flex-col
             sm:items-start sm:bg-mintyGreen sm:py-6 sm:rounded-3xl ">
-                <div className="w-fit flex items-center justify-center md:justify-start md:px-12 xs:px-2">
+                <div className="w-fit flex items-center justify-center md:justify-start sm:justify-center md:px-12 xs:px-2">
                     <Image
                         src={dynamicImageImport('Vector (3)')}
                         width={23}

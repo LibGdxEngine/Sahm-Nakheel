@@ -61,7 +61,7 @@ const Slider = ({investment_plans, onCardClicked}) => {
     }
 
     return (
-        <div className="w-[80vw] lg:w-[80vw] flex flex-col items-center justify-center pb-10 overflow-hidden">
+        <div className="w-[80vw] lg:w-[90vw] flex flex-col items-center justify-center pb-10 overflow-hidden">
             <div className="w-full flex items-center justify-between relative ">
                 <div className="w-full">
                     <div
@@ -116,7 +116,7 @@ const Slider = ({investment_plans, onCardClicked}) => {
                 </div>
 
             </div>
-            <span className={`w-full font-normal text-lg text-center`}>{t(tokens.plans.message)}</span>
+            <span className={`w-full font-normal text-lg text-center sm:px-10`}>{t(tokens.plans.message)}</span>
 
             <div className="w-full flex items-center justify-between mt-10">
                 <Image

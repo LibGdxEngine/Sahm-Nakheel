@@ -14,7 +14,7 @@ const Pricing = ({
     const slogan = i18n.language === "en" ? english_plans_slogan : arabic_plans_slogan;
 
     return (
-        <div className={`m-60`}>
+        <div className={`mt-60 `}>
             <div
                 id="pricing"
                 className="w-full bg-mintyGreen rounded-3xl mt-20 px-18 sm:pt-1 "

@@ -9,7 +9,7 @@ import {tokens} from "@/locales/tokens";
 
 // Create a reusable ImageComponent
 const ImageComponent = ({src, alt}) => (
-    <div className="w-full me-8 flex items-center justify-center">
+    <div className="w-full h-full flex items-center justify-center">
         <Image
             priority={true}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -25,18 +25,20 @@ const ImageComponent = ({src, alt}) => (
 // Create a reusable TextSection component
 const TextSection = ({id, title, children}) => (
     <div
-        className="w-full flex flex-col items-center justify-center text-center  lg:w-full lg:text-center sm:px-2">
+        className="w-full flex flex-col items-center justify-center text-center  lg:w-full lg:text-center ">
         <h1 id={id}
-            className="!text-4xl !text-left !text-primary font-light xl:!text-xl
+            className="!text-4xl !text-left md:!text-center !text-primary font-light xl:!text-xl
             lg:!text-center lg:!text-3xl md:!text-3xl sm:!text-lg sm:font-extrabold">
             {title}
         </h1>
-        {children}
+        <div className={`w-full`}>
+            {children}
+        </div>
     </div>
 );
 
 const ReserveButton = ({text = "Reserve your share now"}) => {
-    return <div className="sm:w-full flex items-center self-center mt-2 lg:self-center">
+    return <div className="w-full md:w-fit flex items-center self-center mt-2 lg:self-center">
         <div
             className={`flex items-center justify-center bg-dark text-light p-2.5 px-12
   rounded-full text-lg font-normal hover:bg-light hover:text-dark
@@ -79,23 +81,24 @@ const AboutUs = ({
         ? profilePic2 : profilePic2;
 
     return (
-        <Layout className={`mt-20  sm:mt-0`}>
+        <Layout className={`w-full mt-20 sm:mt-0`}>
             <br id="aboutus"/>
-            <HoveredText text={`${t(tokens.nav.about)}`}/>
-            <h1 className="text-xl text-primary font-light text-center sm:text-base sm:mt-0">
+            <HoveredText text={`${t(tokens.nav.about)}`} className={`sm:mt-10`}/>
+            <div className="text-xl text-primary font-light text-center sm:text-base sm:mb-10 ">
                 {aboutuse_slogan}
-            </h1>
-            <div className="w-full grid grid-cols-2 items-center justify-center mt-20 lg:grid-cols-1 sm:mt-0 relative">
+            </div>
+
+            <div className="w-full grid grid-cols-2 gap-x-2 items-center justify-center mt-20 lg:grid-cols-1 sm:mt-0 relative">
                 <ImageComponent src={photo} alt="Sahm Nakheel"/>
-                <div className="flex items-center justify-center w-full h-full flex-col mt-16 sm:mt-0 sm:px-8">
+                <div className="w-full px-20 sm:!w-full flex items-center justify-center h-full flex-col sm:mt-0 sm:px-8">
 
                     <TextSection title={`${aboutus_title}`}>
-                        <div className={`text-left`} style={{textAlign: i18n.language === "en" ? "" : "center"}}>
+                        <div className={`text-left md:!text-center sm:!w-full`} style={{textAlign: i18n.language === "en" ? "" : "center"}}>
                             {firstPart}
                         </div>
                     </TextSection>
                     <TextSection>
-                        <div className={`text-left`} style={{textAlign: i18n.language === "en" ? "" : "center"}}>
+                        <div className={`text-left md:!text-center`} style={{textAlign: i18n.language === "en" ? "" : "center"}}>
                             {secondPart}
                         </div>
 
@@ -104,7 +107,6 @@ const AboutUs = ({
                     <ReserveButton text={aboutus_button}/>
                 </div>
             </div>
-
         </Layout>
     );
 };

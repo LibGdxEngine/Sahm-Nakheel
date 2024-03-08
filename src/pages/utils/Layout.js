@@ -1,5 +1,5 @@
 const Layout = ({children, className = ""}) => {
-    return <div className={`mx-28 sm:mx-4 ${className}`}>
+    return <div className={`px-[10%]  sm:mx-4 ${className}`}>
         {children}
     </div>
 };

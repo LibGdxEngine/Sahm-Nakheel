@@ -33,8 +33,8 @@ const CardItem = ({image, title, desc}) => {
     return (
         <>
             <div
-                className="flex flex-col items-start bg-white bg-opacity-50 justify-between h-80
-                        rounded-3xl mx-8 md:mx-1 p-8 md:p-4 sm:text-xs "
+                className="h-72 w-fit flex flex-col items-start bg-white bg-opacity-50 justify-start
+                        rounded-3xl mx-4 md:mx-1 p-8 md:p-4 sm:text-xs "
                 onMouseEnter={handleHover}
                 onMouseLeave={handleHoverEnd}
             >
@@ -42,10 +42,10 @@ const CardItem = ({image, title, desc}) => {
                     <Image src={image} height={76} width={73} alt="wallet"/>
                 </motion.div>
 
-                <p className="text-lg font-extrabold text-primary sm:mt-4  w-full">{title}</p>
-                <p className="text-sm text-dark font-thin sm:text-sm sm:mt-0 ">
+                <div className="text-lg font-extrabold text-primary sm:mt-4 w-full my-4">{title}</div>
+                <div className="text-sm text-dark font-thin sm:text-sm">
                     {desc}
-                </p>
+                </div>
             </div>
         </>
     );
@@ -120,14 +120,14 @@ const Features = ({
         <div className={`w-full `}>
             <div
                 id="features"
-                className="w-full flex flex-col items-center justify-center mt-20 relative">
+                className="w-full flex flex-col items-center justify-center my-20 relative">
                 <div className="w-full  absolute left-[0%] top-[-80%] translate-x-[0%] sm:top-0 z-[-1] md:hidden">
                     <Image src={polygon3} alt="" className="w-full h-auto"/>
                 </div>
                 <HoveredText text={`${title}`}/>
-                <h1 className="text-xl w-2/3 text-primary font-light text-center sm:text-base">
+                <div className="text-xl w-[40%] text-primary font-light text-center sm:text-base">
                     {features_slogan}
-                </h1>
+                </div>
             </div>
 
             <div

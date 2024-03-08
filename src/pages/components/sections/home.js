@@ -24,22 +24,23 @@ export default function Home({
     const action_btn_text = i18n.language === "en" ? english_action_button_text : arabic_action_button_text;
     return (
         <Layout className="flex items-center justify-center w-full lg:flex-col xs:flex-col-reverse">
-            <div className="absolute left-[12%] top-[-10%] translate-x-[-30%] sm:top-0 z-0 sm:hidden">
-                <Image src={polygon1} alt="" className="w-full h-auto"/>
+            <div className="absolute w-[90%] h-fit left-[18%] top-[-10%] translate-x-[-30%] sm:top-0 z-0 sm:hidden ">
+                <Image width={500} height={500} src={polygon1} alt="" className="w-full h-auto"/>
             </div>
             <div
-                className="w-full flex flex-col mt-8 items-center self-center lg:w-full lg:text-center sm:px-8 z-10 xl:z-[1]">
+                className="w-full flex flex-col mt-8 items-center self-center
+                 lg:w-full sm:px-0 z-10 xl:z-[1]">
                 <h3
                     className="w-full !text-primary font-light
-               !text-center  md:!text-xl sm:!text-xs sm:mb-3"
+                md:!text-xl sm:!text-xs sm:mb-3 lg:!text-center"
                 >
                     {title}
                 </h3>
 
                 <div
 
-                    className="w-full mt-8 sm:mt-0 !text-4xl !text-center !text-primary font-light
-             lg:!text-center lg:me-2 lg:!text-3xl md:!text-3xl sm:!text-3xl xs:!text-2xl "
+                    className="w-full mt-8 sm:mt-0 !text-4xl  !text-primary font-light
+             lg: lg:me-2 lg:!text-3xl md:!text-3xl sm:!text-3xl xs:!text-2xl lg:!text-center"
                 >
                     {t(tokens.nav.affordable)}
                 </div>
@@ -47,15 +48,15 @@ export default function Home({
                 <div className="w-full flex items-center justify-center">
                     <div
 
-                        className="w-full mt-3 sm:mt-0 !text-4xl !text-center !text-primary font-extrabold sm:!text-3xl
-
+                        className="w-full mt-3 sm:mt-0 !text-4xl lg:!text-center !text-primary font-extrabold sm:!text-3xl
+                        sm:px-2
                 " style={{direction: i18n.language === "en" ? "ltr" : "rtl"}}
                     >
                         {t(tokens.nav.starting)} {" "}
                         <span
 
-                            className="w-full !text-4xl !text-center !text-darkGreen font-extrabold
-                 lg:!text-center lg:!text-3xl md:!text-3xl sm:!text-3xl xs:!text-2xl
+                            className="w-full !text-4xl  !text-darkGreen font-extrabold
+                 lg: lg:!text-3xl md:!text-3xl sm:!text-3xl xs:!text-2xl lg:!text-center
                 "
                         >
                 8000 EGP
@@ -65,12 +66,12 @@ export default function Home({
                 <h3
 
                     className="w-full !text-primary font-light
-               !text-center  md:!text-xl sm:!text-xs sm:mb-3"
+                 md:!text-xl sm:!text-xs sm:mb-3 lg:!text-center"
                     style={{direction: i18n.language === "en" ? "ltr" : "rtl"}}
                 >
                     {slogan}
                 </h3>
-                <div className="flex items-center self-center mt-2 sm:mt-6 lg:self-center">
+                <div className="w-full flex items-center self-center mt-2 sm:mt-6 lg:!w-fit">
                     <div
                         className={`flex items-center bg-darkGreen text-white p-2.5 px-12
                   rounded-full text-lg font-normal hover:bg-white hover:text-darkGreen hover:border hover:border-darkGreen
@@ -90,7 +91,7 @@ export default function Home({
                   rounded-3xl text-lg font-normal hover:bg-darkGreen hover:text-white 
                   border border-solid border-darkGreen
                   dark:bg-dark dark:border-white dark:text-white  
-                  md:p-2 md:px-4 md:text-base
+                  md:p-2 md:px-4 md:text-base xs:text-xs
                   `}
                         style={{cursor: "pointer"}}
                     >
@@ -103,7 +104,7 @@ export default function Home({
                                 width={18}
                                 height={21.5}
                                 alt="play"
-                                className="me-4 mt-1"
+                                className="me-4 mt-1 sm:!mt-0"
                             />
                             {t(tokens.nav.watch_video)}
                         </div>

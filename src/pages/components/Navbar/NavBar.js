@@ -48,11 +48,11 @@ const LargeScreenHeader = ({topNavItems, translator: t, changeLang}) => {
     }
     // const router = useRouter();
     return (
-        <div className="mx-28 w-full flex flex-col items-center justify-between xl:hidden mt-10">
+        <div className="w-full flex flex-col items-center justify-between xl:hidden mt-10">
             <Logo classes="pb-8"/>
 
             <div className="w-full flex items-center justify-between h-24">
-                <nav className="w-[75%]  flex items-center justify-between">
+                <nav className="w-[70%] flex items-center justify-between">
                     {/* Use a map function to render TopNavItems */}
                     {topNavItems.map((item) => (
                         <div key={item.key}>
@@ -61,9 +61,9 @@ const LargeScreenHeader = ({topNavItems, translator: t, changeLang}) => {
                     ))}
                 </nav>
 
-                <nav className="flex items-center justify-center flex-wrap">
-                    <div className={`shadow-lg shadow-y-20 flex items-center bg-gradient-to-br from-lightGreen to-darkGreen text-light py-1 px-4
-                                    rounded-3xl text-base font-normal hover:bg-white 
+                <nav className="w-[25%] flex items-center justify-center flex-wrap">
+                    <div className={`shadow-lg shadow-y-20 flex items-center bg-gradient-to-br from-lightGreen to-darkGreen text-light py-1 
+                                    rounded-3xl text-base font-normal hover:bg-white px-4
                                     dark:bg-light dark:text-white  
                                     md:p-2 md:px-4 md:text-base`}
                          style={{cursor: "pointer"}}>
@@ -118,6 +118,7 @@ const Navbar = (props) => {
         {key: 'pricing', path: '#pricing', title: 'Pricing', translationKey: tokens.nav.pricing},
         {key: 'faq', path: '#faq', title: 'FAQ', translationKey: tokens.nav.faq},
         {key: 'gallery', path: '#gallery', title: 'Gallery', translationKey: tokens.nav.gallery},
+        {key: 'blog', path: '#blog', title: 'Blog', translationKey: tokens.nav.blog},
         {key: 'contactus', path: '#contactus', title: 'Contact Us', translationKey: tokens.nav.contact},
     ];
 
@@ -137,7 +138,7 @@ const Navbar = (props) => {
     };
     return (
         <header
-            className="  w-full xl:px-0 xl:pt-0 py-8 font-medium flex items-center justify-between dark:text-light z-10 bg-transparent">
+            className=" px-[10%] w-full xl:px-0 xl:pt-0 py-8 font-medium flex items-center justify-between dark:text-light z-10 bg-transparent">
             <SmallScreenHeader handleClick={handleClick} isOpen={isOpen}/>
 
             <LargeScreenHeader topNavItems={topNavItemss} translator={t} changeLang={changeLang}/>
