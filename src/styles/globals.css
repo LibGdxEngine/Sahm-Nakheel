@@ -3,74 +3,114 @@
 @tailwind utilities;
 
 .small-header-items-separator {
-  background: linear-gradient(270deg, rgba(226, 255, 224, 0) 0%, #7FCE7A 49.48%, rgba(226, 255, 224, 0) 100%);
+    background: linear-gradient(270deg, rgba(226, 255, 224, 0) 0%, #7FCE7A 49.48%, rgba(226, 255, 224, 0) 100%);
 }
 
-.html{
-  margin: 0;
+.html {
+    margin: 0;
 }
 
 @layer utilities {
-  .shadow-green {
-    box-shadow: -100px 100px 150px 0px rgba(54, 180, 140, 0.2);
-  }
+    .shadow-green {
+        box-shadow: -100px 100px 150px 0px rgba(54, 180, 140, 0.2);
+    }
 
-  .shadow-calc {
-    box-shadow: -75px 75px 150px 0px rgba(19, 112, 84, 1);
-  }
+    .shadow-calc {
+        box-shadow: -75px 75px 150px 0px rgba(19, 112, 84, 1);
+    }
 
-  .calc-btn {
-    box-shadow: -30px 30px 50px 0px rgba(0, 0, 0, 0.25);
-  }
+    .calc-btn {
+        box-shadow: -30px 30px 50px 0px rgba(0, 0, 0, 0.25);
+    }
 
-  .sm-features {
-    box-shadow: 0px 0px 100px 0px #7fce7a66;
-  }
+    .sm-features {
+        box-shadow: 0px 0px 100px 0px #7fce7a66;
+    }
 
-  .contactus-vector {
-    box-shadow: -25px 25px 100px 0px #7fce7a80;
-  }
+    .contactus-vector {
+        box-shadow: -25px 25px 100px 0px #7fce7a80;
+    }
 
-  .auth-card {
-    box-shadow: -100px 100px 150px 0px #00263A33;
-    border: 1px solid;
-    border-image-source: linear-gradient(319.55deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
-  }
+    .auth-card {
+        box-shadow: -100px 100px 150px 0px #00263A33;
+        border: 1px solid;
+        border-image-source: linear-gradient(319.55deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+    }
 }
 
 
 .indicators {
-  display: flex;
-  border: 1px solid darkgreen;
+    display: flex;
+    border: 1px solid darkgreen;
 }
 
 .indicator {
-  width: 10px;
-  height: 10px;
-  background: #ccc;
-  border-radius: 50%;
-  margin: 0 5px;
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
 }
 
 .active.indicator {
-  background: #137054;
+    background: #137054;
 }
 
 .prev-button,
 .next-button {
-  margin: 10px;
-  padding: 10px 20px;
-  background: #0070f3;
-  color: white;
-  border: none;
-  cursor: pointer;
+    margin: 10px;
+    padding: 10px 20px;
+    background: #0070f3;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
 
 .footer-border-radius {
-  border-top-left-radius: 3rem;
-  /* Set your desired radius value here */
-  border-top-right-radius: 3rem;
-  /* Set your desired radius value here */
+    border-top-left-radius: 3rem;
+    /* Set your desired radius value here */
+    border-top-right-radius: 3rem;
+    /* Set your desired radius value here */
 }
 
+.image-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.image-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Adjust height for desired gradient coverage */
+    background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+/* Customize the slider track (the line) */
+input[type="range"] {
+    -webkit-appearance: none; /* Removes default appearance */
+    width: 100%;
+    height: 1px; /* Adjust height as needed */
+    background-color: #EFFFEE80 /* Your desired track color */;
+    outline: none;
+}
+
+/* Customize the slider point (thumb) */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px; /* Adjust the size of the thumb */
+    height: 12px;
+    background: white;
+    border-radius: 50%; /* For a circular shape */
+    cursor: pointer;
+    box-shadow: white /* Optional: add a shadow effect */;
+}
+
+/* Styling on focus (Optional) */
+input[type="range"]:focus::-webkit-slider-thumb {
+    outline: 2px solid greenyellow /* Your desired focus outline color */;
+}

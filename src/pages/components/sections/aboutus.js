@@ -23,12 +23,12 @@ const ImageComponent = ({src, alt}) => (
 );
 
 // Create a reusable TextSection component
-const TextSection = ({id, title, children}) => (
+const TextSection = ({id, title, children, titleClass=""}) => (
     <div
-        className="w-full flex flex-col items-center justify-center text-center  lg:w-full lg:text-center ">
+        className="w-full flex flex-col items-center justify-center text-center  lg:w-full lg:text-center " >
         <h1 id={id}
-            className="!text-4xl !text-left md:!text-center !text-primary font-light xl:!text-xl
-            lg:!text-center lg:!text-3xl md:!text-3xl sm:!text-lg sm:font-extrabold">
+            className={`!text-4xl !text-left md:!text-center !text-primary font-light xl:!text-xl
+            lg:!text-center lg:!text-3xl md:!text-3xl sm:!text-lg sm:font-extrabold ${titleClass}`}>
             {title}
         </h1>
         <div className={`w-full`}>
@@ -37,8 +37,8 @@ const TextSection = ({id, title, children}) => (
     </div>
 );
 
-const ReserveButton = ({text = "Reserve your share now"}) => {
-    return <div className="w-full md:w-fit flex items-center self-center mt-2 lg:self-center">
+const ReserveButton = ({text = "Reserve your share now", dir="ltr"}) => {
+    return <div style={{direction: dir}} className="w-full md:w-fit flex items-center self-center mt-2 lg:self-center">
         <div
             className={`flex items-center justify-center bg-dark text-light p-2.5 px-12
   rounded-full text-lg font-normal hover:bg-light hover:text-dark
@@ -90,21 +90,21 @@ const AboutUs = ({
 
             <div className="w-full grid grid-cols-2 gap-x-2 items-center justify-center mt-20 lg:grid-cols-1 sm:mt-0 relative">
                 <ImageComponent src={photo} alt="Sahm Nakheel"/>
-                <div className="w-full px-20 sm:!w-full flex items-center justify-center h-full flex-col sm:mt-0 sm:px-8">
+                <div className="w-full  px-20 sm:!w-full flex items-center justify-center h-full flex-col sm:mt-0 sm:px-8">
 
-                    <TextSection title={`${aboutus_title}`}>
-                        <div className={`text-left md:!text-center sm:!w-full`} style={{textAlign: i18n.language === "en" ? "" : "center"}}>
+                    <TextSection title={`${aboutus_title}`} titleClass={`${i18n.language === "en" ? "" : "!text-end"}`}>
+                        <div className={`text-left md:!text-center sm:!w-full`} style={{textAlign: i18n.language === "en" ? "" : "end"}}>
                             {firstPart}
                         </div>
                     </TextSection>
                     <TextSection>
-                        <div className={`text-left md:!text-center`} style={{textAlign: i18n.language === "en" ? "" : "center"}}>
+                        <div className={`text-left md:!text-center`} style={{textAlign: i18n.language === "en" ? "" : "end"}}>
                             {secondPart}
                         </div>
 
                     </TextSection>
                     <br/>
-                    <ReserveButton text={aboutus_button}/>
+                    <ReserveButton text={aboutus_button} dir={`${i18n.language === "en" ? "ltr" : "rtl"}`}/>
                 </div>
             </div>
         </Layout>

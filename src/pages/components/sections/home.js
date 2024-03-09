@@ -28,11 +28,16 @@ export default function Home({
                 <Image width={500} height={500} src={polygon1} alt="" className="w-full h-auto"/>
             </div>
             <div
-                className="w-full flex flex-col mt-8 items-center self-center
+                className="w-full  flex flex-col mt-8 items-center self-center
                  lg:w-full sm:px-0 z-10 xl:z-[1]">
                 <h3
                     className="w-full !text-primary font-light
                 md:!text-xl sm:!text-xs sm:mb-3 lg:!text-center"
+                    style={{
+                        direction: i18n.language === "en" ? "ltr" : "rtl",
+                        textAlign: i18n.language === "en" ? "start" : "end"
+                    }}
+
                 >
                     {title}
                 </h3>
@@ -41,6 +46,10 @@ export default function Home({
 
                     className="w-full mt-8 sm:mt-0 !text-4xl  !text-primary font-light
              lg: lg:me-2 lg:!text-3xl md:!text-3xl sm:!text-3xl xs:!text-2xl lg:!text-center"
+                    style={{
+                        direction: i18n.language === "en" ? "ltr" : "rtl",
+                        textAlign: i18n.language === "en" ? "start" : "end"
+                    }}
                 >
                     {t(tokens.nav.affordable)}
                 </div>
@@ -50,7 +59,12 @@ export default function Home({
 
                         className="w-full mt-3 sm:mt-0 !text-4xl lg:!text-center !text-primary font-extrabold sm:!text-3xl
                         sm:px-2
-                " style={{direction: i18n.language === "en" ? "ltr" : "rtl"}}
+                "
+                        style={{
+                            direction: i18n.language === "en" ? "ltr" : "rtl",
+                            textAlign: i18n.language === "en" ? "start" : "end"
+                        }}
+
                     >
                         {t(tokens.nav.starting)} {" "}
                         <span
@@ -67,7 +81,10 @@ export default function Home({
 
                     className="w-full !text-primary font-light
                  md:!text-xl sm:!text-xs sm:mb-3 lg:!text-center"
-                    style={{direction: i18n.language === "en" ? "ltr" : "rtl"}}
+                    style={{
+                        direction: i18n.language === "en" ? "ltr" : "rtl",
+                        textAlign: i18n.language === "en" ? "start" : "end"
+                    }}
                 >
                     {slogan}
                 </h3>
