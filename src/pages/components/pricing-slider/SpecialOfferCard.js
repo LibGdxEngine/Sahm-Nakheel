@@ -42,12 +42,12 @@ const SpecialOfferCard = ({
                 <div className="w-2/3 absolute left-[17%] top-[-5%] bg-mOrange rounded-full text-center px-18 py-3">
                     <div className="text-dark font-semibold text-lg">{most_popular_text}</div>
                 </div>
-                <div className="flex items-center justify-center text-white">
-                    <h1 className="text-6xl font-extrabold me-5">{years}</h1>
+                <div className=" flex items-center justify-center">
+                    <div className="text-6xl text-white font-extrabold me-5">{years}</div>
                     <div className="flex flex-col items-start justify-center">
-                        <h1 className="text-2xl text-lightGreen">{title}</h1>
-                        <h1 className="text-xs text-lightGreen">{investment}</h1>
-                        <h1 className="text-sm text-white font-extrabold">{cost}</h1>
+                        <div className=" text-xl text-lightGreen">{title}</div>
+                        <div className="text-xs text-lightGreen">{investment}</div>
+                        <div className="text-sm text-white font-extrabold">{cost}</div>
                     </div>
                 </div>
 

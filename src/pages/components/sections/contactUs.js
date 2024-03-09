@@ -8,7 +8,7 @@ import {tokens} from "@/locales/tokens";
 const dynamicImageImport = (imageName) => `/images/${imageName}.svg`;
 
 // Reusable style constants
-const flexCenter = "w-full flex items-center justify-center px-20 xs:px-8 sm:flex-col-reverse sm:relative sm:px-0";
+const flexCenter = "w-full flex items-center justify-center px-20  sm:flex-col-reverse sm:relative sm:px-0";
 const flexStart = "w-full flex flex-col items-start justify-start sm:px-[10%]";
 const inputStyle = "border-0 rounded-2xl mb-5 px-3 py-4 w-full focus:outline-none" + "focus:ring focus:border-blue-500 placeholder-green-500 placeholder-opacity-90";
 

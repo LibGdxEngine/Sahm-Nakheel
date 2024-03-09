@@ -1,20 +1,20 @@
-const Row = () => {
+const Row = ({year, kilos, kiloPrice , offshoots, offshootPrice}) => {
     return (
         <>
             <div className="px-6 py-3 bg-white text-navyBlue  text-center text-xs font-medium ">
-                #1
+                #{year}
             </div>
             <div className="px-6 py-3 bg-white text-darkGreen  text-center text-xs font-extrabold ">
-                25 Kilos
+                {kilos} Kilos
             </div>
             <div className="px-6 py-3  bg-white text-navyBlue  text-center text-xs font-medium ">
-                120 EGP
+                {kiloPrice} EGP
             </div>
             <div className="px-6 py-3 bg-white text-darkGreen  text-center text-xs font-extrabold ">
-                2
+                {offshoots}
             </div>
             <div className="px-6 py-3 bg-white text-navyBlue  text-center text-xs font-medium ">
-                1300 EGP
+                {offshootPrice} EGP
             </div>
         </>
     );
@@ -47,11 +47,11 @@ const Table = () => {
                 <span className="sm:hidden">Off shoots </span> <span>price</span>
             </div>
 
-            <Row/>
-            <Row/>
-            <Row/>
-            <Row/>
-            <Row/>
+            <Row year={"4"} kilos={"25"} kiloPrice={"120"} offshoots={"2"} offshootPrice={"1300"}/>
+            <Row year={"5"} kilos={"50"} kiloPrice={"120"} offshoots={"2"} offshootPrice={"1300"}/>
+            <Row year={"6"} kilos={"75"} kiloPrice={"120"} offshoots={"2"} offshootPrice={"1300"}/>
+            <Row year={"7"} kilos={"100"} kiloPrice={"120"} offshoots={"2"} offshootPrice={"1300"}/>
+            <Row year={"8"} kilos={"125"} kiloPrice={"120"} offshoots={"2"} offshootPrice={"1300"}/>
         </div>
     );
 };

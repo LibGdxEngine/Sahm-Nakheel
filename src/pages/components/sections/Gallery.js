@@ -91,8 +91,10 @@ function Gallery() {
             {
                 breakpoint: 480,
                 settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1
+                    slidesToShow: 4,
+                    slidesToScroll: 1,
+                    className: 'w-full h-28',
+
                 }
             }
         ]
@@ -107,7 +109,7 @@ function Gallery() {
         return (
             <div className="relative mx-2" style={{cursor: "pointer"}}>
                 <div className="absolute top-0 left-0 w-full h-full bg-white opacity-40 blur-sm"></div>
-                <Image src={src} alt={alt} className="block w-full h-48" width={272} height={158}/>
+                <Image src={src} alt={alt} className="block w-full h-48 sm:h-28" width={272} height={158}/>
             </div>
         );
     };
@@ -147,7 +149,7 @@ function Gallery() {
                     <Image className={`mb-0.5 ms-0.5`} src={nextArrow} alt={``} width={18} height={18}/>
                 </div>
                 <div className="absolute bottom-[5%] left-1/2 -translate-x-1/2 -translate-y-1/2
-                bg-black bg-opacity-50 p-4 text-white max-w-[80%] text-center
+                bg-black bg-opacity-50 p-4 text-white max-w-[80%] text-center md:hidden
               ">
                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem ex nostrum officiis provident quis reiciendis, repudiandae suscipit! Accusantium adipisci aspernatur cum, et facilis iure necessitatibus neque quasi qui quos ratione.
                 </div>

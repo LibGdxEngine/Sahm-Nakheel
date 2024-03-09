@@ -6,35 +6,6 @@ import {tokens} from "@/locales/tokens";
 
 const WhatPeopleSays = ({feedbacks}) => {
     const {t, i18n} = useTranslation();
-    // Data for CardItems can be stored in an array for mapping, enhancing scalability and maintainability.
-    const cardData = [
-        {
-            title: "Abdullah Hussein",
-            desc: "Simple, reliable, scalable, and consistent - that’s the type of investment I look for and Nakheel Valley has it all. The business is promised to generate competitive returns for investors in the form of both cash and peace of mind."
-        },
-        {
-            title: "Khaled Ahmed",
-            desc: "I have a dozen different investments, and with the current situation of the pandemic, agri-business model of Nakheel Valley seems to be the optimum solution for a stable and safe investment."
-        },
-        {
-            title: "Khaled Ahmed",
-            desc: "I have a dozen different investments, and with the current situation of the pandemic, agri-business model of Nakheel Valley seems to be the optimum solution for a stable and safe investment."
-        },
-        {
-            title: "Khaled Ahmed",
-            desc: "I have a dozen different investments, and with the current situation of the pandemic, agri-business model of Nakheel Valley seems to be the optimum solution for a stable and safe investment."
-        },
-        {
-            title: "Khaled Ahmed",
-            desc: "I have a dozen different investments, and with the current situation of the pandemic, agri-business model of Nakheel Valley seems to be the optimum solution for a stable and safe investment."
-        },
-        {
-            title: "Khaled Ahmed",
-            desc: "I have a dozen different investments, and with the current situation of the pandemic, agri-business model of Nakheel Valley seems to be the optimum solution for a stable and safe investment."
-        },
-
-        // Add more items as needed
-    ];
 
     return (
         <Layout className="w-full flex flex-col mt-56 sm:mt-32">

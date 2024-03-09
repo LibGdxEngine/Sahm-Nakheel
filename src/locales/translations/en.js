@@ -65,6 +65,7 @@ export const en = {
 
     [tokens.calculator.plam_type]: 'Palm Type',
     [tokens.calculator.num_of_palms]: 'Number of Palms',
+    [tokens.calculator.year_num]: 'Number of Years',
     [tokens.calculator.investor_returns]: 'Investor Returns',
     [tokens.calculator.calculate]: 'Calculate',
     [tokens.calculator.calculator]: 'Calculator',

@@ -1,20 +1,34 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Layout from "@/pages/utils/Layout";
 import Table from "../utils/Table";
 import {useTranslation} from "next-i18next";
 import {tokens} from "@/locales/tokens";
 
-
-const InvestmentCalculator = () => {
+const InvestmentCalculator = ({
+                                  type_a_price,
+                                  type_b_price,
+                                  type_c_price,
+                                  type_d_price
+                              }) => {
     const {t, i18n} = useTranslation();
-    const ButtonRow = () => {
-        const [selectedButton, setSelectedButton] = useState(1);
+    const [selectedButton, setSelectedButton] = useState('A');
+    const [numOfPalmsSlider, setNumOfPalmsSlider] = useState(5);
+    const [numOfYearsSlider, setNumOfYearsSlider] = useState(4);
+    const [ROI, setROI] = useState("");
+    const [showResultTable, setShowResultTable] = useState(false);
 
+    useEffect(() => {
+        setROI(type_a_price * numOfPalmsSlider * numOfYearsSlider);
+    }, [numOfPalmsSlider, numOfYearsSlider, type_a_price]);
+    const calculateResultTable = () => {
+        setShowResultTable(!showResultTable);
+    }
+    const ButtonRow = () => {
         const buttons = [
-            {id: 1, text: "Type A"},
-            {id: 2, text: "Type B"},
-            {id: 3, text: "Type C"},
-            {id: 4, text: "Type D"},
+            {id: 'A', text: "Type A"},
+            {id: 'B', text: "Type B"},
+            {id: 'C', text: "Type C"},
+            {id: 'D', text: "Type D"},
         ];
 
         const handleButtonClick = (id) => {
@@ -41,24 +55,22 @@ const InvestmentCalculator = () => {
     };
 
     const Slider = () => {
-        const [sliderValue, setSliderValue] = useState(5);
-
         const handleInputChange = (e) => {
             const newValue = e.target.value;
             if (newValue >= 1 && newValue <= 20) {
-                setSliderValue(parseInt(newValue));
+                setNumOfPalmsSlider(parseInt(newValue));
             }
         };
 
         const handleIncrement = () => {
-            if (sliderValue < 20) {
-                setSliderValue(parseInt(sliderValue) + 1);
+            if (numOfPalmsSlider < 20) {
+                setNumOfPalmsSlider(parseInt(numOfPalmsSlider) + 1);
             }
         };
 
         const handleDecrement = () => {
-            if (sliderValue > 1) {
-                setSliderValue(parseInt(sliderValue) - 1);
+            if (numOfPalmsSlider > 1) {
+                setNumOfPalmsSlider(parseInt(numOfPalmsSlider) - 1);
             }
         };
 
@@ -75,7 +87,7 @@ const InvestmentCalculator = () => {
                     <input
                         style={{border: "none"}}
                         type="text"
-                        value={sliderValue}
+                        value={numOfPalmsSlider}
                         onChange={handleInputChange}
 
                         className="w-48 sm:w-32 h-10 text-3xl bg-white bg-opacity-30 text-white rounded-lg text-start ps-6"
@@ -93,8 +105,8 @@ const InvestmentCalculator = () => {
                     min="1"
                     max="20"
                     step="1"
-                    value={sliderValue}
-                    onChange={(e) => setSliderValue(e.target.value)}
+                    value={numOfPalmsSlider}
+                    onChange={(e) => setNumOfPalmsSlider(e.target.value)}
                     className="w-full h-0.5 bg-primary"
                 />
                 <div className="flex justify-between">
@@ -112,24 +124,22 @@ const InvestmentCalculator = () => {
     };
 
     const YearSlider = () => {
-        const [sliderValue, setSliderValue] = useState(5);
-
         const handleInputChange = (e) => {
             const newValue = e.target.value;
             if (newValue >= 4 && newValue <= 10) {
-                setSliderValue(parseInt(newValue));
+                setNumOfYearsSlider(parseInt(newValue));
             }
         };
 
         const handleIncrement = () => {
-            if (sliderValue < 10) {
-                setSliderValue(parseInt(sliderValue) + 1);
+            if (numOfYearsSlider < 10) {
+                setNumOfYearsSlider(parseInt(numOfYearsSlider) + 1);
             }
         };
 
         const handleDecrement = () => {
-            if (sliderValue > 4) {
-                setSliderValue(parseInt(sliderValue) - 1);
+            if (numOfYearsSlider > 4) {
+                setNumOfYearsSlider(parseInt(numOfYearsSlider) - 1);
             }
         };
 
@@ -146,7 +156,7 @@ const InvestmentCalculator = () => {
                     <input
                         style={{border: "none"}}
                         type="text"
-                        value={sliderValue}
+                        value={numOfYearsSlider}
                         onChange={handleInputChange}
                         className="w-60 sm:w-32 h-12 text-3xl bg-dark border border-lightGreen text-white rounded-lg text-start ps-6"
                     />
@@ -163,8 +173,8 @@ const InvestmentCalculator = () => {
                     min="4"
                     max="10"
                     step="1"
-                    value={sliderValue}
-                    onChange={(e) => setSliderValue(e.target.value)}
+                    value={numOfYearsSlider}
+                    onChange={(e) => setNumOfYearsSlider(e.target.value)}
                     className="w-full h-0.5 bg-primary"
                 />
                 <div className="flex justify-between">
@@ -181,35 +191,39 @@ const InvestmentCalculator = () => {
         );
     };
 
-    const InvestorReturn = ({text=""}) => {
+    const InvestorReturn = ({text = ""}) => {
         return (
             <div
                 className="h-48 border flex flex-col items-center justify-around border-lightGreen rounded-3xl bg-dark shadow-calc">
                 <div className="text-white font-normal text-3xl pt-2">{text}</div>
                 <div
                     className="w-4/5 text-center text-6xl font-bold border border-lightGreen rounded-3xl bg-lightGreen px-6 py-3 text-white">
-                    2,800
+                    {ROI >= 1000 ? ROI.toString().slice(0, ROI.toString().length - 3) + "," + ROI.toString().slice(ROI.toString().length - 3)
+                        : ROI}
                 </div>
             </div>
         );
     };
 
-    const ResultTable = () => {
-        return <>
-            <Table/>
-        </>
+    const ResultTable = ({show=false}) => {
+        return <div className={`w-full ${show ? "" : "h-[48vh] sm:h-[60vh]"}`}>
+            {show && <Table/>}
+        </div>
     }
 
     return (
         <Layout className="w-full mt-36 flex flex-col items-center justify-center relative px-28 sm:px-10 xs:px-4">
-            <div className="absolute bottom-[24%] xs:bottom-[21%] sm:bottom-[24%] lg:bottom-[22%] " style={{cursor: "pointer"}}>
+            <div className="absolute bottom-[24%] xs:bottom-[21%] sm:bottom-[24%] lg:bottom-[22%] "
+                 style={{cursor: "pointer"}}
+                 onClick={calculateResultTable}>
                 <p className="text-white text-2xl calc-btn  rounded-full bg-dark px-6 py-4
                  hover:text-primary hover:bg-white hover:border hover:border-dark">
                     {t(tokens.calculator.calculate)}
                 </p>
             </div>
             <p className="text-6xl text-primary sm:text-4xl sm:text-center">
-                {t(tokens.calculator.your_investment)} <span className=" text-midGreen sm:text-center"> {t(tokens.calculator.calculator)} </span>
+                {t(tokens.calculator.your_investment)} <span
+                className=" text-midGreen sm:text-center"> {t(tokens.calculator.calculator)} </span>
             </p>
             <div
                 className="w-full h-full p-14 border rounded-3xl bg-navyBlue
@@ -233,7 +247,7 @@ const InvestmentCalculator = () => {
                     <InvestorReturn text={`${t(tokens.calculator.investor_returns)}`}/>
                 </div>
             </div>
-            <ResultTable />
+            <ResultTable show={showResultTable}/>
         </Layout>
     );
 };
