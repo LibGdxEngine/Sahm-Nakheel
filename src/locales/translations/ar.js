@@ -37,7 +37,7 @@ export const ar = {
         [tokens.plans.title]: 'خطط الاستثمار',
         [tokens.plans.slogan]: 'طريقك إلى النمو المالي السهل',
         [tokens.plans.button_text]: 'اختر الخطة',
-        [tokens.plans.most_popular]: 'الخخطة الأكثر طلبا',
+        [tokens.plans.most_popular]: 'الخطة الأكثر طلبا',
         [tokens.plans.message]: 'يتم احتساب العائد الأول في السنة الرابعة من التعاقد حسب أسعار السوق',
 
         [tokens.hiw.title]: 'كيف يتم الأمر',

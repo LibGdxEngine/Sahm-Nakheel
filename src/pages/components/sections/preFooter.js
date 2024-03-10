@@ -1,7 +1,7 @@
 import Image from "next/image";
 import footerPalms from "../../../../public/images/footer-palm-trees-d.svg"
 const PreFooter = ()=>{
-    return <div className={`w-full h-40 bg-white mt-48`}>
+    return <div className={`w-full h-40 bg-white mt-48 mb-48`}>
         <div className=" ">
 
             <Image

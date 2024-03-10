@@ -32,12 +32,27 @@
     }
 
     .auth-card {
-        box-shadow: -100px 100px 150px 0px #00263A33;
+        box-shadow: -100px 100px 150px 0px rgba(0, 38, 58, 0.2);
         border: 1px solid;
         border-image-source: linear-gradient(319.55deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+        background: linear-gradient(139.55deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.7) 100%);
     }
+
+}
+.circle {
+    background: #ffffff;
+    /* Your desired background color */
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.logo {
+    text-align: center;
+}
 
 .indicators {
     display: flex;
@@ -114,3 +129,10 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]:focus::-webkit-slider-thumb {
     outline: 2px solid greenyellow /* Your desired focus outline color */;
 }
+
+
+.authCardbg {
+    background: linear-gradient(319.55deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%),
+    linear-gradient(139.55deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.7) 100%);
+}
+

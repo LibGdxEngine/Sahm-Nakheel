@@ -116,7 +116,7 @@ function Gallery() {
 
     const BigGalleryImage = ({src, alt}) => {
         return <div className={`image-container`}>
-            <Image src={image2} alt={``} layout={`responsive`} objectFit={'cover'}/>
+            <Image src={src} alt={``} className={`w-[100vw] h-[100vh] object-cover`}/>
         </div>
     }
 

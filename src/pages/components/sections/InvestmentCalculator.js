@@ -75,7 +75,7 @@ const InvestmentCalculator = ({
         };
 
         return (
-            <div className="w-4/5 mx-0 mt-4">
+            <div className="w-full pe-10 mt-4">
                 <div className="flex items-center">
                     <div
                         style={{cursor: "pointer"}}
@@ -144,7 +144,7 @@ const InvestmentCalculator = ({
         };
 
         return (
-            <div className="w-4/5 mx-0 mt-4">
+            <div className="w-full pe-10 mt-4">
                 <div className="flex items-center">
                     <div
                         style={{cursor: "pointer"}}
@@ -158,7 +158,7 @@ const InvestmentCalculator = ({
                         type="text"
                         value={numOfYearsSlider}
                         onChange={handleInputChange}
-                        className="w-60 sm:w-32 h-12 text-3xl bg-dark border border-lightGreen text-white rounded-lg text-start ps-6"
+                        className="w-48 sm:w-32 h-12 text-3xl bg-dark border border-lightGreen text-white rounded-lg text-start ps-6"
                     />
                     <div
                         style={{cursor: "pointer"}}
@@ -197,7 +197,7 @@ const InvestmentCalculator = ({
                 className="h-48 border flex flex-col items-center justify-around border-lightGreen rounded-3xl bg-dark shadow-calc">
                 <div className="text-white font-normal text-3xl pt-2">{text}</div>
                 <div
-                    className="w-4/5 text-center text-6xl font-bold border border-lightGreen rounded-3xl bg-lightGreen px-6 py-3 text-white">
+                    className="w-4/5 text-center text-6xl sm:text-4xl font-bold border border-lightGreen rounded-3xl bg-lightGreen px-6 py-3 text-white">
                     {ROI >= 1000 ? ROI.toString().slice(0, ROI.toString().length - 3) + "," + ROI.toString().slice(ROI.toString().length - 3)
                         : ROI}
                 </div>
@@ -231,7 +231,7 @@ const InvestmentCalculator = ({
                             lg:grid-cols-1
                             sm:p-4
                              ">
-                <div className="w-full h-24 flex flex-col lg:mx-10">
+                <div className="w-full sm:w-4/5 h-24 flex flex-col lg:mx-10">
                     <p className="w-full text-white text-2xl ">{t(tokens.calculator.plam_type)}</p>
                     <ButtonRow/>
                 </div>

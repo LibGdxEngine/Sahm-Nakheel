@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import {Poppins} from 'next/font/google'
+import localFont from 'next/font/local'
 import polygon2 from "../../public/images/Polygon 2.svg";
 import Home from "@/pages/components/sections/home";
 import AboutUs from "@/pages/components/sections/aboutus";
@@ -16,9 +17,12 @@ import Gallery from "@/pages/components/sections/Gallery";
 import PreFooter from "@/pages/components/sections/preFooter";
 import {useTranslation} from 'next-i18next';
 import NavBar from "@/pages/components/Navbar/NavBar";
+import Footer from "@/pages/components/Footer";
 
 
-const poppins = Poppins({subsets: ['latin'], weight: ["400", "500", "600", "700", "800", "900"]})
+const englishFont = Poppins({subsets: ['latin'], weight: ["400", "500", "600", "700", "800", "900"]})
+
+const arabicFont = localFont({src: './fonts/AGCRegular.ttf'})
 
 export default function Index({data}) {
     const {t, i18n} = useTranslation();
@@ -75,7 +79,7 @@ export default function Index({data}) {
 
     return (
         <div
-            className={`${poppins.className}  flex flex-col items-center  text-dark w-full min-h-screen dark:text-light`}>
+            className={`${i18n.language === "en" ? englishFont.className : arabicFont.className}  flex flex-col items-center  text-dark w-full min-h-screen dark:text-light`}>
 
             <div className="absolute left-[60%] top-[0%] translate-x-[-0%] sm:top-0 z-0 sm:hidden">
                 <Image src={polygon2} alt="" className="w-full h-auto"/>
@@ -122,7 +126,7 @@ export default function Index({data}) {
                                   type_d_price={type_d_price}/>
             <Gallery/>
             <PreFooter/>
-
+            <Footer/>
         </div>
 
     )

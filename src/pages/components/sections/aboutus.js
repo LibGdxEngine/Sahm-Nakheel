@@ -81,7 +81,7 @@ const AboutUs = ({
         ? profilePic2 : profilePic2;
 
     return (
-        <Layout className={`w-full mt-20 sm:mt-0`}>
+        <Layout className={`w-full mt-20 sm:mt-0 sm:px-0`}>
             <br id="aboutus"/>
             <HoveredText text={`${t(tokens.nav.about)}`} className={`sm:mt-10`}/>
             <div className="text-xl text-primary font-light text-center sm:text-base sm:mb-10 ">

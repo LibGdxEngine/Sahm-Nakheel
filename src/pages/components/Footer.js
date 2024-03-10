@@ -52,7 +52,7 @@ const Footer = ({word}) => {
     return (
         <footer
             className="w-full h-full flex flex-col
-    text-base text-white font-normal dark:text-light dark:border-light sm:text-base mt-40"
+    text-base text-white font-normal dark:text-light dark:border-light sm:text-base "
         >
             <div className="footer-border-radius py-12
        flex items-start justify-between lg:flex-col lg:items-center lg:justify-center lg:py-6 bg-primary px-60 lg:px-0 ">

@@ -18,7 +18,7 @@ const WhatPeopleSays = ({feedbacks}) => {
                 {t(tokens.wpsau.sahm_nakheel)}
             </div>
             <div
-                className="grid grid-cols-3 gap-y-8 gap-x-14 xs:grid-cols-1 md:grid-cols-1 lg:grid-cols-2  lg:gap-8 md:gap-y-16 mt-10 ">
+                className="grid grid-cols-3 gap-y-8 gap-x-14 xs:grid-cols-1 lg:grid-cols-1 lg:gap-8 md:gap-y-16 mt-10 ">
                 {feedbacks.map((item, index) => {
                     const name = i18n.language === "en" ? item.english_name : item.arabic_name;
                     const word = i18n.language === "en" ? item.english_word : item.arabic_word;

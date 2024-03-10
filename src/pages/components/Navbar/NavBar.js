@@ -1,9 +1,7 @@
 import Image from "next/image";
 import {useEffect, useState} from "react";
-
 import Logo from "@/pages/components/Icons";
 import langImage from "../../../../public/images/languageIcon.svg";
-
 import MobileNavigation from "@/pages/components/Navbar/MobileNavigation";
 import {useTranslation} from "next-i18next";
 import {tokens} from "@/locales/tokens";
@@ -61,7 +59,7 @@ const LargeScreenHeader = ({topNavItems, translator: t, changeLang}) => {
                     ))}
                 </nav>
 
-                <nav className="w-[25%] flex items-center justify-center flex-wrap">
+                <nav className="w-[30%]  flex items-center justify-center flex-wrap">
                     <div className={`shadow-lg shadow-y-20 flex items-center bg-gradient-to-br from-lightGreen to-darkGreen text-light py-1 
                                     rounded-3xl text-base font-normal hover:bg-white px-4
                                     dark:bg-light dark:text-white  

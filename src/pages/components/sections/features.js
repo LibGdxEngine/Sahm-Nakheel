@@ -8,8 +8,6 @@ import walletImage6 from "../../../../public/images/Wallet Icon (6).svg";
 import walletImage7 from "../../../../public/images/Wallet Icon (7).svg";
 import walletImage from "../../../../public/images/Wallet Icon.svg";
 import polygon3 from "../../../../public/images/Polygon 3.svg";
-import {motion, useAnimation} from "framer-motion";
-import {useState} from "react";
 import HoveredText from "@/pages/components/utils/HoveredText";
 import {useTranslation} from "next-i18next";
 import {tokens} from "@/locales/tokens";
@@ -17,30 +15,17 @@ import Layout from "@/pages/utils/Layout";
 
 
 const CardItem = ({image, title, desc}) => {
-    const [hovered, setHovered] = useState(false);
-    const controls = useAnimation();
 
-    const handleHover = () => {
-        setHovered(true);
-        controls.start({scale: 1.1, rotate: -5}); // Scale up when hovered
-    };
-
-    const handleHoverEnd = () => {
-        setHovered(false);
-        controls.start({scale: 1, rotate: 0}); // Reset scale when not hovered
-    };
 
     return (
         <>
             <div
                 className="h-72 w-fit flex flex-col items-start bg-white bg-opacity-50 justify-start
-                        rounded-3xl mx-4 md:mx-1 p-8 md:p-4 sm:text-xs "
-                onMouseEnter={handleHover}
-                onMouseLeave={handleHoverEnd}
+                        rounded-3xl mx-4 md:mx-1 p-8 md:p-4   sm:text-xs "
             >
-                <motion.div animate={controls} className="w-full sm:w-8 sm:h-auto ">
+                <div  className="w-full sm:w-8 sm:h-auto ">
                     <Image src={image} height={76} width={73} alt="wallet"/>
-                </motion.div>
+                </div>
 
                 <div className="text-lg font-extrabold text-primary sm:mt-4 w-full my-4">{title}</div>
                 <div className="text-sm text-dark font-thin sm:text-sm">
@@ -125,14 +110,14 @@ const Features = ({
                     <Image src={polygon3} alt="" className="w-full h-auto"/>
                 </div>
                 <HoveredText text={`${title}`}/>
-                <div className="text-xl w-[40%] text-primary font-light text-center sm:text-base">
+                <div className="text-xl w-[40%] sm:w-full text-primary font-light text-center sm:text-base">
                     {features_slogan}
                 </div>
             </div>
 
             <div
-                className="w-full mt-10 px-[10%] sm:px-[4%] grid grid-cols-4 gap-y-8 md:grid-cols-2 md:gap-x-0 lg:grid-cols-2
-                lg:gap-8 md:gap-y-16 sm:sm-features rounded-3xl sm:bg-lightGreen sm:bg-opacity-20 sm:grid-cols-1">
+                className="w-full mt-10 px-[10%] sm:px-[2%] grid grid-cols-4 gap-y-8 md:grid-cols-2 md:gap-x-0 lg:grid-cols-2
+                lg:gap-8 md:gap-y-16 sm:sm-features rounded-3xl sm:bg-lightGreen sm:bg-opacity-20 sm:grid-cols-1 ">
                 {cardData.map((card, index) => (
                     <CardItem key={index} image={card.image} title={card.title} desc={card.desc}/>
                 ))}
