@@ -1,5 +1,7 @@
+import * as React from "react";
 
- const Logo = ({ isOpen }) => (
+
+const Logo = ({isOpen}) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         width={230}

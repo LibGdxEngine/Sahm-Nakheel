@@ -2,6 +2,22 @@ export const tokens = {
         common: {
             languageChanged: 'common.languageChanged'
         },
+        keys: {
+            email: "keys.email",
+            password: "keys.password",
+            username: "keys.username",
+            first_name : "keys.first_name",
+            last_name  : "keys.last_name",
+            signupsuccess  : "keys.signupsuccess",
+        },
+        errors: {
+            "emailExistError": "errors.emailExistError",
+            "userExistError": "errors.userExistError",
+            "first_name": "errors.firstNameError",
+            "last_name": "errors.lastNameError",
+            password: "errors.password",
+            termsError: "errors.termsError",
+        },
         nav: {
             home: 'nav.home',
             about: 'nav.about',

@@ -95,7 +95,7 @@ const LargeScreenHeader = ({topNavItems, translator: t, changeLang}) => {
 const changeLanguage = (language) => {
     localStorage.setItem('NEXT_LOCALE', language);
 };
-const Navbar = (props) => {
+const Navbar = ({className=""}) => {
     const [isOpen, setIsOpen] = useState(false);
     const [currentLanguage, setCurrentLanguage] = useState("en");
     const {t, i18n} = useTranslation();
@@ -136,11 +136,10 @@ const Navbar = (props) => {
     };
     return (
         <header
-            className=" px-[10%] w-full xl:px-0 xl:pt-0 py-8 font-medium flex items-center justify-between dark:text-light z-10 bg-transparent">
+            className={`px-[10%] w-full xl:px-0 xl:pt-0 py-8 font-medium flex items-center justify-between dark:text-light z-10 bg-transparent ${className}`}>
             <SmallScreenHeader handleClick={handleClick} isOpen={isOpen}/>
 
             <LargeScreenHeader topNavItems={topNavItemss} translator={t} changeLang={changeLang}/>
-            {/* Rest of the code */}
 
             {isOpen && <MobileNavigation handleClick={handleClick}/>}
 

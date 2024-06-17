@@ -84,4 +84,17 @@ export const en = {
     [tokens.footer.legal]: "Legal Information",
     [tokens.footer.cookie]: "Cookie Policy",
     [tokens.footer.rights]: "Sahm Nakheel, All Rights reserved.",
+
+    [tokens.keys.email]: "Email",
+    [tokens.keys.signupsuccess]: "Signup success, check your email for verification",
+    [tokens.keys.username]: "Username",
+    [tokens.keys.password]: "Password",
+    [tokens.keys.first_name]: "First Name",
+    [tokens.keys.last_name]: "Last Name",
+    [tokens.errors.emailExistError]: "user with this email address already exists",
+    [tokens.errors.userExistError]: "user with this username already exists",
+    [tokens.errors.first_name]: "This field may not be blank.",
+    [tokens.errors.last_name]: "This field may not be blank.",
+    [tokens.errors.termsError]: "You must agree to the terms and conditions.",
+    [tokens.errors.password]: "password must be at least 8 characters long",
 };

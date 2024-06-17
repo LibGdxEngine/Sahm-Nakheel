@@ -32,19 +32,15 @@ const MobileNavItem = ({href, title, onClick}) => (
 
 const MobileNavigation = ({handleClick}) => {
     const navItems = [
-        {href: "/", title: "Home"},
-        {href: "#aboutus", title: "About Us", target: "aboutus"},
-        {href: "#features", title: "Features", target: "features"},
-        {href: "#pricing", title: "Pricing", target: "pricing"},
-        {href: "#faq", title: "FAQs", target: "faq"},
-        {href: "#gallery", title: "Gallery", target: "gallery"},
-        {href: "#blog", title: "Blog"},
-        {href: "#contactus", title: "Contact Us", target: "contactus"},
+        {href: "/transactions", title: "Transactions"},
+        {href: "/contracts", title: "contracts", target: "contracts"},
+        {href: "/plans", title: "Plans", target: "Plans"},
+
     ];
 
     return (
         <div
-            className="min-w-[100%] min-h-[110%] mt-[35vh] pt-24 flex flex-col items-center z-[-1]
+            className="min-w-[100%] min-h-[110%] xs:mt-[35vh] sm:mt-[30vh] mt-[35vh] pt-24 flex flex-col items-center z-[-1]
             justify-between fixed top-20 left-1/2 -translate-x-1/2 -translate-y-1/2 backdrop-blur-md py-0
              bg-dark/95 dark:bg-light/75 rounded-lg xl:flex"
         >

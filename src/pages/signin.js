@@ -1,18 +1,52 @@
 import React, {useEffect, useState} from "react";
-import {withRouter} from "next/router";
-import {useSelector} from "react-redux";
+import {useRouter, withRouter} from "next/router";
 import Head from "next/head";
 import {APP_NAME, DOMAIN, FB_APP_ID} from "../../config";
 import Image from "next/image";
 import appleLogin from "../../public/images/appleLogin.svg";
 import googleLogin from "../../public/images/googleLogin.svg";
 import fbLogin from "../../public/images/fbLogin.svg";
-import SplashScreen from "@/pages/components/splash-screen";
-import signin from "../../public/images/signinbg.svg"
 import AuthNavbar from "@/pages/components/Navbar/AuthNavbar";
 import Footer from "@/pages/components/Footer";
+import {Poppins} from "next/font/google";
+import localFont from "next/font/local";
+import {useTranslation} from "next-i18next";
+import {getToken} from "@/components/services/auth";
+import SplashScreen from "@/pages/components/splash-screen";
+import {useAuth} from "@/context/AuthContext";
+
+const englishFont = Poppins({subsets: ['latin'], weight: ["400", "500", "600", "700", "800", "900"]})
+
+const arabicFont = localFont({src: './fonts/AGCRegular.ttf'})
 
 const SignIn = ({router}) => {
+    const {t, i18n} = useTranslation();
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+    const {token, loading, login} = useAuth();
+
+    if (loading && !token){
+        return <SplashScreen />
+    }
+    if (token) {
+        router.push('/profile');
+        return;
+    }
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await getToken({ email: username, password });
+            login(response.token);
+            router.replace("/profile");
+            // Handle successful signup (e.g., redirect to login)
+        } catch (error) {
+            console.error('Error during signup:', error);
+        }
+    };
+
+
     // const loadingStatus = useSelector((state) => state.auth.status);
     // const user = useSelector((state) => state.auth.user);
     // const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -64,77 +98,64 @@ const SignIn = ({router}) => {
         );
     };
     return (
-        <div className={`w-full h-full  bg-cover bg-no-repeat bg-center bg-[url('/images/signinbg.svg')]`}>
+        <div
+            className={`${i18n.language === "en" ? englishFont.className : arabicFont.className}  w-full h-full flex flex-col bg-cover bg-no-repeat bg-center bg-[url('/images/signinbg.svg')]`}>
             {head()}
             <AuthNavbar/>
             <div className="w-[100%] h-full flex items-center justify-center py-36">
                 <div
-                    className="w-[28%] h-[80vh] authCardbg auth-card flex flex-col items-center justify-center px-10  rounded-3xl">
-                    <div className="text-2xl text-primary" style={{
-                        fontFamily: "poppins",
-                        fontWeight: "300",
-                        fontSize: "30px",
-                        lineHeight: "1"
-                    }}>Welcome to
-                    </div>
-                    <div className="text-2xl text-dark" style={{
-                        fontFamily: "poppins",
-                        fontWeight: "800",
-                        fontSize: "30px",
-                        lineHeight: "1"
-                    }}>Sahm Nakheel</div>
-                    <div className="text-xs text-primary mt-4" style={{
-                        fontFamily: "poppins",
-                        fontWeight: "700",
-                        fontSize: "15px",
-                        lineHeight: "27px"
-                    }}>Login to your account</div>
+                    className="w-fit h-[80vh] authCardbg auth-card flex flex-col items-center justify-center px-10 rounded-3xl">
+                    <div className="text-4xl font-light">Welcome to</div>
+                    <div className="text-4xl text-dark font-extrabold">Sahm Nakheel</div>
+                    <div className="text-base text-primary mt-4 font-bold">Login to your account</div>
 
                     <input
                         id="text-input"
                         type="text"
-                        className="w-full h-12 mt-4 border border-white rounded-full text-sm px-5 py-2  focus:outline-none focus:ring focus:border-green-500
-              placeholder-mildGray placeholder-opacity-60"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        className="w-full h-12 mt-4  rounded-full text-sm px-5 py-2 focus:outline-none border-none bg-white placeholder:text-mildGray placeholder:opacity-60"
                         placeholder="Mobile Number"
                     />
                     <input
                         id="password-input"
                         type="password"
-                        className="w-full h-12 mt-4 border border-white rounded-full text-sm px-5 py-2  focus:outline-none focus:ring focus:border-green-500
-              placeholder-mildGray placeholder-opacity-60"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        className="w-full h-12 mt-4 rounded-full text-sm px-5 py-2 focus:outline-none border-none placeholder:text-mildGray placeholder:opacity-60"
                         placeholder="Password"
                     />
 
                     <div className="w-full flex text-xs items-center justify-between mt-4">
-                        <div>
-                            stay logged in
+                        <div className="w-full flex items-center">
+                            <input
+                                id="circular-checkbox"
+                                type="checkbox"
+                                className="w-3 h-3 rounded-full border border-gray-300 bg-white cursor-pointer focus:outline-none"
+                            />
+                            <label htmlFor={`circular-checkbox`} className="ml-3 text-xs font-base text-gray-900">
+                                Stay logged in
+                            </label>
                         </div>
-                        <div>
-                            forgot your password ?
+                        <div style={{cursor: "pointer"}} className={`w-full text-xs text-center hover:font-bold`}>
+                            Forgot password ?
                         </div>
                     </div>
 
-                    <button className="w-full bg-dark text-white text-base py-2 rounded-3xl mt-8">Login</button>
+                    <button onClick={handleLogin} style={{cursor: "pointer"}}
+                            className="w-full border-none bg-dark text-white text-base py-2 rounded-3xl mt-8">Login
+                    </button>
 
-                    <div style={{
-                        fontFamily: "poppins",
-                        fontWeight: "300",
-                        fontSize: "15px",
-                        lineHeight: "27px"
-                    }} className="text-center text-sm text-primary mt-8">or login with</div>
+                    <div className="text-center text-xs font-light text-primary mt-8">or login with</div>
 
-                    <div className="w-full flex items-center justify-between px-10 mt-4">
-                        <Image src={appleLogin} width={35} height={35} alt=""/>
-                        <Image src={googleLogin} width={35} height={35} alt=""/>
-                        <Image src={fbLogin} width={35} height={35} alt=""/>
+                    <div className="w-full flex items-center justify-between px-10 mt-6">
+                        <Image style={{cursor: "pointer"}} src={appleLogin} width={35} height={35} alt=""/>
+                        <Image style={{cursor: "pointer"}} src={googleLogin} width={35} height={35} alt=""/>
+                        <Image style={{cursor: "pointer"}} src={fbLogin} width={35} height={35} alt=""/>
                     </div>
 
-                    <div style={{
-                        fontFamily: "poppins",
-                        fontWeight: "700",
-                        fontSize: "15px",
-                        lineHeight: "27px"
-                    }} className="text-center text-sm text-navyBlue mt-8">New here ? <span className="text-dark">create an account</span>
+                    <div className="text-center text-sm text-navyBlue font-bold mt-8">New here ? <span
+                        style={{cursor: "pointer"}} className="text-dark">create an account</span>
                     </div>
                 </div>
             </div>

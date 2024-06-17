@@ -52,19 +52,19 @@ const Footer = ({word}) => {
     return (
         <footer
             className="w-full h-full flex flex-col
-    text-base text-white font-normal dark:text-light dark:border-light sm:text-base "
+    text-base text-white dark:text-light dark:border-light sm:text-base "
         >
             <div className="footer-border-radius py-12
        flex items-start justify-between lg:flex-col lg:items-center lg:justify-center lg:py-6 bg-primary px-60 lg:px-0 ">
                 <div className="w-1/2 h-full flex flex-col items-start justify-between lg:mb-8 pe-5 lg:w-full lg:px-10">
                     <Image src={grayLogo} width={180} height={54} alt=""/>
-                    <p className="text-white font-light text-base mt-12 me-16">
+                    <div className="text-white font-extralight text-base mt-12 me-16">
                         {text1}
                         <br/>
                         {text2}
                         <br/>
                         {text3}
-                    </p>
+                    </div>
                 </div>
 
                 <div

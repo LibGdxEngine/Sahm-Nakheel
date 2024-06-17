@@ -19,7 +19,7 @@ const CustomLink = ({onClick, title, className = ""}) => {
                 }
             }}
             style={{cursor: "pointer"}}
-            className={`${className} relative group text-white text-sm font-medium dark:text-white inline-block  `}
+            className={`${className} relative group text-white text-sm font-thin dark:text-white inline-block  `}
         >
             {title}
             &nbsp;
@@ -54,41 +54,33 @@ const CustomMobileLink = ({href, title, className = "", toggle}) => {
 };
 
 const SmallScreenHeader = ({handleClick, isOpen}) => {
-    return <div
-        className={`w-full  z-[2]  flex flex-row items-center justify-between hidden xl:flex pt-10 ${isOpen ? "bg-midGreen" : "bg-mintyGreen"}  px-8 
-  rounded-bl-3xl rounded-br-3xl z-101
-  ${isOpen ? 'fixed mt-32' : ''}
-  `}>
-        <Logo isOpen={isOpen} classes=""/>
-        <div className="w-auto flex items-center justify-between h-auto px-2 py-2.5 bg-dark rounded-lg">
-            <button
-                className="flex-col justify-center items-start hidden xl:flex "
-                onClick={handleClick}
-            >
-        <span
-            className={`bg-white dark:bg-dark block transition-all duration-300 ease-out  h-0.5  ${isOpen ? "w-5" : "w-4"} rounded-sm -translate-y-0.5 ${isOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5"
-            }`}
-        ></span>
-                <span
-                    className={`bg-white dark:bg-dark block transition-all duration-300 ease-out  h-0.5  ${isOpen ? "w-5" : "w-5"} rounded-sm my-0.5 ${isOpen ? "opacity-0" : "opacity-100"
-                    }`}
-                ></span>
-                <span
-                    className={`bg-white dark:bg-dark block transition-all duration-300 ease-out  h-0.5  ${isOpen ? "w-5" : "w-2.5"} rounded-sm -translate-y-0.5 ${isOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"
-                    }`}
-                ></span>
-            </button>
+    return (
+        <div
+            className={`hidden lg:flex w-full  flex-row items-center justify-between  xl:flex pt-10 ${isOpen ? "bg-midGreen" : "bg-dark"} px-8 rounded-bl-3xl rounded-br-3xl pb-8 ${isOpen ? 'fixed mt-32' : ''}`}>
+            <Logo isOpen={true} classes={`pb-8`}/>
+            <div className="w-auto flex items-center justify-between h-auto px-2 py-3 bg-darkGreen rounded-lg"
+                 onClick={handleClick} style={{cursor: "pointer"}}>
+                <div className="flex-col justify-center items-start hidden xl:flex">
+                    <span
+                        className={`bg-white dark:bg-darkGreen block transition-all duration-300 ease-out h-0.5 ${isOpen ? "w-5" : "w-4"} rounded-sm -translate-y-0.5 ${isOpen ? "rotate-45 translate-y-1" : "-translate-y-0.5"}`}></span>
+                    <span
+                        className={`bg-white dark:bg-darkGreen block transition-all duration-300 ease-out h-0.5 ${isOpen ? "w-5" : "w-5"} rounded-sm my-0.5 ${isOpen ? "opacity-0" : "opacity-100"}`}></span>
+                    <span
+                        className={`bg-white dark:bg-darkGreen block transition-all duration-300 ease-out h-0.5 ${isOpen ? "w-5" : "w-2.5"} rounded-sm -translate-y-0.5 ${isOpen ? "-rotate-45 -translate-y-1" : "translate-y-0.5"}`}></span>
+                </div>
+            </div>
         </div>
-    </div>
-}
+    );
+};
 
 const LargeScreenHeader = ({handleClick, isOpen}) => {
     const router = useRouter();
-    return <div className="w-full flex flex-row items-center justify-center xl:hidden bg-dark px-28  rounded-bl-3xl
+    return <div className="w-full flex flex-row items-center justify-center xl:hidden bg-dark px-32  rounded-bl-3xl
   rounded-br-3xl">
         <Logo isOpen={true} classes="pb-8"/>
         <div className="w-full flex items-center justify-between h-24 ms-6">
-            <nav className="w-[75%] flex items-center justify-between ">
+            <div></div>
+            <nav className="w-fit flex items-center justify-center">
                 <CustomLink title={"Home"}/>
                 <CustomLink
                     onClick={() => {
@@ -128,7 +120,7 @@ const LargeScreenHeader = ({handleClick, isOpen}) => {
                     className="mx-4"
                 />
             </nav>
-            <nav className="w-auto flex items-center justify-center flex-wrap">
+            <nav className="w-fit flex items-center justify-center flex-wrap">
                 <div
                     className={` shadow-lg shadow-y-20 flex items-center bg-gradient-to-br from-lightGreen to-darkGreen text-light py-1 px-4
       rounded-3xl text-base font-bold hover:bg-light 

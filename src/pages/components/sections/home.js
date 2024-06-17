@@ -89,20 +89,20 @@ export default function Home({
                     {slogan}
                 </h3>
                 <div className="w-full flex items-center self-center mt-2 sm:mt-6 lg:!w-fit">
-                    <div
-                        className={`flex items-center bg-darkGreen text-white p-2.5 px-12
-                  rounded-full text-lg font-normal hover:bg-white hover:text-darkGreen hover:border hover:border-darkGreen
-                  border-2 border-solid border-transparent 
-                  dark:bg-light dark:text-dark hover:dark:bg-dark hover:dark:text-light
-                  hover:dark:border-light md:p-2 md:px-4 md:text-base xs:text-xs
-                  `}
-                        style={{cursor: "pointer"}}
-                        onClick={() => {
-                            router.push(`#${action_button_link}`)
-                        }}
-                    >
-                        {action_btn_text}
-                    </div>
+                        <div
+                            className={`flex items-center bg-darkGreen text-white p-2.5 px-12
+                      rounded-full text-lg font-normal hover:bg-white hover:text-darkGreen 
+                      border-2 border-solid border-transparent 
+                      dark:bg-light dark:text-dark hover:dark:bg-dark hover:dark:text-light
+                      hover:dark:border-light md:p-2 md:px-4 md:text-base xs:text-xs
+                      `}
+                            style={{cursor: "pointer"}}
+                            onClick={() => {
+                                router.push(`#${action_button_link}`)
+                            }}
+                        >
+                            {action_btn_text}
+                        </div>
                     <div
                         className={`flex items-center bg-transparent text-dark p-2.5 pe-12 ps-5 mx-4
                   rounded-3xl text-lg font-normal hover:bg-darkGreen hover:text-white 

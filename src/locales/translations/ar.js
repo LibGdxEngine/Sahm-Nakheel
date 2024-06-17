@@ -85,5 +85,19 @@ export const ar = {
         [tokens.footer.legal]: "المعلومات القانونية",
         [tokens.footer.cookie]: "سياسة ملفات الارتباط",
         [tokens.footer.rights]: "حقوق النشر والطبق محفوظة لسهم نخيل",
+
+
+        [tokens.keys.email]: "البريد الالكتروني",
+        [tokens.keys.signupsuccess]: "تم التسجيل بنجاح قم بتفقد بريدك الالكتروني لتفعيل حسابك",
+        [tokens.keys.username]: "اسم المستخدم",
+        [tokens.keys.password]: "كلمة المرور",
+        [tokens.keys.first_name]: "الاسم الأول",
+        [tokens.keys.last_name]: "الاسم الأخير",
+        [tokens.errors.emailExistError]: "هذا البريد مسجل لدينا بالفعل",
+        [tokens.errors.emailExistError]: "هذا البريد مسجل لدينا بالفعل",
+        [tokens.errors.first_name]: "لا يمكن أن يكون فارغا",
+        [tokens.errors.last_name]:  "لا يمكن أن يكون فارغا",
+        [tokens.errors.termsError]:  "يجب الموافقة على الشروط والأحكام",
+        [tokens.errors.password]:  "كلمة المرور يجب أن تحتوي على 8 أحرف على الأقل",
     }
 ;

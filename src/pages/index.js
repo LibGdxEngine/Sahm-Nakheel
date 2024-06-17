@@ -18,14 +18,18 @@ import PreFooter from "@/pages/components/sections/preFooter";
 import {useTranslation} from 'next-i18next';
 import NavBar from "@/pages/components/Navbar/NavBar";
 import Footer from "@/pages/components/Footer";
+import ServerError from "@/pages/server-error";
 
 
 const englishFont = Poppins({subsets: ['latin'], weight: ["400", "500", "600", "700", "800", "900"]})
 
 const arabicFont = localFont({src: './fonts/AGCRegular.ttf'})
 
-export default function Index({data}) {
+export default function Index({data, plans}) {
     const {t, i18n} = useTranslation();
+    if(data === null){
+        return <ServerError message="Server is not reachable" />;
+    }
 
     const {
         id,
@@ -71,7 +75,6 @@ export default function Index({data}) {
         X_link,
         youtube_link,
         insta_link,
-        investment_plans,
         questions,
         feedback,
         gallery_items
@@ -79,7 +82,7 @@ export default function Index({data}) {
 
     return (
         <div
-            className={`${i18n.language === "en" ? englishFont.className : arabicFont.className}  flex flex-col items-center  text-dark w-full min-h-screen dark:text-light`}>
+            className={`${i18n.language === "en" ? englishFont.className : arabicFont.className}  flex flex-col items-center text-dark w-full min-h-screen dark:text-light`}>
 
             <div className="absolute left-[60%] top-[0%] translate-x-[-0%] sm:top-0 z-0 sm:hidden">
                 <Image src={polygon2} alt="" className="w-full h-auto"/>
@@ -107,7 +110,7 @@ export default function Index({data}) {
                       english_features_slogan={english_features_slogan}/>
             <Pricing arabic_plans_slogan={arabic_plans_slogan}
                      english_plans_slogan={english_plans_slogan}
-                     investment_plans={investment_plans}/>
+                     investment_plans={plans}/>
             <HowItWorks/>
             <DownloadApp/>
             <ContactUs arabic_contact_slogan={arabic_contact_slogan}
