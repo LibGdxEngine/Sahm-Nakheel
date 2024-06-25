@@ -31,8 +31,8 @@ const App = (props) => {
         const fetchData = async () => {
             setIsLoading(true);
             try {
-                const data = await fetchApi(`${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/landing_page/landing-page/`);
-                const plans = await fetchApi(`${process.env.NEXT_PUBLIC_BASE_URL}/api/v1/landing_page/investment-plans/`);
+                const data = await fetchApi(`https://mobile.letaskono-zwaj.com/api/v1/landing_page/landing-page/`);
+                const plans = await fetchApi(`https://mobile.letaskono-zwaj.com/api/v1/landing_page/investment-plans/`);
                 setData(data);
                 setPlans(plans);
                 console.log(data, plans)
