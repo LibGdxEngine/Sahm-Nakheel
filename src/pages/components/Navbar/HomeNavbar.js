@@ -121,21 +121,23 @@ const LargeScreenHeader = ({handleClick, isOpen}) => {
         <div className="w-full flex items-center justify-between h-24 ms-6">
             <div></div>
             <nav className="w-full mx-10 flex items-center justify-start">
-                <CustomLink title={"Transactions"} isActive={router.asPath === "/profile"} className="mx-4"/>
+                <CustomLink title={"Transactions"} isActive={router.asPath === "/profile"} onClick={()=>{
+                    router.push("/profile");
+                }} className="mx-4"/>
                 <CustomLink
                     onClick={() => {
-
+                        router.push("/contracts");
                     }}
                     title={"Contracts"}
-                    isActive={router.asPath === "/profile/contracts"}
+                    isActive={router.asPath === "/contracts"}
                     className="mx-4"
                 />
                 <CustomLink
                     onClick={() => {
-
+                        router.push("plans/1")
                     }}
                     title={"Plans"}
-                    isActive={router.asPath === "/profile/plans"}
+                    isActive={router.asPath.includes("plans")}
                     className="mx-4"
                 />
 
@@ -203,6 +205,7 @@ const HomeNavbar = (props) => {
         {key: 'contracts', path: '/contracts', title: 'Contracts', translationKey: tokens.nav.about},
         {key: 'plans', path: '/plans', title: 'Plans', translationKey: tokens.nav.features}
     ];
+
     const changeLang = () => {
         if (currentLanguage === "en") {
             setCurrentLanguage("ar");

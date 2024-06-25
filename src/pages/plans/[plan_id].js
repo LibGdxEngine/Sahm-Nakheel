@@ -15,6 +15,8 @@ import OfferCardItem from "@/pages/components/pricing-slider/OfferCardItem";
 import playIcon from "../../../public/images/PlayIcon.svg";
 import {tokens} from "@/locales/tokens";
 import {useState} from "react";
+import {getAllPlans} from "@/components/services/contracts";
+import {toast} from "react-toastify";
 
 const englishFont = Poppins({subsets: ['latin'], weight: ["400", "500", "600", "700", "800", "900"]})
 
@@ -171,7 +173,7 @@ const Plan = () => {
                                 border border-solid border-darkGreen rounded-35 font-bold text-base hover:bg-white  hover:text-mDark`}
                                 style={{cursor: "pointer"}}
                                 onClick={() => {
-
+                                    toast.warning("Domain is not accepted!, should be www.sahmnakheel.com");
                                 }}
                             >
                                 Check Out
@@ -189,7 +191,12 @@ const Plan = () => {
 export default Plan;
 
 export async function getServerSideProps(context) {
-    // Your fetching logic here
+
+    getAllPlans().then((response) => {
+        console.log(response);
+    }).catch((error) => {
+        console.log(error);
+    });
     return {
         props: {
             // Data to be passed as props to the page component

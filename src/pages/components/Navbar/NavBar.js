@@ -6,13 +6,14 @@ import MobileNavigation from "@/pages/components/Navbar/MobileNavigation";
 import {useTranslation} from "next-i18next";
 import {tokens} from "@/locales/tokens";
 import Link from "next/link";
+import {useRouter} from "next/router";
 
 
 const headerButtons = [
     {
         text: 'Sign in',
         onClick: () => {
-            console.log("sign in clicked");
+            router.push('/signin');
         },
     },
 ];
@@ -39,6 +40,7 @@ const SmallScreenHeader = ({handleClick, isOpen}) => {
 };
 
 const LargeScreenHeader = ({topNavItems, translator: t, changeLang}) => {
+    const router = useRouter();
     const NavItem = ({title = "", path = "/"}) => {
         return <Link className={`text-darkGreen`} style={{textDecoration: "none"}} href={`/${path}`}>
             {title}
@@ -67,18 +69,18 @@ const LargeScreenHeader = ({topNavItems, translator: t, changeLang}) => {
                          style={{cursor: "pointer"}}>
                         {t(tokens.nav.getapp)}
                     </div>
-                    {headerButtons.map((button) => (
-                        <div
-                            key={button.text}
-                            onClick={button.onClick}
-                            className={`flex items-center bg-transparent py-1 px-4 mx-2 rounded-3xl font-normal hover:bg-darkGreen 
+                    <div
+                        key={`Sign in`}
+                        onClick={()=>{
+                            router.push("/signin");
+                        }}
+                        className={`flex items-center bg-transparent py-1 px-4 mx-2 rounded-3xl font-normal hover:bg-darkGreen 
                             hover:text-white text-darkGreen border border-solid border-darkGreen
                             dark:bg-dark dark:border-white dark:text-white md:p-2 md:px-4 md:text-base`}
-                            style={{cursor: "pointer"}}
-                        >
-                            {t(tokens.nav.signin)}
-                        </div>
-                    ))}
+                        style={{cursor: "pointer"}}
+                    >
+                        {t(tokens.nav.signin)}
+                    </div>
 
                     <div className="flex items-center rounded-full dark:border-white bg-transparent p-2"
                          style={{cursor: "pointer"}}
@@ -116,7 +118,7 @@ const Navbar = ({className=""}) => {
         {key: 'pricing', path: '#pricing', title: 'Pricing', translationKey: tokens.nav.pricing},
         {key: 'faq', path: '#faq', title: 'FAQ', translationKey: tokens.nav.faq},
         {key: 'gallery', path: '#gallery', title: 'Gallery', translationKey: tokens.nav.gallery},
-        {key: 'blog', path: '#blog', title: 'Blog', translationKey: tokens.nav.blog},
+        {key: 'blog', path: '/articles', title: 'Blog', translationKey: tokens.nav.blog},
         {key: 'contactus', path: '#contactus', title: 'Contact Us', translationKey: tokens.nav.contact},
     ];
 

@@ -25,7 +25,7 @@ const OfferCardItem = ({
         controls.start({scale: 1}); // Reset scale when not hovered
     };
     return (
-        <div className={`w-full `}>
+        <div className={`w-fit`}>
             <motion.div
                 className="w-full flex flex-col  items-start justify-between h-full bg-white rounded-3xl
                  sm:mx-0 p-8 xs:p-4 shadow-lg shadow-y-50 "

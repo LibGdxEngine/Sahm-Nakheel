@@ -154,7 +154,9 @@ const SignIn = ({router}) => {
                         <Image style={{cursor: "pointer"}} src={fbLogin} width={35} height={35} alt=""/>
                     </div>
 
-                    <div className="text-center text-sm text-navyBlue font-bold mt-8">New here ? <span
+                    <div onClick={()=>{
+                        router.push("/signup");
+                    }} className="text-center text-sm text-navyBlue font-bold mt-8">New here ? <span
                         style={{cursor: "pointer"}} className="text-dark">create an account</span>
                     </div>
                 </div>

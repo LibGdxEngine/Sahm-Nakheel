@@ -84,6 +84,7 @@ const Slider = ({investment_plans, onCardClicked}) => {
                                     className="w-full flex-none px-6 py-10"
                                     style={{width: `${100 / numberOfRows}%`}}
                                 >
+
                                     {card.is_most_popular ? (
                                         <SpecialOfferCard
                                             years={card.years}
@@ -91,8 +92,10 @@ const Slider = ({investment_plans, onCardClicked}) => {
                                             investment={years_roi}
                                             cost={card.roi}
                                             rows={rows}
-                                            income={card.price}
-                                            onCardClicked={onCardClicked}
+                                            income={card.cash_price}
+                                            onCardClicked={()=>{
+                                                onCardClicked(card.id);
+                                            }}
                                             button_text={t(tokens.plans.button_text)}
                                             most_popular_text={t(tokens.plans.most_popular)}
                                         />
@@ -103,8 +106,10 @@ const Slider = ({investment_plans, onCardClicked}) => {
                                             investment={years_roi}
                                             cost={card.roi}
                                             rows={rows}
-                                            income={card.price}
-                                            onCardClicked={onCardClicked}
+                                            income={card.cash_price}
+                                            onCardClicked={()=>{
+                                                onCardClicked(card.id);
+                                            }}
                                             button_text={t(tokens.plans.button_text)}
                                         />
                                     )}

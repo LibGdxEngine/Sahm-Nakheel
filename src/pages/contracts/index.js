@@ -4,7 +4,6 @@ import localFont from "next/font/local";
 import HomeNavbar from "@/pages/components/Navbar/HomeNavbar";
 import searchIcon from '../../../public/images/search_icon.svg';
 import filterIcon from '../../../public/images/filter_icon.svg';
-import transactionsIcon from '../../../public/images/transactions_icon.svg';
 import Image from "next/image";
 import React, {useEffect, useState} from "react";
 import FilterMenu from "@/pages/components/utils/FilterMenu";
@@ -15,7 +14,8 @@ import Layout from "@/pages/utils/Layout";
 import Footer from "@/pages/components/Footer";
 import TransactionList from "@/pages/components/utils/TransactionList";
 import Pagination from "@/pages/components/utils/Pagination";
-import {getTransactions} from "@/components/services/contracts";
+import {getContracts} from "@/components/services/contracts";
+import ContractList from "@/pages/components/utils/ContractsList";
 
 const englishFont = Poppins({subsets: ['latin'], weight: ["400", "500", "600", "700", "800", "900"]});
 const arabicFont = localFont({src: '../fonts/AGCRegular.ttf'});
@@ -25,7 +25,6 @@ const Profile = () => {
     const router = useRouter();
     const [filterMenuOpen, setFilterMenuOpen] = useState(false);
     const [transactions, setTransactions] = useState([]);
-    const [query, setQuery] = useState('');
     const handleOpenFilterMenu = () => {
         setFilterMenuOpen(!filterMenuOpen);
     }
@@ -34,15 +33,14 @@ const Profile = () => {
 
 
     useEffect(() => {
-        if (token && query !== '') {
-            getTransactions(token, query).then((data) => {
+        if (token) {
+            getContracts(token).then((data) => {
                 setTransactions(data);
-                setQuery('');
             }).catch((error) => {
                 console.error(error);
             });
         }
-    }, [token, query]);
+    }, [token]);
 
     if (loading && !token) {
         return <SplashScreen/>
@@ -74,44 +72,27 @@ const Profile = () => {
                                 <Image src={filterIcon} alt="Filter" width={15} height={15}/>
                                 <div className="w-full mx-4 font-thin h-fit text-white rounded-35">Filter</div>
                             </div>
-                            {filterMenuOpen && <FilterMenu onFilterChange={(option) => {
-                                if (option[0] === true) {
-                                    setQuery((prevState) => {
-                                        if (prevState === "") {
-                                            return "status=COMPLETED"
-                                        }
-                                        return prevState + "&" + "status=COMPLETED"
-                                    })
-                                } else if (option[1] === true) {
-                                    setQuery((prevState) => {
-                                        if (prevState === "") {
-                                            return "status=ON_HOLD"
-                                        }
-                                        return prevState + "&" + "status=ON_HOLD"
-                                    })
-                                } else if (option[2] === true) {
-                                    setQuery((prevState) => {
-                                        if (prevState === "") {
-                                            return "status=IN_PROGRESS"
-                                        }
-                                        return prevState + "&" + "status=IN_PROGRESS"
-                                    })
-                                }
-                                console.log("Filter changed " + option[0])
-                            }}/>}
+                            {filterMenuOpen && <FilterMenu onFilterChange={(option)=>{
+                                console.log("Filter changed "  + option[0])
+                            }} />}
                         </div>
 
                         <div id="big-table-header" className="w-full sm:block">
-                            <div className="h-10 bg-lightGray  mx-8 lg:m-10  px-4 lg:px-10 rounded-t-2xl grid grid-cols-5
+                            <div className="h-10 bg-lightGray  mx-8 lg:m-10  px-4 lg:px-10 rounded-t-2xl grid grid-cols-9
                             sm:grid-cols-3 lg:grid-cols-5 gap-4 text-xs text-primary text-center">
-                                <div className="bg-gray-200 p-3">TRANSACTION ID</div>
+                                <div className="bg-gray-200 p-3">ID</div>
                                 <div className="bg-gray-200 p-3">DATE</div>
+                                <div className="bg-gray-200 p-3">METHOD</div>
+                                <div className="bg-gray-200 p-3">AMOUNT</div>
+                                <div className="bg-gray-200 p-3">ALL</div>
+                                <div className="bg-gray-200 p-3">DONE</div>
+                                <div className="bg-gray-200 p-3">LEFT</div>
                                 <div className="bg-gray-200 p-3">STATUS</div>
-                                <div className="bg-gray-200 p-3">CONTRACT</div>
-                                <div className="bg-gray-200 p-3">CONTRACT</div>
+                                <div className="bg-gray-200 p-3">VIEW</div>
                             </div>
-                            <TransactionList transactions={transactions}/>
-
+                            {/*<TransactionList transactions={transactions}/>*/}
+                            {/*{JSON.stringify(transactions)}*/}
+                            <ContractList  contracts={[{id:1, date: 'date',amount: 1500, method: 'CREDIT',all : 1, done: 2, left: 3, status: 'REJECTED' }]}/>
                         </div>
 
                         <div id="small-table-list"
@@ -123,7 +104,7 @@ const Profile = () => {
                         </div>
                         <Pagination
                             page={1}
-                            totalPages={Math.ceil(transactions.length / 10)}
+                            totalPages={Math.ceil(1 / 10)}
                             onPageChange={() => {
                                 console.log("Page changed")
                             }}

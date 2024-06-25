@@ -10,6 +10,9 @@ import {Poppins} from "next/font/google";
 import localFont from "next/font/local";
 import {useTranslation} from "next-i18next";
 import {useRouter} from "next/router";
+import {useEffect, useState} from "react";
+import {getAllArticles} from "@/components/services/articles";
+import SplashScreen from "@/pages/components/splash-screen";
 
 const englishFont = Poppins({subsets: ['latin'], weight: ["400", "500", "600", "700", "800", "900"]})
 
@@ -18,6 +21,20 @@ const arabicFont = localFont({src: '../fonts/AGCRegular.ttf'})
 export default function Index() {
     const {t, i18n} = useTranslation();
     const router = useRouter();
+    const [articles, setArticles] = useState([]);
+    useEffect(() => {
+        getAllArticles().then((response) => {
+            console.log(response);
+            setArticles(response.articles.results);
+        }).then((error) => {
+            console.log(error);
+        });
+    }, []);
+
+    if(!articles) {
+        return <SplashScreen />
+    }
+
     return (
         <div className={`bg-mintyGreen min-h-screen ${i18n.language === "en" ? englishFont.className : arabicFont.className}`}>
             <Head>
@@ -43,8 +60,8 @@ export default function Index() {
                 </div>
 
                 <section className="w-full px-28 grid grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-x-1 gap-y-16">
-                    {[...Array(6)].map((_, index) => (
-                        <ArticleCard key={index} image={singleArticle} text={``} title={``} date={``} onClick={()=>{
+                    {articles.map((article, index) => (
+                        <ArticleCard key={index} image={singleArticle} text={article.body} title={article.title} date={article.updated_at} onClick={()=>{
                             router.push(`/articles/${index}`);
                         }} />
                     ))}

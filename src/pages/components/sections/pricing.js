@@ -3,6 +3,7 @@ import HoveredText from "@/pages/components/utils/HoveredText";
 import Layout from "@/pages/utils/Layout";
 import {useTranslation} from "next-i18next";
 import {tokens} from "@/locales/tokens";
+import {useRouter} from "next/router";
 
 
 const Pricing = ({
@@ -12,7 +13,7 @@ const Pricing = ({
                  }) => {
     const {t, i18n} = useTranslation();
     const slogan = i18n.language === "en" ? english_plans_slogan : arabic_plans_slogan;
-
+    const router= useRouter();
     return (
         <div className={`mt-60 `}>
             <div
@@ -27,8 +28,8 @@ const Pricing = ({
                 </div>
 
                 <div className="mt-8">
-                    <Slider investment_plans={investment_plans} onCardClicked={() => {
-                        console.log('Card clicked');
+                    <Slider investment_plans={investment_plans} onCardClicked={(planId) => {
+                        router.push(`/plans/${planId}`)
                     }}/>
                 </div>
             </div>

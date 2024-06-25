@@ -3,6 +3,8 @@ import HoveredText from "@/pages/components/utils/HoveredText";
 import Layout from "@/pages/utils/Layout";
 import {useTranslation} from "next-i18next";
 import {tokens} from "@/locales/tokens";
+import {useState} from "react";
+import {toast} from "react-toastify";
 
 // Dynamic import for images
 const dynamicImageImport = (imageName) => `/images/${imageName}.svg`;
@@ -25,6 +27,31 @@ const ContactUs = ({
     const {t, i18n} = useTranslation();
     const slogan = i18n.language === "en" ? english_contact_slogan : arabic_contact_slogan;
     const message = i18n.language === "en" ? english_contact_message : arabic_contact_message;
+
+    // State variables for inputs
+    const [name, setName] = useState("");
+    const [emailInput, setEmailInput] = useState("");
+    const [query, setQuery] = useState("");
+
+    // Handle input changes
+    const handleNameChange = (e) => setName(e.target.value);
+    const handleEmailChange = (e) => setEmailInput(e.target.value);
+    const handleQueryChange = (e) => setQuery(e.target.value);
+
+
+    // Handle form submission
+    const handleSubmit = () => {
+        if(name === "" || emailInput === "" || query === "") {
+            toast.error("Please fill all fields");
+            return;
+        }
+        toast.success("Your message has been sent successfully");
+        setName("");
+        setEmailInput("");
+        setQuery("");
+
+        // Here you can add code to send the data to a server or perform other actions
+    };
     const openMap = () => {
         window.open(map_link, "_blank");
     };
@@ -57,21 +84,25 @@ const ContactUs = ({
                         {slogan}
                     </div>
 
-                    <div className={`${flexStart} w-2/3  mt-4 z-10 self-center`}>
-                        <input id="name-input" type="text" className={inputStyle}
-                               placeholder={`${t(tokens.contact.name)}`}/>
-                        <input id="email-input" type="email" className={inputStyle}
-                               placeholder={`${t(tokens.contact.email)}`}/>
-                        <textarea id="query-input" className={`${inputStyle} h-32`}
-                                  placeholder={`${t(tokens.contact.query)}`}/>
-                    </div>
 
+                    <div className={`${flexStart} w-2/3 mt-4 z-10 self-center`}>
+                        <input id="name-input" type="text" className={inputStyle}
+                               placeholder={`${t(tokens.contact.name)}`}
+                               value={name} onChange={handleNameChange}/>
+                        <input id="email-input" type="email" className={inputStyle}
+                               placeholder={`${t(tokens.contact.email)}`}
+                               value={emailInput} onChange={handleEmailChange}/>
+                        <textarea id="query-input" className={`${inputStyle} h-32`}
+                                  placeholder={`${t(tokens.contact.query)}`}
+                                  value={query} onChange={handleQueryChange}/>
+                    </div>
                     <div className="flex w-full items-center justify-center mt-2">
 
                         <h1 className="w-full  p-0 m-0 text-sm text-primary font-normal sm:text-left sm:w-1/2 xs:text-xs">
                             {message}
                         </h1>
                         <div
+                            onClick={handleSubmit}
                             className={`w-1/3 sm:w-1/2 flex items-center justify-center bg-dark text-light p-1.5 px-6 pt-2 pb-2 
                               rounded-full text-xs font-semibold hover:bg-light hover:text-dark
                               border-2 border-solid border-transparent hover:border-dark
@@ -111,7 +142,8 @@ const ContactUs = ({
 
             <div className="w-[80%] sm:w-[90%] mt-4 flex items-center justify-around md:flex-col
             sm:items-start sm:bg-mintyGreen sm:py-6 sm:rounded-3xl ">
-                <div className="w-fit flex items-center justify-center md:justify-start sm:justify-center md:px-12 xs:px-2">
+                <div
+                    className="w-fit flex items-center justify-center md:justify-start sm:justify-center md:px-12 xs:px-2">
                     <Image
                         src={dynamicImageImport('Vector (3)')}
                         width={23}

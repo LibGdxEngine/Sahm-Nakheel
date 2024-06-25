@@ -11,6 +11,7 @@ import LineSeparator from "@/pages/components/utils/LineSeparator";
 import {useTranslation} from "next-i18next";
 import {tokens} from "@/locales/tokens";
 import {useEffect, useState} from "react";
+import {toast} from "react-toastify";
 
 const Footer = ({word}) => {
     const {t, i18n} = useTranslation();
@@ -29,7 +30,20 @@ const Footer = ({word}) => {
     const [cookie, setCookie] = useState();
     const [rights, setRights] = useState();
     const [downloadAppPost, setDownloadAppPost] = useState();
+    const [contactQuery, setContactQuery] = useState("");
 
+    const handleContactQueryChange = (e) => {
+        setContactQuery(e.target.value);
+    }
+
+    const handleSubmit = () => {
+        if(contactQuery === "") {
+            toast.error("Please fill all fields");
+            return;
+        }
+        toast.success("Your message has been sent successfully");
+        setContactQuery("");
+    }
 
     useEffect(() => {
         setText1(t(tokens.footer.text1));
@@ -76,12 +90,17 @@ const Footer = ({word}) => {
                     <div className="w-full flex items-center justify-normal mt-8 ">
                         <input
                             id="text-input"
-                            type="text"
+                            value={contactQuery}
+                            onChange={handleContactQueryChange}
+                            type="email"
                             className="border border-white rounded-full me-2 px-3 py-2.5 w-2/3 focus:outline-none focus:ring focus:border-blue-500 placeholder-gray-500 placeholder-opacity-90"
                             placeholder={`${contact}`}
                         />
 
                         <div
+                            onClick={()=>{
+                                handleSubmit();
+                            }}
                             className={`w-auto flex items-center bg-dark text-light py-1 px-10 
                   rounded-full text-xl font-normal hover:bg-light hover:text-dark
                   border-2 border-solid border-transparent hover:border-dark

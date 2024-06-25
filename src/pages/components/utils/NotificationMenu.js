@@ -3,13 +3,17 @@ import Image from "next/image";
 import notification from '../../../../public/images/notification.svg';
 import closeIcon from '../../../../public/images/closeIcon.svg';
 import notificationsIcon from "../../../../public/images/Group 8.svg";
+import {useAuth} from "@/context/AuthContext";
+import { format } from 'date-fns';
+
 const NotificationMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
-
+    const {token, loading, user } = useAuth();
     const toggleMenu = () => {
         setIsOpen(!isOpen);
     };
-
+    const now = new Date();
+    const formattedDate = format(now, "dd MMMM 'at' HH:mm");
     return (
         <div  className="relative flex items-center justify-center">
             <Image style={{cursor: "pointer"}} onClick={toggleMenu} src={notificationsIcon} alt={``} className={`mx-2`} width={45} height={45}/>
@@ -30,6 +34,7 @@ const NotificationMenu = () => {
                             <div style={{cursor: "pointer"}}>
                                 Clear all
                             </div>
+
                         </div>
                         <div className={`w-full h-20 flex items-center justify-between bg-mintyGreen rounded-2xl px-3 pt-2`}>
                             <div className={`h-16 flex flex-col items-start justify-start`}>
@@ -38,13 +43,13 @@ const NotificationMenu = () => {
                             <div style={{cursor: "pointer"}} className={`w-full h-16 ms-2 flex flex-col items-start justify-start`}>
                                 <div className={`w-full flex flex-col items-start justify-center`}>
                                     <div className={`text-sm text-start text-navyBlue font-semibold line-clamp-1`}>
-                                        Welcome Ahmed
+                                        Welcome  {user.profile.first_name}
                                     </div>
                                     <div style={{fontSize: "12px"}} className={`text-primary line-clamp-1 font-thin`}>
-                                        Lorem Ipsum is simply dummy text to ...
+                                        Welcome to Sahm Nakheel
                                     </div>
                                     <div style={{fontSize: "7px"}} className={` text-primary line-clamp-1 font-thin mt-2`}>
-                                        20 March at 12:04
+                                        {formattedDate}
                                     </div>
                                 </div>
 

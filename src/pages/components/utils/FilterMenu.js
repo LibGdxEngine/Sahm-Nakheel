@@ -4,6 +4,7 @@ import notification from '../../../../public/images/notification.svg';
 import closeIcon from '../../../../public/images/closeIcon.svg';
 import notificationsIcon from "../../../../public/images/Group 8.svg";
 import {DateRangePicker} from "@nextui-org/date-picker";
+import {DateRangePickerDay} from "@mui/lab";
 
 function FilterOption({text, isChecked = false, handleClick}) {
     return <div onClick={handleClick} style={{cursor: "pointer"}}
@@ -15,7 +16,7 @@ function FilterOption({text, isChecked = false, handleClick}) {
     </div>;
 }
 
-const FilterMenu = () => {
+const FilterMenu = ({onFilterChange}) => {
     const [optionType, setOptionType] = useState({
         0: false,
         1: false,
@@ -56,7 +57,34 @@ const FilterMenu = () => {
                         </div>
                         <div className={`w-full flex items-center justify-between mt-4`}>
                             <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-                           
+
+                            </div>
+                        </div>
+                        <div className={`w-full flex items-center justify-start`}>
+
+                            <div
+                                onClick={() => {
+                                    setOptionType({
+                                        0: false,
+                                        1: false,
+                                        2: false,
+                                    });
+                                    onFilterChange({
+                                        0: false,
+                                        1: false,
+                                        2: false,
+                                    });
+                                }}
+                                style={{cursor: "pointer"}}
+                                className="w-fit text-dark me-2 flex rounded-full bg-mGray items-center justify-between px-10 lg:px-6 py-1.5">
+                                Reset
+                            </div>
+
+                            <div
+                                onClick={() => onFilterChange(optionType)}
+                                style={{cursor: "pointer"}}
+                                className="w-fit text-white  flex rounded-full bg-dark items-center justify-between px-10 lg:px-6 py-1.5">
+                                Apply
                             </div>
                         </div>
                     </div>
