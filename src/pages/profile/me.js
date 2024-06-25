@@ -4,7 +4,6 @@ import localFont from "next/font/local";
 import HomeNavbar from "@/pages/components/Navbar/HomeNavbar";
 import EditProfileIcon from '../components/utils/EditProfileIcon';
 import trueIcon from '../../../public/images/trueIcon.svg';
-import falseIcon from '../../../public/images/falseIcon.svg';
 import editIcon from '../../../public/images/editIcon.svg';
 import calenderIcon from '../../../public/images/calenderIcon.svg';
 import Image from "next/image";

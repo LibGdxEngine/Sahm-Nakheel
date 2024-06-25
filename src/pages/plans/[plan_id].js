@@ -3,17 +3,11 @@ import {useTranslation} from "next-i18next";
 import {Poppins} from "next/font/google";
 import localFont from "next/font/local";
 import HomeNavbar from "@/pages/components/Navbar/HomeNavbar";
-import EditProfileIcon from '../components/utils/EditProfileIcon';
-import trueIcon from '../../../public/images/trueIcon.svg';
-import falseIcon from '../../../public/images/falseIcon.svg';
 import editIcon from '../../../public/images/editIcon.svg';
-import calenderIcon from '../../../public/images/calenderIcon.svg';
 
 import Image from "next/image";
 import Footer from "@/pages/components/Footer";
 import OfferCardItem from "@/pages/components/pricing-slider/OfferCardItem";
-import playIcon from "../../../public/images/PlayIcon.svg";
-import {tokens} from "@/locales/tokens";
 import {useState} from "react";
 import {getAllPlans} from "@/components/services/contracts";
 import {toast} from "react-toastify";
