@@ -1,7 +1,8 @@
 import {useRouter} from "next/router";
 import SplashScreen from "@/pages/components/splash-screen";
-import {activateAccount} from "@/pages/utils/api";
+
 import {useEffect} from "react";
+import {activateAccount} from "@/components/services/auth";
 
 const Activate = () => {
     const router = useRouter()

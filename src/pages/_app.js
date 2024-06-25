@@ -11,10 +11,11 @@ import NProgress from "nprogress"; //nprogress module
 import {ToastContainer, toast} from 'react-toastify';
 import {Router} from "next/router";
 import {useEffect, useState} from "react";
-import {fetchApi} from "@/pages/utils/api";
+
 import 'react-toastify/dist/ReactToastify.css';
 import {AuthProvider} from "@/context/AuthContext";
 import '@/styles/globals.css'
+import {fetchApi} from "@/components/services/auth";
 Router.events.on("routeChangeStart", () => NProgress.start());
 Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
